@@ -1,0 +1,264 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* --background: #f4f4f5; */
+  /* --background: #e4e4e7; */
+  --background: #e7e5e4;
+
+  --logobgfill: #27272a;
+  --logobgstroke: #27272a;
+  /* --logofill: #d4d4d8; */
+  --logofill: #e7e5e4;
+  --logostroke: #27272a;
+
+  /* --herogrid: #e4e4e7; */
+  --herogrid: #000;
+  --graphgrid: #d4d4d8;
+  /* --herogrid: #9f9fa9; */
+  --primarytext: #09090b;
+  --secondarytext: #52525c;
+  --tertiarytext: #09090b;
+  --shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2) inset, 0px 0px 8px 0px rgba(0, 0, 0, 0.2) inset;
+  --secondaryshadow:
+    0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset, 0px -1px 4px 0px rgba(0, 0, 0, 0.1) inset;
+  --cardhover: #d4d4d8;
+  --dots: rgba(0, 0, 0, 0.5);
+  --sentimentgauge: #f4f4f5;
+  --tvtop: #51a2ff;
+  --tvbottom: #fff;
+  --url: /new1.png;
+  --btnbg: #e7e5e4;
+  --btnborder: #79716b;
+  --btnhover: #d6d3d1;
+  --skeleton: #d6d3d1;
+  --cardborder: #a1a1a1;
+  --candleModalBG: #cad5e2;
+}
+
+.dark:root {
+  /* --background: #01030c; */
+  /* --background: #020618; */
+  --background: #09090b;
+  /* --background: #0a0a0a; */
+
+  /* --logobgfill: #d4d4d8; */
+  --logobgfill: #e7e5e4;
+  /* --logobgstroke: #d4d4d8; */
+  --logobgstroke: #e7e5e4;
+
+  --logofill: #27272a;
+  /* --logostroke: #d4d4d8; */
+  --logostroke: #e7e5e4;
+
+  --graphgrid: #18181b;
+  /* --herogrid: #a3b3ff; */
+  --herogrid: #aaa;
+  --primarytext: #fafafa;
+  --secondarytext: #d4d4d8;
+  --tertiarytext: #d4d4d8;
+  --shadow:
+    0px 0px 16px 0px rgba(255, 255, 255, 0.1) inset, 0px 0px 2px 0px rgba(255, 255, 255, 0.1) inset;
+  --secondaryshadow:
+    0px 1px 4px 0px rgba(255, 255, 255, 0.1) inset, 0px -1px 4px 0px rgba(255, 255, 255, 0.1) inset;
+  --cardhover: #0b121e;
+  --dots: rgba(255, 255, 255, 0.18);
+  --sentimentgauge: #0f0f11;
+  --tvtop: #2962ff;
+  --tvbottom: #d4d4d8;
+  --url: /darknew.png;
+  /* --btnbg: #01030c; */
+  --btnbg: #09090b;
+  --btnborder: #1d293d;
+  --btnhover: #0b111e;
+  --skeleton: #0f172b;
+  --cardborder: #262626;
+  --candleModalBG: #0f172b;
+}
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ff8787;
+  }
+} */
+body {
+  /* background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif; */
+}
+
+/* @theme inline {
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+} */
+
+.btn-glow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-glow::before,
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  height: 110%;
+  width: 103%;
+  border-radius: inherit;
+  background-image: conic-gradient(from var(--angle), purple, blue, purple);
+  z-index: -1;
+  animation: animate 2s linear infinite;
+}
+.btn-glow::after {
+  filter: blur(5px);
+}
+/* .btn-glow::before:hover {
+  background-image: none;
+}
+.btn-glow::after:hover {
+  background-image: none;
+}
+.btn-glow:hover {
+  background-image: none;
+} */
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes animate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.spinner {
+  /* background-image: conic-gradient(from var(--angle), purple, blue, purple); */
+  animation: spinner-animate 0.9s linear infinite;
+}
+@keyframes spinner-animate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+/* ::-webkit-scrollbar-thumb {
+  display: none;
+} */
+/* .custom::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+.custom::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+  transition: background 0.5s ease-in-out;
+}
+.custom::-webkit-scrollbar-track {
+  margin-block: 10px;
+}
+
+.custom:hover::-webkit-scrollbar-thumb,
+.custom.scrolling::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to top, blue, purple);
+} */
+
+.scroller {
+  /* background-color: #ededed; */
+  margin-block: 2.5rem;
+  margin-inline: auto;
+  height: 2.5rem;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller-inner {
+  width: fit-content;
+  flex-wrap: nowrap;
+  animation: scroll 30s linear infinite;
+  /* user-select: none; */
+}
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 17px));
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@theme {
+  --animate-rotate-border: border-rotate 10s linear infinite;
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+}
+
+.btn-shimmer {
+  animation: shimmer 2s linear ease-in;
+}
+
+@keyframes shimmer {
+  from {
+    left: -40px;
+  }
+  to {
+    left: 120%;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column; /* default mobile = column */
+}
+main {
+  order: 1; /* main content on top */
+}
+.sidebar {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* horizontal layout on desktop */
+  }
+  main {
+    order: 2; /* main content on right */
+  }
+  .sidebar {
+    order: 1; /* sidebar on left */
+  }
+}

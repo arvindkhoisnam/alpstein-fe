@@ -1,0 +1,80 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Alpstein API
+  description: OAS for Alpstein
+servers:
+  - url: http://localhost:8080/api/v1
+paths:
+  /health:
+    get:
+      summary: Health check
+      description: Returns a simple health status message.
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: healthy server
+  /all-cryptos:
+    get:
+      summary: All cryptos
+      description: Returns an array of all cryptos stored in DB
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        sourceurl:
+                          type: string
+                        heading:
+                          type: string
+                        name:
+                          type: string
+                        symbol:
+                          type: string
+                        synopsis:
+                          type: string
+                        position:
+                          type: string
+                        buy:
+                          type: string
+                        buyprice:
+                          type: number
+                        takeprofit:
+                          type: number
+                        stoploss:
+                          type: number
+                        sell:
+                          type: string
+                        sellprice:
+                          type: number
+                        shortcoverprofit:
+                          type: number
+                        shortcoverloss:
+                          type: number
+                        waitout:
+                          type: string
+                        monitor:
+                          type: string
+                        tag:
+                          type: string
+                        scrappedat:
+                          type: integer
+                        createdat:
+                          type: integer
