@@ -6,7 +6,7 @@ import InfiniteSlide from "./InfiniteSlide";
 import Image from "next/image";
 import { motion, useMotionTemplate, useScroll, useTransform } from "motion/react";
 import Button2 from "./Button2";
-import { useShowSigninModal, useUser } from "../lib/zustand";
+import { useShowSigninModal, useUser, useWindowWidth } from "../lib/zustand";
 export function GridBackgroundDemo() {
   const imageRef = useRef<HTMLDivElement | null>(null);
   const [imageUrl, setImageUrl] = useState("/landing-light.png");
@@ -18,6 +18,7 @@ export function GridBackgroundDemo() {
   const translateBlur = useTransform(scrollYProgress, [0.4, 1], [0, 3]);
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
+  const { setWindowWidth } = useWindowWidth();
   useEffect(() => {
     const observer = new MutationObserver(() => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -38,6 +39,20 @@ export function GridBackgroundDemo() {
     }
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [setWindowWidth]);
+
   const navigate = useRouter();
 
   return (

@@ -15,9 +15,9 @@ function Layout({ children }: { children: React.ReactNode }) {
   // const AllCryptos = dynamic(() => import("../_comps/AllCryptos"), {
   //   ssr: false,
   // });
-  const { Limit, setCursor } = usePaginate();
+  const { Limit, setCursor, setLimit } = usePaginate();
   const { setAllCryptos } = useAllCryptos();
-  const { setWindowWidth, windowWidth } = useWindowWidth();
+  const { windowWidth } = useWindowWidth();
   const { showSidebar } = useToggleSidebar();
   const { isLoading } = useQuery({
     queryKey: ["cryptos"],
@@ -41,18 +41,19 @@ function Layout({ children }: { children: React.ReactNode }) {
     },
   });
   useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
+    // function handleResize() {
+    //   setWindowWidth(window.innerWidth);
+    // }
+    // window.addEventListener("resize", handleResize);
+    // handleResize();
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    // };
+    if (windowWidth <= 768) {
+      setLimit(6);
     }
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [setWindowWidth]);
-  console.log(showSidebar);
+  }, [windowWidth, setLimit]);
+  console.log(Limit);
   return (
     <div
       id="dashboard-root"
