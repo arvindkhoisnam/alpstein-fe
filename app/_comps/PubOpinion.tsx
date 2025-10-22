@@ -20,9 +20,6 @@ function PubOpinion() {
   const { data, isLoading } = useQuery({
     queryKey: ["votes"],
     queryFn: async () => {
-      // const res = await axios.get(`http://localhost:8080/api/v1/votes/${currentCryptoId}`, {
-      //   withCredentials: true,
-      // });
       const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/votes/${currentCryptoId}`, {
         withCredentials: true,
       });
