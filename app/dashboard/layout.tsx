@@ -10,7 +10,7 @@ import { useAllCryptos, usePaginate, useToggleSidebar, useWindowWidth } from "..
 import Sidebar from "../_comps/Sidebar";
 import AllCryptos from "../_comps/AllCryptos";
 import Paginate from "../_comps/Paginate";
-import SideBarToggle from "../_comps/SideBarToggle";
+
 function Layout({ children }: { children: React.ReactNode }) {
   // const AllCryptos = dynamic(() => import("../_comps/AllCryptos"), {
   //   ssr: false,

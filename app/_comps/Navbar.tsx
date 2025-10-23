@@ -7,12 +7,11 @@ import { GiMountaintop } from "react-icons/gi";
 import { useShowSigninModal, useUser, useUserModal, useWindowWidth } from "../lib/zustand";
 import Search from "./Search";
 import AuthenticatedNav from "./AuthenticatedNav";
-import Hamburger from "./Hamburger";
+
 import { cn } from "../lib/utils";
 import { UserModal } from "./UserModal";
 import UserLogo from "./UserLogo";
 import SideBarToggle from "./SideBarToggle";
-import { RxHamburgerMenu } from "react-icons/rx";
 function Navbar() {
   const path = usePathname();
   const { currUser } = useUser();
