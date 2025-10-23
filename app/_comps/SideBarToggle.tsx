@@ -6,12 +6,12 @@ function SideBarToggle() {
   return (
     <div className="absolute top-16 left-0 z-30 w-full pl-2">
       <button
-        className="flex cursor-pointer items-center gap-2 rounded-lg bg-violet-300 px-2 py-1 text-xs font-extralight text-zinc-600"
+        className="flex cursor-pointer items-center rounded-lg px-2 py-1 text-xs font-extralight text-[var(--secondarytext)]"
         onClick={() => {
           toggleShow(true);
         }}
       >
-        <span>Live cryptos</span>
+        <span>Live Cryptos</span>
         <GoChevronRight size={15} />
       </button>
     </div>
