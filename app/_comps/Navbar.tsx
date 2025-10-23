@@ -19,7 +19,7 @@ function Navbar() {
     <div
       id="navbar"
       className={cn(
-        `${windowWidth > 768 ? "top-2 w-[90%] bg-transparent px-6 py-2" : "top-0 w-full p-3"}`,
+        `${windowWidth > 768 ? "top-2 w-[90%] bg-transparent px-6 py-2" : "top-0 w-full bg-[var(--background)] p-3"}`,
         "fixed left-1/2 z-50 -translate-x-1/2",
         "flex justify-between text-base md:text-xl"
       )}
