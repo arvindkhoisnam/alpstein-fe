@@ -2,10 +2,10 @@ import { useDashNav } from "../lib/zustand";
 
 function DashNav() {
   return (
-    <div className="mt-24 flex w-full items-center justify-between py-3 text-xs font-extralight text-zinc-600">
-      <Nav label="Opinion / Indicators" ind={0} />
-      <Nav label="Charts / Rationale" ind={1} />
-      <Nav label="Votes / Sentiment" ind={2} />
+    <div className="mt-10 flex w-full items-center justify-between py-3 text-xs font-extralight text-zinc-600">
+      <Nav label="Opinion/Indicators" ind={0} />
+      <Nav label="Charts/Rationale" ind={1} />
+      <Nav label="Votes/Sentiment" ind={2} />
     </div>
   );
 }

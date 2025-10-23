@@ -34,19 +34,19 @@ function LogoutModal() {
         ></div>
         <div
           className={cn(
-            "absolute top-1/2 left-1/2 z-20 flex w-72 -translate-x-1/2 -translate-y-[85%] flex-col gap-6 rounded-xl p-4",
+            "absolute top-1/2 left-1/2 z-20 flex w-72 -translate-x-1/2 -translate-y-[85%] flex-col gap-6 rounded-md p-4 md:rounded-xl",
             "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%",
             "shadow-[var(--shadow)] transition-shadow duration-500 ease-in-out"
           )}
         >
           <div className="mt-3 flex w-full flex-col items-center text-[var(--secondarytext)]">
             <GiMountaintop size={35} />
-            <h2 className="mx-auto text-xl">Logout from Alpstein?</h2>
+            <h2 className="mx-auto text-sm md:text-xl">Logout from Alpstein?</h2>
           </div>
 
           <div className="mx-auto flex w-[95%] gap-2">
             <button
-              className="flex w-[95%] cursor-pointer items-center justify-center rounded-md border border-[var(--cardborder)] bg-rose-400 px-6 py-2 text-neutral-700"
+              className="flex w-[95%] cursor-pointer items-center justify-center rounded-md border border-[var(--cardborder)] bg-rose-400 px-6 py-2 text-xs text-neutral-700 md:text-base"
               onClick={() => {
                 Logout();
                 toggleLogoutModal(false);
@@ -56,7 +56,7 @@ function LogoutModal() {
               Confirm
             </button>
             <button
-              className="flex w-[95%] cursor-pointer items-center justify-center rounded-md border border-[var(--cardborder)] px-6 py-2 text-[var(--primarytext)]"
+              className="flex w-[95%] cursor-pointer items-center justify-center rounded-md border border-[var(--cardborder)] px-6 py-2 text-xs text-[var(--primarytext)] md:text-base"
               onClick={() => toggleLogoutModal(false)}
             >
               Cancel

@@ -55,7 +55,6 @@ function CryptoDash() {
     >
       {windowWidth < 768 ? (
         <>
-          {/* {windowWidth <= 768 && !showSidebar && <SideBarToggle />} */}
           <DashNav />
           {currTab === 0 && (
             <motion.div

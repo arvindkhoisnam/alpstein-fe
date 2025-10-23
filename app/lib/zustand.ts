@@ -248,6 +248,15 @@ const useToggleSidebar = create<ShowSidebar>(set => ({
   toggleShow: show => set({ showSidebar: show }),
 }));
 
+type UserModal = {
+  showUserModal: boolean;
+  setShowUserModal: (show: boolean) => void;
+};
+
+const useUserModal = create<UserModal>(set => ({
+  showUserModal: false,
+  setShowUserModal: (show: boolean) => set({ showUserModal: show }),
+}));
 export {
   useTickerTapeDisplay,
   useCurrentCryptoId,
@@ -263,4 +272,5 @@ export {
   useWindowWidth,
   useDashNav,
   useToggleSidebar,
+  useUserModal,
 };

@@ -12,11 +12,11 @@ function Hamburger() {
     <div>
       <div className="flex flex-col items-center gap-4 text-sm text-[var(--secondarytext)] opacity-90 transition-colors duration-700">
         <UserLogo />
-        {path === "/" && currUser === null && (
+        {/* {path === "/" && currUser === null && (
           <button onClick={() => toggleShowModal(true)} className="text-[var(--secondarytext)]">
             Sign In
           </button>
-        )}
+        )} */}
       </div>
     </div>
   );

@@ -22,8 +22,7 @@ function DarkModelToggle() {
     <div>
       <button
         className={cn(
-          "flex h-8 w-8 cursor-pointer items-center justify-center rounded-full p-2 text-[var(--primarytext)]",
-          // "shadow-[var(--secondaryshadow)] transition-shadow duration-500"
+          "flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-[var(--primarytext)]",
           "hover:border hover:border-[var(--secondarytext)]"
         )}
         onClick={() => toggle()}

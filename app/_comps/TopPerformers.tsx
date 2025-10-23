@@ -230,7 +230,7 @@ function TopCoin({
     <motion.div
       draggable
       className={cn(
-        "relative flex h-full flex-col justify-between rounded-2xl p-3",
+        "relative flex h-full flex-col justify-between rounded-lg p-3 md:rounded-2xl",
         "shadow-[var(--shadow)] transition-shadow duration-500"
       )}
     >
@@ -283,8 +283,8 @@ function TopCoin({
             }}
             src={`/${coin.symbol.split("U")[0]}.png`}
             alt="crypto-image"
-            height={30}
-            width={30}
+            height={20}
+            width={20}
           />
           <motion.div
             initial={{

@@ -4,17 +4,21 @@ import Link from "next/link";
 import DarkModelToggle from "./DarkModelToggle";
 import { usePathname } from "next/navigation";
 import { GiMountaintop } from "react-icons/gi";
-import { useShowSigninModal, useUser, useWindowWidth } from "../lib/zustand";
+import { useShowSigninModal, useUser, useUserModal, useWindowWidth } from "../lib/zustand";
 import Search from "./Search";
 import AuthenticatedNav from "./AuthenticatedNav";
 import Hamburger from "./Hamburger";
 import { cn } from "../lib/utils";
-
+import { UserModal } from "./UserModal";
+import UserLogo from "./UserLogo";
+import SideBarToggle from "./SideBarToggle";
+import { RxHamburgerMenu } from "react-icons/rx";
 function Navbar() {
   const path = usePathname();
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
   const { windowWidth } = useWindowWidth();
+  const { showUserModal } = useUserModal();
   return (
     <div
       id="navbar"
@@ -24,13 +28,20 @@ function Navbar() {
         "flex justify-between text-base md:text-xl"
       )}
     >
-      <Link
-        className="flex cursor-pointer items-center gap-2 text-sm text-[var(--primarytext)] opacity-90 transition-colors duration-700 md:text-lg lg:text-xl"
-        href="/"
-      >
-        <GiMountaintop size={35} />
-        <span>Alpstein</span>
-      </Link>
+      {currUser && showUserModal && (
+        <UserModal fName={currUser.firstName} lName={currUser.lastName} />
+      )}
+      {path !== "/" && windowWidth <= 768 ? (
+        <SideBarToggle />
+      ) : (
+        <Link
+          className="flex cursor-pointer items-center gap-1 text-sm text-[var(--primarytext)] opacity-90 transition-colors duration-700 md:gap-2 md:text-lg lg:text-xl"
+          href="/"
+        >
+          <GiMountaintop size={`${windowWidth > 768 ? 35 : 25}`} />
+          <span>Alpstein</span>
+        </Link>
+      )}
       {windowWidth >= 768 ? (
         <>
           {path !== "/" && <Search />}
@@ -45,7 +56,8 @@ function Navbar() {
           </div>
         </>
       ) : (
-        <Hamburger />
+        // <Hamburger />
+        <UserLogo />
       )}
     </div>
   );

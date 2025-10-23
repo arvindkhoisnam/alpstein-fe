@@ -82,7 +82,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           <div className="absolute top-0 right-0 z-10 hidden h-full w-[0.5px] bg-gradient-to-t from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div>
         </div>
       )}
-      {windowWidth <= 768 && !showSidebar && <SideBarToggle />}
+      {/* {windowWidth <= 768 && !showSidebar && <SideBarToggle />} */}
       <main className={cn("h-full w-full p-2")}>{children}</main>
     </div>
   );

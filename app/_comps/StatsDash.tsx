@@ -22,7 +22,7 @@ const TopPerformers = dynamic(() => import("./TopPerformers"), {
 function StatsDash() {
   const { windowWidth } = useWindowWidth();
   return (
-    <motion.div className={cn("relative mt-20 w-full flex-1 p-2")}>
+    <motion.div className={cn("relative mt-10 w-full flex-1 p-2")}>
       {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div> */}
       <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-[2fr_1fr]">
         <TopPerformers />

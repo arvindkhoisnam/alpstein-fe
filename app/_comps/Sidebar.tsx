@@ -26,20 +26,20 @@ function Sidebar() {
   }, [toggleShow]);
 
   return createPortal(
-    <motion.div
-      ref={overlayRef}
-      initial={{
-        left: "-100%",
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      animate={{ left: 1 }}
-      className="fixed inset-0 z-60 h-screen w-full bg-[var(--background)]/70"
-    >
-      <div ref={childRef} className="relative h-full w-2/3 bg-[var(--background)] px-2 py-4">
+    <div ref={overlayRef} className="fixed inset-0 z-60 h-screen w-full bg-neutral-900/70">
+      <motion.div
+        initial={{
+          left: "-100%",
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        animate={{ left: 1 }}
+        ref={childRef}
+        className="relative h-full w-2/3 bg-[var(--background)] px-2 py-4"
+      >
         <AllCryptos />
         <Paginate />
-      </div>
-    </motion.div>,
+      </motion.div>
+    </div>,
     document.getElementById("dashboard-root")!
   );
 }

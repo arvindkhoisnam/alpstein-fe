@@ -1,15 +1,12 @@
 import Image from "next/image";
-import { useLogoutModal, useShowSigninModal, useUser, useWindowWidth } from "../lib/zustand";
-import React, { SetStateAction, useEffect, useState } from "react";
+import { useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
+import React, { useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import { redirect } from "next/navigation";
-import { cn } from "../lib/utils";
-import Link from "next/link";
-import DarkModelToggle from "./DarkModelToggle";
 
 function UserLogo() {
   const { currUser, setUser } = useUser();
-  const [showUserModal, setShowUserModal] = useState(false);
+  const { setShowUserModal } = useUserModal();
   const { toggleShowModal } = useShowSigninModal();
 
   useEffect(() => {
@@ -30,79 +27,24 @@ function UserLogo() {
   }, [setUser, toggleShowModal]);
   return (
     <>
-      <button className="cursor-pointer" onClick={() => setShowUserModal(show => !show)}>
+      <button
+        className="cursor-pointer"
+        onClick={() => {
+          setShowUserModal(true);
+        }}
+      >
         {currUser && (
           <Image
             className="size-8 rounded-full"
             src={currUser.imageUrl}
             width={10}
             height={10}
-            alt="user-img"
+            alt="user-logo"
           />
         )}
       </button>
-      {currUser && showUserModal && (
-        <UserModal
-          fName={currUser.firstName}
-          lName={currUser.lastName}
-          setShowUserModal={setShowUserModal}
-        />
-      )}
     </>
   );
 }
 
 export default UserLogo;
-
-function UserModal({
-  fName,
-  lName,
-  setShowUserModal,
-}: {
-  fName: string;
-  lName: string;
-  setShowUserModal: React.Dispatch<SetStateAction<boolean>>;
-}) {
-  const { windowWidth } = useWindowWidth();
-  const { toggleLogoutModal } = useLogoutModal();
-  const LINKS = [
-    { label: "Stats", url: "/dashboard" },
-    { label: "Docs", url: "/docs" },
-    { label: "Trades", url: "/trades" },
-  ];
-
-  return (
-    <div
-      className={cn(
-        "absolute top-15 right-0 z-[9999] w-44 rounded md:w-44",
-        "bg-[var(--background)]",
-        "border border-[var(--cardborder)] text-[var(--secondarytext)]"
-      )}
-    >
-      {windowWidth < 786 && (
-        <ul className="flex flex-col gap-2">
-          <li className="w-full p-0.5">
-            <DarkModelToggle />
-          </li>
-          {LINKS.map((l, i) => (
-            <li className="w-full p-2 text-xs" key={i}>
-              <Link href={l.url} onClick={() => setShowUserModal(false)}>
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-      <li className="w-full p-2 text-xs">{`${fName} ${lName}`}</li>
-      <li
-        className="w-full cursor-pointer rounded-b p-2 text-xs hover:bg-[var(--cardhover)]"
-        onClick={() => {
-          toggleLogoutModal(true);
-          setShowUserModal(false);
-        }}
-      >
-        Logout
-      </li>
-    </div>
-  );
-}
