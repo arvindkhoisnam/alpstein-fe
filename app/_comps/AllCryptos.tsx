@@ -116,20 +116,22 @@ function CryptoComp({ d, calc }: { d: CryptoData; calc: (num: number) => string 
       }}
       key={d.id}
       className={cn(
-        // "w-67 cursor-pointer rounded-md p-2",
         "cursor-pointer rounded-md p-2",
         "shadow-[var(--shadow)] transition-shadow duration-500 ease-in-out hover:bg-[var(--cardhover)]",
-        `${currentCryptoId === d.id ? "bg-[var(--cardhover)]" : ""}`
+        `${currentCryptoId === d.id ? "bg-[var(--cardhover)]" : ""}`,
+        "flex flex-col gap-1.5 md:gap-2"
       )}
     >
       <div className="flex items-center justify-between">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <Image src={`/${d.symbol}.png`} alt="crypto-image" height={20} width={20} />
-            <span className="text-xs font-bold text-[var(--primarytext)]">{d.symbol}</span>
+            <span className="text-[10px] font-bold text-[var(--primarytext)] md:text-xs">
+              {d.symbol}
+            </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-extralight text-[var(--secondarytext)]">
+            <span className="text-[8px] font-extralight text-[var(--secondarytext)] md:text-[10px]">
               {calc(Number(d.scrappedat))}
             </span>
             {d.status === "triggered" && (
@@ -143,7 +145,7 @@ function CryptoComp({ d, calc }: { d: CryptoData; calc: (num: number) => string 
           </div>
         </div>
       </div>
-      <h1 className="mt-2 text-[10px] text-[var(--secondarytext)]">
+      <h1 className="text-[8px] text-[var(--secondarytext)] md:text-[10px]">
         {d.heading.split(" ").length > 13
           ? `${d.heading.split(" ").slice(0, 13).join(" ")} ...`
           : d.heading}
