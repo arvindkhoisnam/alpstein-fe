@@ -2,16 +2,16 @@
 import axios from "axios";
 import Image from "next/image";
 import { cn } from "../lib/utils";
-import { GiMountaintop } from "react-icons/gi";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { CryptoData } from "../lib/zustand";
+import Spinner from "../_comps/Spinner";
 
 function Page() {
   const { data, isLoading } = useQuery({
     queryKey: ["finished_trades"],
     queryFn: async () => {
-      const res = await axios.get(`https://api.alpstein.tech/api/v1/exec-cryptos?limit=30`, {
+      const res = await axios.get(`https://api.alpstein.tech/api/v1/exec-cryptos?limit=9`, {
         withCredentials: true,
       });
       return res.data.data;
@@ -21,39 +21,43 @@ function Page() {
   return (
     <div
       className={cn(
-        "relative flex h-screen items-center justify-center bg-[var(--background)]",
+        "flex h-screen w-full flex-col items-center bg-[var(--background)] px-2",
         "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
       )}
     >
-      <GiMountaintop size={700} className="absolute text-[var(--secondarytext)] opacity-1" />
-      <div className="h-3/4 w-3/4 overflow-scroll rounded-xl border border-[var(--cardborder)] p-3">
-        <div className="mb-5 grid h-10 w-full grid-cols-8 gap-2 rounded-md bg-indigo-500 text-white">
-          <div className="flex items-center justify-center">Symbol</div>
-          <div className="flex items-center justify-center">Source</div>
-          <div className="flex items-center justify-center">Status</div>
-          <div className="flex items-center justify-center">Position</div>
-          <div className="flex items-center justify-center">Price</div>
-          <div className="flex items-center justify-center">Target</div>
-          <div className="flex items-center justify-center">Trigger Time</div>
-          <div className="flex items-center justify-center">Closure Time</div>
-        </div>
-        <div className="grid w-full grid-cols-8 gap-7 text-xs text-[var(--secondarytext)]">
-          {!isLoading &&
-            data?.map((d: CryptoData) => (
-              <Comp
-                key={d.id}
-                symbol={d.symbol}
-                source={d.sourceurl}
-                status={d.status}
-                position={d.triggeredposition}
-                price="112450"
-                target="114750"
-                trigTime={d.triggeredat}
-                closeTime={d.closureat}
-              />
-            ))}
-        </div>
+      <div className="mt-24 grid h-8 grid-cols-8 gap-2 rounded-md bg-indigo-500 px-2 text-[10px] font-extralight text-white md:w-3/4 md:text-base">
+        <div className="flex items-center justify-center">Symbol</div>
+        <div className="flex items-center justify-center">Source</div>
+        <div className="flex items-center justify-center">Status</div>
+        <div className="flex items-center justify-center">Position</div>
+        <div className="flex items-center justify-center">Price</div>
+        <div className="flex items-center justify-center">Target</div>
+        <div className="flex items-center justify-center">Triggered</div>
+        <div className="flex items-center justify-center">Closure</div>
       </div>
+      {isLoading && (
+        <div className="flex h-full w-full items-center justify-center md:w-3/4">
+          <Spinner showPrice={true} />
+        </div>
+      )}
+
+      {data && (
+        <div className="flex h-3/4 w-full flex-col gap-4 overflow-scroll px-1 pt-4 md:w-3/4">
+          {data.map((d: CryptoData) => (
+            <Comp
+              key={d.id}
+              symbol={d.symbol}
+              source={d.sourceurl}
+              status={d.status}
+              position={d.triggeredposition}
+              price="112450"
+              target="114750"
+              trigTime={d.triggeredat}
+              closeTime={d.closureat}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -88,10 +92,9 @@ function Comp({
     return formattedDate;
   }
   return (
-    <>
-      <div className="flex items-center justify-center gap-2">
+    <div className="grid grid-cols-8 text-[8px] font-extralight text-[var(--secondarytext)] md:gap-4 md:text-sm">
+      <div className="flex items-center justify-center">
         <Image height={20} width={20} src={`/${symbol}.png`} alt="crypto-image" />
-        <span>{symbol}</span>
       </div>
       <Link
         className="flex items-center justify-center text-indigo-400 underline"
@@ -110,9 +113,9 @@ function Comp({
       <div className="flex items-center justify-center">{position}</div>
       <div className="flex items-center justify-center">{price}</div>
       <div className="flex items-center justify-center">{target}</div>
-      <div className="flex items-center justify-center">{`${timeFormat(trigTime)} | ${dateFormatter(trigTime)}`}</div>
-      <div className="flex items-center justify-center">{`${timeFormat(closeTime)} | ${dateFormatter(closeTime)}`}</div>
-    </>
+      <div className="flex items-center justify-center text-[7px] md:text-sm">{`${timeFormat(trigTime)},${dateFormatter(trigTime)}`}</div>
+      <div className="flex items-center justify-center text-[7px] md:text-sm">{`${timeFormat(closeTime)},${dateFormatter(closeTime)}`}</div>
+    </div>
   );
 }
 

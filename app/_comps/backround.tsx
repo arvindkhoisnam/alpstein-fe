@@ -19,6 +19,7 @@ export function GridBackgroundDemo() {
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
   const { setWindowWidth } = useWindowWidth();
+
   useEffect(() => {
     const observer = new MutationObserver(() => {
       const isDark = document.documentElement.classList.contains("dark");

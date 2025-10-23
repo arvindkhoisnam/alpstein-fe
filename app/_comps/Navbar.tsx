@@ -30,7 +30,7 @@ function Navbar() {
       {currUser && showUserModal && (
         <UserModal fName={currUser.firstName} lName={currUser.lastName} />
       )}
-      {path !== "/" && windowWidth <= 768 ? (
+      {path.startsWith("/dashboard") && windowWidth <= 768 ? (
         <SideBarToggle />
       ) : (
         <Link

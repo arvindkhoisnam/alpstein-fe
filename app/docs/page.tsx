@@ -1,4 +1,3 @@
-import { GiMountaintop } from "react-icons/gi";
 import { cn } from "../lib/utils";
 function page() {
   return (
@@ -9,7 +8,6 @@ function page() {
       )}
     >
       {/* Docs Page */}
-      <GiMountaintop size={700} className="text-[var(--secondarytext)] opacity-1" />
     </div>
   );
 }

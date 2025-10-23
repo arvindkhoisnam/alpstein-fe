@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { cn } from "../lib/utils";
-import React, { useEffect } from "react";
+import React from "react";
 // import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
 import AllCryptosSkeleton from "../_skeletons/AllCryptosSkeleton";
@@ -15,7 +15,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   // const AllCryptos = dynamic(() => import("../_comps/AllCryptos"), {
   //   ssr: false,
   // });
-  const { Limit, setCursor, setLimit } = usePaginate();
+  const { Limit, setCursor } = usePaginate();
   const { setAllCryptos } = useAllCryptos();
   const { windowWidth } = useWindowWidth();
   const { showSidebar } = useToggleSidebar();
@@ -40,20 +40,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       return res.data.data;
     },
   });
-  useEffect(() => {
-    // function handleResize() {
-    //   setWindowWidth(window.innerWidth);
-    // }
-    // window.addEventListener("resize", handleResize);
-    // handleResize();
-    // return () => {
-    //   window.removeEventListener("resize", handleResize);
-    // };
-    if (windowWidth <= 768) {
-      setLimit(6);
-    }
-  }, [windowWidth, setLimit]);
-  console.log(Limit);
+
   return (
     <div
       id="dashboard-root"

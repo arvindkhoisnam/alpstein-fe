@@ -41,12 +41,15 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
             <DarkModelToggle />
           </li>
           {LINKS.map((l, i) => (
-            <li className="flex w-full items-center gap-2 p-3 text-xs" key={i}>
+            <Link
+              href={l.url}
+              onClick={() => setShowUserModal(false)}
+              className="flex w-full items-center gap-2 p-3 text-xs"
+              key={i}
+            >
               {l.logo}
-              <Link href={l.url} onClick={() => setShowUserModal(false)}>
-                {l.label}
-              </Link>
-            </li>
+              {l.label}
+            </Link>
           ))}
         </ul>
       )}
