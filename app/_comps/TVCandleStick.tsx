@@ -94,7 +94,7 @@ function TVCandleStick() {
     candlestickSeries.setData(data);
 
     candlestickSeries.createPriceLine({
-      price: positionDisplayed === "short" ? cryptoData!.sellprice : cryptoData!.buyprice,
+      price: positionDisplayed === "short" ? cryptoData?.sellprice || 0 : cryptoData?.buyprice || 0,
       // color: "#3f3f46",
       // color: "#ffb900",
       color: markers,
@@ -105,7 +105,10 @@ function TVCandleStick() {
       title: positionDisplayed === "short" ? "sell at" : "buy at",
     });
     candlestickSeries.createPriceLine({
-      price: positionDisplayed === "short" ? cryptoData!.shortcoverprofit : cryptoData!.takeprofit,
+      price:
+        positionDisplayed === "short"
+          ? cryptoData?.shortcoverprofit || 0
+          : cryptoData?.takeprofit || 0,
       // color: "#3f3f46",
       // color: "#05df72",
       color: markers,
@@ -115,7 +118,8 @@ function TVCandleStick() {
       title: "take profit",
     });
     candlestickSeries.createPriceLine({
-      price: positionDisplayed === "short" ? cryptoData!.shortcoverloss : cryptoData!.stoploss,
+      price:
+        positionDisplayed === "short" ? cryptoData?.shortcoverloss || 0 : cryptoData?.stoploss || 0,
       // color: "#3f3f46",
       // color: "#ff6467",
       color: markers,

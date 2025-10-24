@@ -20,7 +20,7 @@ function LLMQuestions() {
         <div
           className={cn(
             "flex h-full w-full flex-col gap-2 rounded-md p-2 text-[10px] text-[var(--secondarytext)]",
-            "bg-gradient-to-tr from-neutral-100/2 from-[20%] via-slate-700/40 via-[80%] to-slate-700/30 to-[100%]"
+            "bg-gradient-to-tr from-slate-600/10 from-[20%] via-violet-400/20 via-[80%] to-indigo-700/30 to-[100%]"
           )}
         >
           <span className="text-sm font-semibold">About {cryptoData?.symbol}</span>

@@ -33,6 +33,7 @@
   --btnhover: #d6d3d1;
   --skeleton: #d6d3d1;
   --cardborder: #a1a1a1;
+  --stripes: #d1d5dc;
   --candleModalBG: #cad5e2;
 }
 
@@ -73,6 +74,7 @@
   --btnhover: #0b111e;
   --skeleton: #0f172b;
   --cardborder: #262626;
+  --stripes: #171717;
   --candleModalBG: #0f172b;
 }
 /* @media (prefers-color-scheme: dark) {

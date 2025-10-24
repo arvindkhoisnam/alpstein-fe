@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import DarkModelToggle from "./DarkModelToggle";
 import { usePathname } from "next/navigation";
 import { GiMountaintop } from "react-icons/gi";
 import { useShowSigninModal, useUser, useUserModal, useWindowWidth } from "../lib/zustand";
@@ -45,7 +44,6 @@ function Navbar() {
         <>
           {path !== "/" && <Search />}
           <div className="flex h-10 items-center gap-6 text-sm text-[var(--secondarytext)] opacity-90 transition-colors duration-700">
-            <DarkModelToggle />
             {path !== "/" && <AuthenticatedNav />}
             {path === "/" && currUser === null && (
               <button onClick={() => toggleShowModal(true)} className="text-[var(--secondarytext)]">
@@ -55,7 +53,6 @@ function Navbar() {
           </div>
         </>
       ) : (
-        // <Hamburger />
         <UserLogo />
       )}
     </div>

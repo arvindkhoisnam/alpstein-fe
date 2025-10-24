@@ -15,7 +15,7 @@ function DarkModelToggle() {
   }, [isDark]);
 
   function toggle() {
-    console.log("clicked");
+    console.log("clicked darkmode");
     setDark(dark => !dark);
   }
   return (

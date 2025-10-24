@@ -6,7 +6,6 @@ import { createPortal } from "react-dom";
 import { cn } from "../lib/utils";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
-import DarkModelToggle from "./DarkModelToggle";
 import Link from "next/link";
 
 export function UserModal({ fName, lName }: { fName: string; lName: string }) {
@@ -23,10 +22,10 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
   return createPortal(
     <div
       className={cn(
-        "absolute inset-0 z-[9999]",
+        "absolute top-0 right-0 z-[9999] md:top-12 md:right-0",
         "bg-[var(--background)]",
         "border border-[var(--cardborder)] text-[var(--secondarytext)]",
-        "h-screen w-full"
+        "h-screen w-full md:h-20 md:w-44 md:rounded"
       )}
     >
       {windowWidth < 786 && (
@@ -37,9 +36,6 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
           >
             <IoCloseOutline size={20} />
           </li>
-          <li className="flex w-full items-center pl-1 text-xs">
-            <DarkModelToggle />
-          </li>
           {LINKS.map((l, i) => (
             <Link
               href={l.url}
@@ -47,15 +43,15 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
               className="flex w-full items-center gap-2 p-3 text-xs"
               key={i}
             >
-              {l.logo}
-              {l.label}
+              {l.logo} {l.label}
             </Link>
           ))}
         </ul>
       )}
+
       <button className="w-full p-2 text-sm font-extralight text-sky-600">{`${fName} ${lName}`}</button>
       <button
-        className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-b border-b-[0.5px] border-[var(--cardborder)] p-2 text-xs hover:bg-[var(--cardhover)]"
+        className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-b border-b-[0.5px] border-[var(--cardborder)] p-2 text-xs hover:bg-[var(--cardhover)] md:border-0"
         onClick={() => {
           toggleLogoutModal(true);
           setShowUserModal(false);
