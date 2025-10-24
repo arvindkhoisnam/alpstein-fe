@@ -4,6 +4,7 @@ import "./globals.css";
 import Provider from "./lib/Provider";
 import Navbar from "./_comps/Navbar";
 import LogoutModal from "./_comps/LogoutModal";
+import Footer from "./_comps/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Navbar />
         <LogoutModal />
         <Provider>{children}</Provider>
+        <Footer />
       </body>
     </html>
   );
