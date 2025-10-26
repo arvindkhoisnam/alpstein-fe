@@ -1,16 +1,15 @@
 import Image from "next/image";
 import WS from "./WS";
-import { useCurrentCryptoId, useWindowWidth } from "../lib/zustand";
+import { useCurrentCryptoId } from "../lib/zustand";
 
 function CoinHeading() {
   const { cryptoData } = useCurrentCryptoId();
-  const { windowWidth } = useWindowWidth();
   return (
     <div className="flex items-center gap-2 rounded-md p-1">
       <div className="relative">
         <Image
-          height={`${windowWidth >= 768 ? 60 : 40}`}
-          width={`${windowWidth >= 768 ? 60 : 40}`}
+          height={50}
+          width={50}
           src={`/${cryptoData?.symbol.toUpperCase()}.png`}
           alt="crypto-image"
         />

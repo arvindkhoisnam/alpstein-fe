@@ -4,7 +4,6 @@ import axios from "axios";
 import { cn } from "../lib/utils";
 import LineChart from "./LineChart";
 import { motion } from "motion/react";
-import { useWindowWidth } from "../lib/zustand";
 
 type Ticker = {
   symbol: string;
@@ -108,11 +107,7 @@ const COIN_CONFIG: CoinConfig = {
 
 export default function TopPerformers() {
   const [topCoins, setTopCoins] = useState<Ticker[]>([]);
-  const { windowWidth } = useWindowWidth();
   const [loading, setLoading] = useState(false);
-  const [endTop, setEndTop] = useState(0);
-  const [startBot, setStartBot] = useState(0);
-  const [endBot, setEndBot] = useState(0);
   // const symbols1 = ["btc", "eth", "xrp", "bnb", "sol", "doge", "ada"];
 
   const symbols = useMemo(() => {
@@ -132,45 +127,32 @@ export default function TopPerformers() {
         //   .map(d => d.symbol);
 
         // console.log(symbols);
-        console.log(symbols);
         const tickers = await Promise.all(symbols.map((c: string) => getTicker(c)));
         setTopCoins(tickers);
         setLoading(false);
-        if (windowWidth >= 768) {
-          setEndTop(3);
-          setStartBot(6);
-          setEndBot(9);
-        } else {
-          setEndTop(4);
-          setStartBot(5);
-          setEndBot(9);
-        }
       } catch (err) {
         console.error("Error fetching tickers:", err);
       }
     }
     getTopCoins();
-  }, [symbols, windowWidth]);
+  }, [symbols]);
 
-  console.log(windowWidth >= 768);
   const sortedCoins = [...topCoins].sort(
     (a, b) => Number(b.priceChangePercent) - Number(a.priceChangePercent)
   );
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-2 md:gap-5">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-xl">
-            {windowWidth >= 786 ? "Top Three" : "Top Four"}
-          </h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-xl">Top Three</h2>
         </div>
-        <div className="grid h-full grid-cols-2 gap-2 md:grid-cols-3">
+        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
           {!loading ? (
-            sortedCoins.slice(0, endTop).map(coin => <TopCoin coin={coin} key={coin.symbol} />)
+            sortedCoins.slice(0, 3).map(coin => <Coin coin={coin} key={coin.symbol} />)
           ) : (
             <>
-              {Array.from({ length: endTop }).map((_, index) => (
+              {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
                   className={cn(
@@ -187,18 +169,14 @@ export default function TopPerformers() {
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-xl">
-            {windowWidth >= 786 ? "Bottom Three" : "Bottom Four"}
-          </h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-xl">Bottom Three</h2>
         </div>
-        <div className="grid h-full grid-cols-2 gap-2 md:grid-cols-3">
+        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
           {!loading ? (
-            sortedCoins
-              .slice(startBot, endBot)
-              .map(coin => <TopCoin coin={coin} key={coin.symbol} />)
+            sortedCoins.slice(6, 9).map(coin => <Coin coin={coin} key={coin.symbol} />)
           ) : (
             <>
-              {Array.from({ length: endBot }).map((_, index) => (
+              {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
                   className={cn(
@@ -217,7 +195,7 @@ export default function TopPerformers() {
   );
 }
 
-function TopCoin({
+function Coin({
   coin,
 }: {
   coin: {
@@ -231,7 +209,7 @@ function TopCoin({
       draggable
       className={cn(
         "relative flex h-full flex-col justify-between rounded-lg p-3 md:rounded-2xl",
-        "shadow-[var(--shadow)] transition-shadow duration-500"
+        "w-60 shadow-[var(--shadow)] transition-shadow duration-500"
       )}
     >
       <motion.div
@@ -283,8 +261,8 @@ function TopCoin({
             }}
             src={`/${coin.symbol.split("U")[0]}.png`}
             alt="crypto-image"
-            height={20}
-            width={20}
+            height={30}
+            width={30}
           />
           <motion.div
             initial={{

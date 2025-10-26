@@ -4,7 +4,7 @@ function SideBarToggle() {
   const { toggleShow } = useToggleSidebar();
   return (
     <button
-      className="text-2xl text-[var(--secondarytext)]"
+      className="text-2xl text-[var(--secondarytext)] md:hidden"
       onClick={() => {
         toggleShow(true);
       }}

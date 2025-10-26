@@ -27,7 +27,7 @@ function UserLogo() {
     getData();
   }, [setUser, toggleShowModal]);
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-1 md:gap-4">
       <DarkModelToggle />
       <button
         className="cursor-pointer"

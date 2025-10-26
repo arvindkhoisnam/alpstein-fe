@@ -1,10 +1,9 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiMountaintop } from "react-icons/gi";
-import { useShowSigninModal, useUser, useUserModal, useWindowWidth } from "../lib/zustand";
-import Search from "./Search";
+import { useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
+// import Search from "./Search";
 import AuthenticatedNav from "./AuthenticatedNav";
 
 import { cn } from "../lib/utils";
@@ -15,13 +14,13 @@ function Navbar() {
   const path = usePathname();
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
-  const { windowWidth } = useWindowWidth();
   const { showUserModal } = useUserModal();
   return (
     <div
       id="navbar"
       className={cn(
-        `${windowWidth > 768 ? "top-2 w-[90%] bg-transparent px-6 py-2" : "top-0 w-full bg-[var(--background)] p-3"}`,
+        "top-0 w-full bg-[var(--background)] p-3",
+        "md:top-2 md:w-[90%] md:bg-transparent md:px-6 md:py-2",
         "fixed left-1/2 z-50 -translate-x-1/2",
         "flex justify-between text-base md:text-xl"
       )}
@@ -29,32 +28,25 @@ function Navbar() {
       {currUser && showUserModal && (
         <UserModal fName={currUser.firstName} lName={currUser.lastName} />
       )}
-      {path.startsWith("/dashboard") && windowWidth <= 768 ? (
-        <SideBarToggle />
-      ) : (
-        <Link
-          className="flex cursor-pointer items-center gap-1 text-sm text-[var(--primarytext)] opacity-90 transition-colors duration-700 md:gap-2 md:text-lg lg:text-xl"
-          href="/"
-        >
-          <GiMountaintop size={`${windowWidth > 768 ? 35 : 25}`} />
-          <span>Alpstein</span>
-        </Link>
-      )}
-      {windowWidth >= 768 ? (
-        <>
-          {path !== "/" && <Search />}
-          <div className="flex h-10 items-center gap-6 text-sm text-[var(--secondarytext)] opacity-90 transition-colors duration-700">
-            {path !== "/" && <AuthenticatedNav />}
-            {path === "/" && currUser === null && (
-              <button onClick={() => toggleShowModal(true)} className="text-[var(--secondarytext)]">
-                Sign In
-              </button>
-            )}
-          </div>
-        </>
-      ) : (
+      <Link
+        className="flex cursor-pointer items-center gap-1 text-sm text-[var(--primarytext)] opacity-90 transition-colors duration-700 md:gap-2 md:text-lg lg:text-xl"
+        href="/"
+      >
+        <GiMountaintop size={30} />
+        <span>Alpstein</span>
+      </Link>
+      {path.startsWith("/dashboard") && <SideBarToggle />}
+      <div className="flex items-center gap-4">
+        <div className="hidden h-10 items-center gap-6 text-sm text-[var(--secondarytext)] opacity-90 transition-colors duration-700 md:flex">
+          {path !== "/" && <AuthenticatedNav />}
+          {path === "/" && currUser === null && (
+            <button onClick={() => toggleShowModal(true)} className="text-[var(--secondarytext)]">
+              Sign In
+            </button>
+          )}
+        </div>
         <UserLogo />
-      )}
+      </div>
     </div>
   );
 }

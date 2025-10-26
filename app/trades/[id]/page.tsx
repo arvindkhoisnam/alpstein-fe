@@ -6,7 +6,7 @@ import { CryptoData, useCurrentCryptoId } from "@/app/lib/zustand";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 
 function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
@@ -32,11 +32,11 @@ function Page({ params }: { params: Promise<{ id: string }> }) {
       ) : (
         <div
           className={cn(
-            "mx-auto max-w-[1440px] p-2 lg:flex lg:gap-4 lg:p-0"
+            "mx-auto mt-5 max-w-[1440px] grid-cols-[auto_1fr_auto] gap-4 md:mt-0 md:grid",
+            "flex items-center justify-center"
             // "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
           )}
         >
-          {/* <div className="h-screen w-8 border-x border-[var(--cardborder)]/40 bg-[repeating-linear-gradient(-45deg,_[var(--cardborder)]_0,_[var(--cardborder)]_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div> */}
           <div
             className="hidden h-screen w-10 border-x border-[var(--cardborder)]/40 bg-fixed lg:block"
             style={{
@@ -45,7 +45,7 @@ function Page({ params }: { params: Promise<{ id: string }> }) {
             }}
           ></div>
           <CryptoDash />
-          <ToastContainer
+          {/* <ToastContainer
             position="top-right"
             autoClose={2000}
             hideProgressBar={true}
@@ -59,7 +59,7 @@ function Page({ params }: { params: Promise<{ id: string }> }) {
             toastClassName={() =>
               "bg-slate-200 text-slate-950 rounded-lg min-h-[60px] flex items-center w-60 text-sm pl-5"
             }
-          />
+          /> */}
           <div
             className="hidden h-screen w-10 border-x border-[var(--cardborder)]/40 bg-fixed lg:block"
             style={{
@@ -76,5 +76,4 @@ function Page({ params }: { params: Promise<{ id: string }> }) {
 export default Page;
 
 {
-  /* <div className="col-start-2 row-span-5 row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10"></div>; */
 }

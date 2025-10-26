@@ -60,6 +60,7 @@ export default function LineChart({ coin, direction }: { coin: string; direction
   const rootStyles = getComputedStyle(document.documentElement);
   const defaultHeroGridColor = rootStyles.getPropertyValue("--graphgrid").trim();
   const [heroGridColor, setHeroGridColor] = useState("#d4d4d8");
+
   useEffect(() => {
     const observer = new MutationObserver(() => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -174,7 +175,7 @@ export default function LineChart({ coin, direction }: { coin: string; direction
     },
   };
   return (
-    <div className="max-h-10 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90% md:max-h-18">
+    <div className="max-h-16 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90% md:max-h-18">
       {/* <div className="max-h-10 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90%"> */}
       <Line options={options} data={DATA} />
     </div>

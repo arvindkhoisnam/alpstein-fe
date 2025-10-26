@@ -5,7 +5,6 @@ import AppStatsSkeleton from "../_skeletons/AppStatsSkeleton";
 import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
 import { cn } from "../lib/utils";
 import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
-import { useWindowWidth } from "../lib/zustand";
 
 const AppStats = dynamic(() => import("./AppStats"), {
   ssr: false,
@@ -20,16 +19,18 @@ const TopPerformers = dynamic(() => import("./TopPerformers"), {
   loading: () => <PerformersSkeleton />,
 });
 function StatsDash() {
-  const { windowWidth } = useWindowWidth();
   return (
-    <motion.div className={cn("relative mt-10 w-full flex-1 p-2 md:mt-20")}>
-      {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div> */}
+    <motion.div
+      className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 p-2 md:mt-20 md:gap-0")}
+    >
       <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-[2fr_1fr]">
         <TopPerformers />
-        {windowWidth > 768 && <PremiumCard />}
+        <PremiumCard />
       </div>
       <div className="my-5 hidden h-[0.5px] bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div>
-      <AppStats />
+      <div className="grid w-full grid-cols-1">
+        <AppStats />
+      </div>
     </motion.div>
   );
 }

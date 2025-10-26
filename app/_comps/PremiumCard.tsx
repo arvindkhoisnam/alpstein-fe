@@ -5,10 +5,8 @@ import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { cn } from "../lib/utils";
 import { GiMountaintop } from "react-icons/gi";
-import { useWindowWidth } from "../lib/zustand";
 
 function PremiumCard() {
-  const { windowWidth } = useWindowWidth();
   // const [background, setBackground] = useState("#e7e5e4");
   // const [background, setBackground] = useState("#09090b");
   const COLORS = useMemo(() => ["#1E67C6", "#CE84CF", "#715bff"], []);
@@ -55,30 +53,31 @@ function PremiumCard() {
         backgroundImage,
       }}
       className={cn(
-        `${windowWidth > 786 ? "h-full" : "h-86"}`,
-        "relative rounded-2xl p-10",
+        "relative h-48 rounded-xl p-6 md:h-full md:rounded-2xl md:p-10",
         "shadow-[var(--shadow)] transition-shadow duration-500"
       )}
     >
-      <div className="flex cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:text-lg lg:text-xl">
+      <div className="hidden cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:flex md:text-lg lg:text-xl">
         <span>
           <GiMountaintop size={35} />
         </span>
         <span>Alpstein</span>
       </div>
       {/* <div className="absolute top-1/2 left-1/2  -translate-x-1/2  -translate-y-1/2  w-full px-10"> */}
-      <div className="mt-16 w-full">
-        <h2 className="text-xl font-extralight text-[var(--primarytext)]">
+      <div className="w-full md:mt-16">
+        <h2 className="text-sm font-extralight text-[var(--primarytext)] md:text-xl">
           Become a Premium Member
         </h2>
-        <p className="text-xs text-zinc-500">Never miss an opportunity.</p>
-        <p className="text-xs text-zinc-500">Get instantly notified whenever a news is updated.</p>
+        <p className="text-[10px] text-zinc-500 md:text-xs">Never miss an opportunity.</p>
+        <p className="text-[10px] text-zinc-500 md:text-xs">
+          Get instantly notified whenever a news is updated.
+        </p>
       </div>
-      <div className="absolute bottom-5 left-1/2 z-10 flex w-full -translate-x-1/2 flex-col gap-2 px-6">
+      <div className="absolute inset-x-0 bottom-5 z-10 flex w-full flex-col gap-2 px-6">
         <input
           type="text"
           className={cn(
-            "w-full rounded-md p-2 text-sm text-[var(--secondarytext)]",
+            "w-full rounded-md p-2 text-xs text-[var(--secondarytext)] md:text-sm",
             "shadow-[var(--shadow)] transition-shadow duration-500",
             "focus:outline-none"
           )}
@@ -86,7 +85,7 @@ function PremiumCard() {
         />
         <button
           className={cn(
-            "w-full cursor-pointer rounded-md bg-transparent px-4 py-2 text-sm text-[var(--secondarytext)]",
+            "w-full cursor-pointer rounded-md bg-transparent px-4 py-2 text-xs text-[var(--secondarytext)] md:text-sm",
             "shadow-[var(--shadow)] transition-shadow duration-500"
           )}
           onClick={() => alert("fasd")}

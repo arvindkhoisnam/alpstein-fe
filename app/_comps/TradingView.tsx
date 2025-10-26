@@ -10,7 +10,6 @@ import {
   useTogglePosition,
   useTVAreaModal,
   useTVCandleModal,
-  useWindowWidth,
 } from "../lib/zustand";
 import { IoIosContract, IoIosExpand } from "react-icons/io";
 // import { BiCandles } from "react-icons/bi";
@@ -35,7 +34,6 @@ type KL = {
 };
 
 function TW() {
-  const { windowWidth } = useWindowWidth();
   const container = useRef<HTMLDivElement | null>(null);
   const [data, setData] = useState<KL[]>([]);
   const rootStyles = getComputedStyle(document.documentElement);
@@ -227,7 +225,7 @@ function TW() {
     <motion.div
       key={`${cryptoData?.id}-${positionDisplayed}`}
       className={cn(
-        `relative ${windowWidth > 768 ? "h-full" : "h-[400px]"} w-full rounded-lg pb-5`,
+        `relative h-[400px] w-full rounded-lg pb-5 md:h-full`,
         "border border-[var(--cardborder)]"
       )}
     >

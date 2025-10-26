@@ -27,7 +27,6 @@ const childVariant = {
   },
 };
 function Accordion() {
-  // const { windowWidth } = useWindowWidth();
   const { cryptoData } = useCurrentCryptoId();
   const [activeIndex, setIndex] = useState<number | null>(null);
 

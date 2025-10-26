@@ -10,7 +10,6 @@ import {
   useTogglePosition,
   useTVAreaModal,
   useTVCandleModal,
-  useWindowWidth,
 } from "../lib/zustand";
 import { IoIosExpand } from "react-icons/io";
 import { IoIosContract } from "react-icons/io";
@@ -40,7 +39,6 @@ type Candle = {
 };
 
 function TVCandleStick() {
-  const { windowWidth } = useWindowWidth();
   const { cryptoData } = useCurrentCryptoId();
   const container = useRef<HTMLDivElement | null>(null);
   const [data, setData] = useState<Candle[]>([]);
@@ -149,8 +147,7 @@ function TVCandleStick() {
   return (
     <div
       className={cn(
-        // "relative h-full w-full rounded-lg pb-5",
-        `relative ${windowWidth > 786 ? "h-full" : "h-[400px]"} w-full rounded-lg pb-5`,
+        "relative h-[400px] w-full rounded-lg pb-5 md:h-full",
         "border border-[var(--cardborder)]"
       )}
     >

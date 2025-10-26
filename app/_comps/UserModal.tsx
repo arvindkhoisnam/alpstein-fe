@@ -1,5 +1,5 @@
 import { BiStats } from "react-icons/bi";
-import { useLogoutModal, useUserModal, useWindowWidth } from "../lib/zustand";
+import { useLogoutModal, useUserModal } from "../lib/zustand";
 import { SlDocs, SlLogout } from "react-icons/sl";
 import { TbArrowsExchange2 } from "react-icons/tb";
 import { createPortal } from "react-dom";
@@ -9,7 +9,6 @@ import { IoHome } from "react-icons/io5";
 import Link from "next/link";
 
 export function UserModal({ fName, lName }: { fName: string; lName: string }) {
-  const { windowWidth } = useWindowWidth();
   const { toggleLogoutModal } = useLogoutModal();
   const { setShowUserModal } = useUserModal();
   const LINKS = [
@@ -28,26 +27,24 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
         "h-screen w-full md:h-20 md:w-44 md:rounded"
       )}
     >
-      {windowWidth < 786 && (
-        <ul className="flex flex-col border-b-[0.5px] border-[var(--cardborder)]">
-          <li
-            className="flex w-full justify-end border-b-[0.5px] border-[var(--cardborder)] p-3"
+      <ul className="flex flex-col border-b-[0.5px] border-[var(--cardborder)] md:hidden">
+        <li
+          className="flex w-full justify-end border-b-[0.5px] border-[var(--cardborder)] p-3"
+          onClick={() => setShowUserModal(false)}
+        >
+          <IoCloseOutline size={20} />
+        </li>
+        {LINKS.map((l, i) => (
+          <Link
+            href={l.url}
             onClick={() => setShowUserModal(false)}
+            className="flex w-full items-center gap-2 p-3 text-xs"
+            key={i}
           >
-            <IoCloseOutline size={20} />
-          </li>
-          {LINKS.map((l, i) => (
-            <Link
-              href={l.url}
-              onClick={() => setShowUserModal(false)}
-              className="flex w-full items-center gap-2 p-3 text-xs"
-              key={i}
-            >
-              {l.logo} {l.label}
-            </Link>
-          ))}
-        </ul>
-      )}
+            {l.logo} {l.label}
+          </Link>
+        ))}
+      </ul>
 
       <button className="w-full p-2 text-sm font-extralight text-sky-600">{`${fName} ${lName}`}</button>
       <button

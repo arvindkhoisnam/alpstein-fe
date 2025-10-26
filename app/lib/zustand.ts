@@ -74,6 +74,11 @@ type AllCryprtos = {
   allCryptos: CryptoData[];
   setAllCryptos: (data: CryptoData[]) => void;
 };
+type AllTrades = {
+  allTrades: CryptoData[];
+  setAllTrades: (data: CryptoData[]) => void;
+};
+
 type Paginate = {
   HasPrevPage: boolean;
   HasNextPage: boolean;
@@ -174,6 +179,12 @@ const useAllCryptos = create<AllCryprtos>(set => ({
   allCryptos: [],
   setAllCryptos: data => set({ allCryptos: data }),
 }));
+
+const useAllTrades = create<AllTrades>(set => ({
+  allTrades: [],
+  setAllTrades: data => set({ allTrades: data }),
+}));
+
 const usePaginate = create<Paginate>(set => ({
   HasPrevPage: false,
   HasNextPage: false,
@@ -183,6 +194,35 @@ const usePaginate = create<Paginate>(set => ({
   FirstSeenTimeStamp: 0,
   Offset: 0,
   Limit: 9,
+  setOffset: offset => set({ Offset: offset }),
+  setLimit: limit => set({ Limit: limit }),
+  setCursor: (
+    HasPrevPage: boolean,
+    HasNextPage: boolean,
+    LastSeenId: string,
+    LastSeenTimeStamp: number,
+    FirstSeenId: string,
+    FirstSeenTimeStamp: number
+  ) =>
+    set({
+      HasPrevPage,
+      HasNextPage,
+      LastSeenId,
+      LastSeenTimeStamp,
+      FirstSeenId,
+      FirstSeenTimeStamp,
+    }),
+}));
+
+const useTradePaginate = create<Paginate>(set => ({
+  HasPrevPage: false,
+  HasNextPage: false,
+  LastSeenId: "",
+  LastSeenTimeStamp: 0,
+  FirstSeenId: "",
+  FirstSeenTimeStamp: 0,
+  Offset: 0,
+  Limit: 14,
   setOffset: offset => set({ Offset: offset }),
   setLimit: limit => set({ Limit: limit }),
   setCursor: (
@@ -273,4 +313,6 @@ export {
   useDashNav,
   useToggleSidebar,
   useUserModal,
+  useAllTrades,
+  useTradePaginate,
 };

@@ -1,12 +1,9 @@
-"use client";
-
+import { GoChevronLeft, GoChevronRight } from "react-icons/go";
+import { useAllTrades, useTradePaginate } from "../lib/zustand";
 import axios from "axios";
-import { GoChevronLeft } from "react-icons/go";
-import { GoChevronRight } from "react-icons/go";
-import { useAllCryptos, usePaginate } from "../lib/zustand";
 
-function Paginate() {
-  const { setAllCryptos } = useAllCryptos();
+function TradesPaginate() {
+  const { setAllTrades } = useAllTrades();
   const {
     Limit,
     HasPrevPage,
@@ -16,20 +13,20 @@ function Paginate() {
     setCursor,
     FirstSeenTimeStamp,
     FirstSeenId,
-  } = usePaginate();
+  } = useTradePaginate();
   return (
-    <div className="absolute inset-x-0 bottom-5 flex h-10 w-full items-center justify-center gap-4">
+    <div className="absolute inset-x-0 -bottom-10 flex h-10 w-full items-center justify-center gap-4 md:bottom-5">
       {HasPrevPage && (
         <button
           className="flex cursor-pointer items-center justify-center rounded-full p-1 text-[var(--primarytext)] hover:border hover:border-[var(--secondarytext)]"
           onClick={async () => {
             const res = await axios.get(
-              `https://api.alpstein.tech/api/v1/live-cryptos?action=prev&limit=${Limit}&last_seen=${FirstSeenTimeStamp}|${FirstSeenId}`,
+              `https://api.alpstein.tech/api/v1/exec-cryptos?action=prev&limit=${Limit}&last_seen=${FirstSeenTimeStamp}|${FirstSeenId}`,
               {
                 withCredentials: true,
               }
             );
-            setAllCryptos(res.data.data);
+            setAllTrades(res.data.data);
             setCursor(
               res.data.metadata.hasPrevPage,
               res.data.metadata.hasNextPage,
@@ -49,12 +46,12 @@ function Paginate() {
           className="flex cursor-pointer items-center justify-center rounded-full p-1 text-[var(--primarytext)] hover:border hover:border-[var(--secondarytext)]"
           onClick={async () => {
             const res = await axios.get(
-              `https://api.alpstein.tech/api/v1/live-cryptos?action=next&limit=${Limit}&last_seen=${LastSeenTimeStamp}|${LastSeenId}`,
+              `https://api.alpstein.tech/api/v1/exec-cryptos?action=next&limit=${Limit}&last_seen=${LastSeenTimeStamp}|${LastSeenId}`,
               {
                 withCredentials: true,
               }
             );
-            setAllCryptos(res.data.data);
+            setAllTrades(res.data.data);
             setCursor(
               res.data.metadata.hasPrevPage,
               res.data.metadata.hasNextPage,
@@ -73,4 +70,4 @@ function Paginate() {
   );
 }
 
-export default Paginate;
+export default TradesPaginate;
