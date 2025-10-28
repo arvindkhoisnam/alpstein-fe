@@ -8,7 +8,7 @@ function TVCandleModal() {
     <div className="absolute top-0 left-0 h-full w-full p-2">
       <div className={cn("absolute inset-0 h-full w-full rounded-lg", "bg-neutral-900")}></div>
       <div className="absolute top-3 left-5 z-10 rounded-lg bg-neutral-900">
-        <LIveStats />
+        <LIveStats includeHeading={true} />
       </div>
       <TVCandleStick />
     </div>,
