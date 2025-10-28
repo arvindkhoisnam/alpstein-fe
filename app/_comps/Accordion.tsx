@@ -41,7 +41,6 @@ function Accordion() {
       animate="show"
       className={cn("flex h-full w-full flex-col gap-3 rounded-lg p-1", "bg-slate-500/10")}
     >
-      {/* <span className="ml-3 text-sm font-semibold text-[var(--secondarytext)]">Rationale</span> */}
       {cryptoData?.buy !== "" && (
         <Comp
           index={0}

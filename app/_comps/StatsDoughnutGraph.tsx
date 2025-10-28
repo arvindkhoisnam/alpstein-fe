@@ -90,7 +90,7 @@ function StatsDoughnutGraph() {
   const options: ChartOptions<"doughnut"> = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: "55%", // controls the inner hole size
+    cutout: "65%", // controls the inner hole size
     plugins: {
       legend: {
         position: "bottom",

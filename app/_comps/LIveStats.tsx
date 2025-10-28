@@ -5,16 +5,18 @@ import { SiStackblitz } from "react-icons/si";
 import { useEffect, useState } from "react";
 import { useCurrentCryptoId } from "../lib/zustand";
 
-function LIveStats() {
+function LIveStats({ includeHeading }: { includeHeading: boolean }) {
   const { cryptoData } = useCurrentCryptoId();
   return (
     <div className={cn("flex w-full flex-col gap-1 rounded-lg")}>
-      <span className="font:medium flex items-center gap-2 text-start text-sm text-[var(--secondarytext)] md:font-semibold">
-        Live Stats{" "}
-        <span className="text-violet-500">
-          <SiStackblitz />
+      {includeHeading && (
+        <span className="font:medium flex items-center gap-2 text-start text-sm text-[var(--secondarytext)] md:font-semibold">
+          Live Stats{" "}
+          <span className="text-violet-500">
+            <SiStackblitz />
+          </span>
         </span>
-      </span>
+      )}
 
       <div className="grid w-full grid-cols-2 gap-1">
         <Comp

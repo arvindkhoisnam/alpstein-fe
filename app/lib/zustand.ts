@@ -222,7 +222,7 @@ const useTradePaginate = create<Paginate>(set => ({
   FirstSeenId: "",
   FirstSeenTimeStamp: 0,
   Offset: 0,
-  Limit: 14,
+  Limit: 12,
   setOffset: offset => set({ Offset: offset }),
   setLimit: limit => set({ Limit: limit }),
   setCursor: (

@@ -66,10 +66,10 @@ function CryptoDash() {
             className="flex flex-col gap-4 pb-4"
           >
             <CoinHeading />
-            <Signals />
+            <Signals includeHeading={true} />
             <Indicators />
             <Stats />
-            <LIveStats />
+            <LIveStats includeHeading={true} />
           </motion.div>
         )}
         {currTab === 1 && (
@@ -151,10 +151,10 @@ function CryptoDash() {
           className="flex flex-col gap-4"
         >
           <CoinHeading />
-          <Signals />
+          <Signals includeHeading={true} />
           <Indicators />
           <Stats />
-          <LIveStats />
+          <LIveStats includeHeading={true} />
         </motion.div>
         <motion.div
           initial={{

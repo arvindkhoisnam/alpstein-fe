@@ -29,7 +29,7 @@ const parentVariant = {
 //     },
 //   },
 // };
-function Signals() {
+function Signals({ includeHeading }: { includeHeading: boolean }) {
   const { cryptoData } = useCurrentCryptoId();
   return (
     <motion.div
@@ -39,9 +39,11 @@ function Signals() {
       // key={`${currentCryptoId}-${positionDisplayed}`}
       className={cn("group relative flex w-full flex-col gap-1 rounded-lg opacity-80")}
     >
-      <span className="font:medium text-sm text-[var(--secondarytext)] md:font-semibold">
-        Agent&apos;s opinion
-      </span>
+      {includeHeading && (
+        <span className="font:medium text-sm text-[var(--secondarytext)] md:font-semibold">
+          Agent&apos;s opinion
+        </span>
+      )}
       <Card cryptoData={cryptoData!} />
     </motion.div>
   );

@@ -26,7 +26,7 @@ function Comp1({ label, graph }: { label: string; graph: React.ReactElement }) {
   return (
     <div
       className={cn(
-        "flex h-56 w-full flex-col gap-1 rounded-lg p-2 md:h-80 md:w-96 md:gap-2 md:rounded-xl md:p-2",
+        "flex h-56 w-full flex-col gap-1 rounded-lg p-2 md:h-80 md:w-96 md:gap-2 md:rounded-xl md:p-4",
         "shadow-[var(--shadow)] transition-shadow duration-500"
       )}
     >
