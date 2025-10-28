@@ -3,7 +3,7 @@ import { cn } from "../lib/utils";
 import {
   useChart,
   useCurrentCryptoId,
-  useDashNav,
+  // useDashNav,
   useTVAreaModal,
   useTVCandleModal,
 } from "../lib/zustand";
@@ -17,7 +17,7 @@ import TVCandleStick from "./TVCandleStick";
 import TVCandleModal from "./TVCandleModal";
 import TVLineModal from "./TVModal";
 import NewsHeading from "./NewsHeading";
-import DashNav from "./DashNav";
+// import DashNav from "./DashNav";
 
 const SentimentGauge = dynamic(() => import("./SentimentGauge"), {
   ssr: false,
@@ -41,11 +41,11 @@ function CryptoDash() {
   const { showCandleModal } = useTVCandleModal();
   const { showAreaModal } = useTVAreaModal();
   const { currChart } = useChart();
-  const { currTab } = useDashNav();
+  // const { currTab } = useDashNav();
 
   return (
     <div id="parent-div" className={cn("md:mt-24")}>
-      <div className="md:hidden">
+      {/* <div className="md:hidden">
         <DashNav />
         {currTab === 0 && (
           <motion.div
@@ -126,7 +126,7 @@ function CryptoDash() {
             <LLMQuestions />
           </motion.div>
         )}
-      </div>
+      </div> */}
 
       <div
         className={cn(
