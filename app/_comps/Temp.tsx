@@ -26,7 +26,7 @@ function Temp() {
       //   backgroundRepeat: "repeat",
       // }}
     >
-      <Signals />
+      <Signals includeHeading={true} />
       {/* <Reasons /> */}
     </div>
   );
