@@ -43,7 +43,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div
       id="dashboard-root"
       className={cn(
-        "relative grid h-screen gap-2.5 md:grid-cols-[1fr_4.5fr]",
+        "relative grid max-h-screen min-h-screen gap-2.5 md:grid-cols-[1fr_4.5fr]",
         "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
         "bg-[var(--background)]",
         "mx-auto max-w-[1512px]"
@@ -53,12 +53,13 @@ function Layout({ children }: { children: React.ReactNode }) {
       }}
     >
       {showSidebar && <Sidebar />}
-      <div className="absolute top-20 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div>
+      <div className="absolute top-18 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div>
       <div className="relative flex hidden w-full justify-center p-2 md:block">
         {isLoading ? (
           <AllCryptosSkeleton />
         ) : (
-          <div className="mt-24">
+          // <div className="mt-24">
+          <div className="mt-20">
             <AllCryptos />
             <Paginate />
           </div>

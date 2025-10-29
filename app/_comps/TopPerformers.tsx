@@ -156,7 +156,8 @@ export default function TopPerformers() {
                 <div
                   key={index}
                   className={cn(
-                    "relative flex h-1/2 h-[136px] flex-col gap-2 overflow-hidden rounded-2xl p-4",
+                    // "relative flex h-1/2 h-[136px] flex-col gap-2 overflow-hidden rounded-2xl p-4",
+                    "relative flex h-[136px] w-full flex-col gap-2 overflow-x-scroll rounded-2xl p-4",
                     "shadow-[var(--shadow)] transition-shadow duration-500"
                   )}
                 >
@@ -180,7 +181,8 @@ export default function TopPerformers() {
                 <div
                   key={index}
                   className={cn(
-                    "relative flex h-1/2 h-[136px] flex-col gap-2 overflow-hidden rounded-2xl p-4",
+                    // "relative flex h-1/2 h-[136px] flex-col gap-2 overflow-hidden rounded-2xl p-4",
+                    "relative flex h-[136px] w-full flex-col gap-2 overflow-x-scroll rounded-2xl p-4",
                     "shadow-[var(--shadow)] transition-shadow duration-500"
                   )}
                 >

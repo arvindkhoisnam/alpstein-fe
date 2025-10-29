@@ -7,9 +7,7 @@ import { motion } from "motion/react";
 import TVLineModal from "./TVModal";
 import TVCandleStick from "./TVCandleStick";
 import TVCandleModal from "./TVCandleModal";
-// import Accordion from "./Accordion";
 import LIveStats from "./LIveStats";
-import LLMQuestions from "./LLMQuestions";
 
 function TradeReview() {
   const TradingView = dynamic(() => import("./TradingView"), { ssr: false });
@@ -56,7 +54,6 @@ function TradeReview() {
             </>
           )}
         </motion.div>
-        <LLMQuestions />
       </div>
     </div>
   );

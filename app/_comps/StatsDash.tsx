@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import AppStatsSkeleton from "../_skeletons/AppStatsSkeleton";
 import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
 import { cn } from "../lib/utils";
-import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
+// import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
 
 const AppStats = dynamic(() => import("./AppStats"), {
   ssr: false,
@@ -16,12 +16,13 @@ const PremiumCard = dynamic(() => import("./PremiumCard"), {
 });
 const TopPerformers = dynamic(() => import("./TopPerformers"), {
   ssr: false,
-  loading: () => <PerformersSkeleton />,
+  // loading: () => <PerformersSkeleton />,
 });
 function StatsDash() {
   return (
     <motion.div
-      className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 p-2 md:mt-20 md:gap-0")}
+      // className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 p-2 md:mt-20 md:gap-0")}
+      className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 md:mt-20 md:gap-0")}
     >
       <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-[2fr_1fr]">
         <TopPerformers />

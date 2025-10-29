@@ -3,7 +3,7 @@ import { cn } from "../lib/utils";
 function AllCryptosSkeleton() {
   return (
     <ul className={`relative mt-24 flex flex-col gap-2 overflow-y-auto`}>
-      {Array.from({ length: 10 }).map((_, index) => (
+      {Array.from({ length: 9 }).map((_, index) => (
         <CryptoComp key={index} />
       ))}
     </ul>
@@ -16,7 +16,7 @@ function CryptoComp() {
   return (
     <li
       className={cn(
-        "relative h-32 w-67 cursor-pointer rounded-md p-2",
+        "relative h-18 w-67 cursor-pointer rounded-md p-2",
         "shadow-[var(--shadow)] transition-shadow duration-500 ease-in-out hover:bg-[var(--cardhover)]"
       )}
     >
