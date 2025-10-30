@@ -20,9 +20,10 @@ function Navbar() {
       id="navbar"
       className={cn(
         "top-0 w-full bg-[var(--background)] p-3",
-        "md:top-2 md:w-[90%] md:bg-transparent md:px-6 md:py-2",
+        "md:top-2 md:w-[90%] md:bg-transparent md:px-6 md:py-1",
         "fixed left-1/2 z-50 -translate-x-1/2",
-        "flex justify-between text-base md:text-xl"
+        "flex justify-between text-base md:text-base"
+        // "md:bg-rose-500"
       )}
     >
       {currUser && showUserModal && (

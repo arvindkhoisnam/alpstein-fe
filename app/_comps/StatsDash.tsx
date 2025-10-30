@@ -22,7 +22,10 @@ function StatsDash() {
   return (
     <motion.div
       // className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 p-2 md:mt-20 md:gap-0")}
-      className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 md:mt-20 md:gap-0")}
+      className={cn(
+        "relative mt-10 flex w-full flex-1 flex-col gap-2 md:mt-16 md:gap-0"
+        // "bg-blue-300"
+      )}
     >
       <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-[2fr_1fr]">
         <TopPerformers />

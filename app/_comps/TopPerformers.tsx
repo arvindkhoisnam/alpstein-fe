@@ -142,12 +142,13 @@ export default function TopPerformers() {
   );
 
   return (
-    <div className="flex flex-col gap-2 md:gap-5">
+    <div className="flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-xl">Top Three</h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Top Three</h2>
         </div>
-        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
+        {/* <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0"> */}
+        <div className="mx-auto flex h-full w-[95%] grid-cols-2 overflow-x-auto mask-x-from-95% md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
           {!loading ? (
             sortedCoins.slice(0, 3).map(coin => <Coin coin={coin} key={coin.symbol} />)
           ) : (
@@ -170,7 +171,7 @@ export default function TopPerformers() {
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-xl">Bottom Three</h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Bottom Three</h2>
         </div>
         <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
           {!loading ? (
