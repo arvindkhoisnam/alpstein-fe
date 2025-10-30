@@ -146,6 +146,7 @@ export function GridBackgroundDemo() {
               } else {
                 navigate.push("/dashboard");
               }
+              // navigate.push("/dashboard");
             }}
           />
           <Button2 text={"Read docs"} onClick={() => navigate.push("/docs")} />

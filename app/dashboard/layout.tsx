@@ -44,7 +44,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       id="dashboard-root"
       className={cn(
         // "relative grid max-h-screen min-h-screen gap-2.5 md:grid-cols-[1fr_4.5fr]",
-        "relative grid max-h-screen min-h-screen gap-2.5 md:grid-cols-[1.5fr_6fr]",
+        "relative grid max-h-full min-h-screen gap-2.5 md:grid-cols-[1.5fr_6fr]",
         "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
         "bg-[var(--background)]",
         "mx-auto max-w-[1512px]"
