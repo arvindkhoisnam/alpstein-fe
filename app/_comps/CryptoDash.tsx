@@ -44,7 +44,7 @@ function CryptoDash() {
   const { currTab } = useDashNav();
 
   return (
-    <div id="parent-div" className={cn("md:mt-16")}>
+    <div className={cn("md:mt-16", "2xl:mt-24")}>
       <div className="md:hidden">
         <DashNav />
         {currTab === 0 && (
@@ -129,6 +129,7 @@ function CryptoDash() {
       </div>
 
       <div
+        id="crypto-dash-parent"
         className={cn(
           // "relative hidden h-[calc(100vh-110px)] gap-2 md:grid md:w-full md:grid-cols-[1fr_2fr_1fr]"
           "relative hidden h-full gap-2 md:grid md:w-full md:grid-cols-[1fr_2fr_1fr]"

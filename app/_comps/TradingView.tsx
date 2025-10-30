@@ -267,28 +267,29 @@ function TW() {
           </svg>
           <span className="text-[10px]">Candlestick</span>
         </button>
-
-        {showAreaModal ? (
-          <button
-            onClick={() => {
-              toggleAreaShowModal(false);
-              toggleCandleShowModal(false);
-            }}
-            className="text-md cursor-pointer text-[var(--secondarytext)]"
-          >
-            <IoIosContract />
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              toggleAreaShowModal(true);
-              toggleCandleShowModal(true);
-            }}
-            className="text-md cursor-pointer text-[var(--secondarytext)]"
-          >
-            <IoIosExpand />
-          </button>
-        )}
+        <div className="hidden lg:block">
+          {showAreaModal ? (
+            <button
+              onClick={() => {
+                toggleAreaShowModal(false);
+                toggleCandleShowModal(false);
+              }}
+              className="text-md cursor-pointer text-[var(--secondarytext)]"
+            >
+              <IoIosContract />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                toggleAreaShowModal(true);
+                toggleCandleShowModal(true);
+              }}
+              className="text-md cursor-pointer text-[var(--secondarytext)]"
+            >
+              <IoIosExpand />
+            </button>
+          )}
+        </div>
       </div>
     </motion.div>
   );

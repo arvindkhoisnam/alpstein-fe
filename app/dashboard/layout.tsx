@@ -55,12 +55,12 @@ function Layout({ children }: { children: React.ReactNode }) {
     >
       {showSidebar && <Sidebar />}
       {/* <div className="absolute top-18 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div> */}
-      <div className="absolute top-14 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div>
+      <div className="absolute top-14 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block 2xl:top-18"></div>
       <div className="relative flex hidden w-full justify-center p-2 md:block">
         {isLoading ? (
           <AllCryptosSkeleton />
         ) : (
-          <div className="">
+          <div className="2xl:mt-24">
             <AllCryptos />
             <Paginate />
           </div>

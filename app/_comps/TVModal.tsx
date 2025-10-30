@@ -12,7 +12,7 @@ function TVLineModal() {
       </div>
       <TW />
     </div>,
-    document.getElementById("parent-div")!
+    document.getElementById("crypto-dash-parent")!
   );
 }
 

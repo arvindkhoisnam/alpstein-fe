@@ -166,27 +166,29 @@ function TVCandleStick() {
           <MdAreaChart />
           <span className="text-[10px]">Area Chart</span>
         </button>
-        {showCandleModal ? (
-          <button
-            onClick={() => {
-              toggleCandleShowModal(false);
-              toggleAreaShowModal(false);
-            }}
-            className="text-md cursor-pointer text-[var(--secondarytext)]"
-          >
-            <IoIosContract />
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              toggleCandleShowModal(true);
-              toggleAreaShowModal(true);
-            }}
-            className="text-md cursor-pointer text-[var(--secondarytext)]"
-          >
-            <IoIosExpand />
-          </button>
-        )}
+        <div className="hidden lg:block">
+          {showCandleModal ? (
+            <button
+              onClick={() => {
+                toggleCandleShowModal(false);
+                toggleAreaShowModal(false);
+              }}
+              className="text-md cursor-pointer text-[var(--secondarytext)]"
+            >
+              <IoIosContract />
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                toggleCandleShowModal(true);
+                toggleAreaShowModal(true);
+              }}
+              className="text-md cursor-pointer text-[var(--secondarytext)]"
+            >
+              <IoIosExpand />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

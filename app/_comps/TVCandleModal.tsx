@@ -12,7 +12,7 @@ function TVCandleModal() {
       </div>
       <TVCandleStick />
     </div>,
-    document.getElementById("parent-div")!
+    document.getElementById("crypto-dash-parent")!
   );
 }
 
