@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { cn } from "../lib/utils";
-import React, { useEffect } from "react";
+import React from "react";
 // import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
 import AllCryptosSkeleton from "../_skeletons/AllCryptosSkeleton";
@@ -18,7 +18,6 @@ function Layout({ children }: { children: React.ReactNode }) {
   const { Limit, setCursor } = usePaginate();
   const { setAllCryptos } = useAllCryptos();
   const { showSidebar } = useToggleSidebar();
-  const { setLimit } = usePaginate();
   const { isLoading } = useQuery({
     queryKey: ["cryptos"],
     queryFn: async () => {
@@ -40,15 +39,6 @@ function Layout({ children }: { children: React.ReactNode }) {
       return res.data.data;
     },
   });
-  useEffect(() => {
-    console.log(window.innerWidth);
-    if (window.innerWidth > 1400 && window.innerWidth < 1500) {
-      setLimit(8);
-    }
-    if (window.innerWidth > 1500) {
-      setLimit(9);
-    }
-  }, [setLimit]);
   return (
     <div
       id="dashboard-root"
