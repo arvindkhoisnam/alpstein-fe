@@ -126,12 +126,12 @@ function CryptoComp({ d, calc }: { d: CryptoData; calc: (num: number) => string 
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <Image src={`/${d.symbol}.png`} alt="crypto-image" height={20} width={20} />
-            <span className="text-[10px] font-bold text-[var(--primarytext)] md:text-xs">
+            <span className="text-[10px] font-bold text-[var(--primarytext)] 2xl:text-xs">
               {d.symbol}
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[8px] font-extralight text-[var(--secondarytext)] md:text-[10px]">
+            <span className="text-[8px] font-extralight text-[var(--secondarytext)] 2xl:text-[10px]">
               {calc(Number(d.scrappedat))}
             </span>
             {d.status === "triggered" && (
@@ -145,7 +145,7 @@ function CryptoComp({ d, calc }: { d: CryptoData; calc: (num: number) => string 
           </div>
         </div>
       </div>
-      <h1 className="text-[8px] text-[var(--secondarytext)] md:text-[10px]">
+      <h1 className="text-[8px] text-[var(--secondarytext)] 2xl:text-[10px]">
         {d.heading.split(" ").length > 13
           ? `${d.heading.split(" ").slice(0, 13).join(" ")} ...`
           : d.heading}

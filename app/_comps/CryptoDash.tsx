@@ -44,7 +44,7 @@ function CryptoDash() {
   const { currTab } = useDashNav();
 
   return (
-    <div id="parent-div" className={cn("md:mt-16", "bg-rose-500")}>
+    <div id="parent-div" className={cn("md:mt-16")}>
       <div className="md:hidden">
         <DashNav />
         {currTab === 0 && (
@@ -154,8 +154,8 @@ function CryptoDash() {
           <CoinHeading />
           <Signals includeHeading={true} />
           <Indicators />
-          {/* <Stats />
-          <LIveStats includeHeading={true} /> */}
+          <Stats />
+          <LIveStats includeHeading={true} />
         </motion.div>
         <motion.div
           initial={{
