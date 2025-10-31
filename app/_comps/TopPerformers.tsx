@@ -198,7 +198,7 @@ function Coin({
       draggable
       className={cn(
         "relative flex h-full flex-col justify-between rounded-md p-3 md:rounded-2xl",
-        "w-56 shadow-[var(--shadow)] transition-shadow duration-500 md:w-48 2xl:w-56"
+        "w-56 shadow-[var(--shadow)] transition-shadow duration-500 md:w-52 2xl:w-56"
       )}
     >
       <motion.div
