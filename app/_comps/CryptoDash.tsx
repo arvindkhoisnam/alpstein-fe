@@ -185,7 +185,7 @@ function CryptoDash() {
               {showCandleModal && <TVCandleModal />}
             </>
           )}
-          {/* <Accordion /> */}
+          <Accordion />
         </motion.div>
         <motion.div
           initial={{

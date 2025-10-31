@@ -111,7 +111,7 @@ function Comp({
   }
   return (
     <div
-      className={`grid grid-cols-6 p-3 text-[8px] font-extralight text-[var(--secondarytext)] md:gap-4 md:p-5 md:text-xs ${dataLength - 1 !== index ? "border-b border-neutral-700/50" : ""}`}
+      className={`grid grid-cols-6 p-3 text-[8px] font-extralight text-[var(--secondarytext)] md:gap-4 md:p-3 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b border-neutral-700/50" : ""} `}
     >
       <div className="flex items-center justify-start gap-1">
         <Image height={20} width={20} src={`/${symbol}.png`} alt="crypto-image" />

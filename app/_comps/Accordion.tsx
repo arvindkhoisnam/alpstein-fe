@@ -33,13 +33,18 @@ function Accordion() {
   useEffect(() => {
     setIndex(null);
   }, [cryptoData?.id]);
+
   return (
     <motion.div
       key={cryptoData?.id}
       variants={parentVariant}
       initial="hidden"
       animate="show"
-      className={cn("flex h-full w-full flex-col gap-3 rounded-lg p-1", "bg-slate-500/10")}
+      className={cn(
+        "flex h-full w-full flex-col gap-3 rounded-lg p-1",
+        "bg-slate-500/10"
+        // "bg-green-400"
+      )}
     >
       {cryptoData?.buy !== "" && (
         <Comp
@@ -101,7 +106,9 @@ function Comp({
 }) {
   const show = activeIndex === index;
   return (
-    <div className={`relative w-full ${!show ? "h-12" : "h-30"} p-3 transition-all duration-500`}>
+    <div
+      className={cn(`relative w-full ${!show ? "h-12" : "h-36"} p-3 transition-all duration-500`)}
+    >
       <motion.div
         variants={childVariant}
         className="flex cursor-pointer items-center justify-between text-[var(--secondarytext)]"
@@ -114,7 +121,7 @@ function Comp({
       </motion.div>
 
       <motion.p
-        className={`my-2 ml-4 text-[12px] text-[var(--secondarytext)] transition-all ${show ? "max-h-22 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-300`}
+        className={`my-2 ml-4 text-[12px] text-[var(--secondarytext)] transition-all ${show ? "max-h-30 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-300`}
       >
         {content}
       </motion.p>
