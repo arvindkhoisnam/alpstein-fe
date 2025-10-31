@@ -62,8 +62,7 @@ function PubOpinion() {
       className={cn(
         // "flex w-full flex-col gap-3 rounded-lg",
         "flex w-full flex-col gap-3 rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
-        "border border-[var(--cardborder)]",
-        "bg-rose-400"
+        "border border-[var(--cardborder)]"
       )}
     >
       <span className="text-sm font-semibold text-[var(--secondarytext)]">Public Opinion</span>
