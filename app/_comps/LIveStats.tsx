@@ -10,7 +10,8 @@ function LIveStats({ includeHeading }: { includeHeading: boolean }) {
   return (
     <div className={cn("flex w-full flex-col gap-1 rounded-lg")}>
       {includeHeading && (
-        <span className="font:medium flex items-center gap-2 text-start text-sm text-[var(--secondarytext)] md:font-semibold">
+        // <span className="font:medium flex items-center gap-2 text-start text-sm text-[var(--secondarytext)] md:font-semibold">
+        <span className="font:medium flex items-center gap-2 text-start text-sm text-[var(--secondarytext)] md:text-xs md:font-semibold 2xl:text-sm">
           Live Stats{" "}
           <span className="text-violet-500">
             <SiStackblitz />
@@ -36,17 +37,18 @@ function Comp({
   label,
   val,
   Logo,
-  classname,
+  // classname,
 }: {
   label: string;
   val?: string;
   Logo: IconType;
-  classname?: string;
+  // classname?: string;
 }) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+        // "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
         "w-full border border-[var(--cardborder)]"
       )}
     >
@@ -68,9 +70,8 @@ function Comp({
           </span>
         )}
       </div>
-      <span className={cn("text-base font-light text-[var(--primarytext)] md:text-lg", classname)}>
-        {val}
-      </span>
+      {/* <span className="text-base font-light text-[var(--primarytext)] md:text-lg"> */}
+      <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">{val}</span>
     </div>
   );
 }
@@ -114,7 +115,8 @@ export function PandL({ id }: { id?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+        // "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-2",
         "w-full border border-[var(--cardborder)]"
       )}
     >
@@ -127,7 +129,8 @@ export function PandL({ id }: { id?: string }) {
       {value ? (
         <span
           className={cn(
-            "text-base font-light text-[var(--primarytext)] md:text-lg",
+            // "text-base font-light text-[var(--primarytext)] md:text-lg",
+            "text-base font-light text-[var(--primarytext)] 2xl:text-lg",
             `${kind === "profit" ? "text-green-500" : "text-red-500"}`
           )}
         >

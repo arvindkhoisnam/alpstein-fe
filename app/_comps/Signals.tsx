@@ -40,7 +40,7 @@ function Signals({ includeHeading }: { includeHeading: boolean }) {
       className={cn("group relative flex w-full flex-col gap-1 rounded-lg opacity-80")}
     >
       {includeHeading && (
-        <span className="font:medium text-sm text-[var(--secondarytext)] md:font-semibold">
+        <span className="font:medium text-sm text-[var(--secondarytext)] md:text-xs md:font-semibold 2xl:text-sm">
           Agent&apos;s opinion
         </span>
       )}
@@ -85,7 +85,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
     <div className={cn("grid w-full grid-cols-3 gap-1 rounded-md md:grid-cols-2")}>
       <div
         className={cn(
-          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 2xl:p-2",
           "border border-[var(--cardborder)]"
         )}
       >
@@ -108,13 +108,13 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
             </button>
           )}
         </div>
-        <span className="text-base font-light text-[var(--primarytext)] md:text-lg">
+        <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">
           {d.position}
         </span>
       </div>
       <div
         className={cn(
-          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 2xl:p-2",
           "border border-[var(--cardborder)]"
         )}
       >
@@ -128,7 +128,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
             ? "Buy"
             : "Sell"}
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:text-lg">
+        <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.buyprice
             : d.sellprice}
@@ -136,7 +136,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
       </div>
       <div
         className={cn(
-          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 2xl:p-2",
           "border border-[var(--cardborder)]"
         )}
       >
@@ -144,7 +144,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <GrMoney size={15} className="" />
           Take Profit
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:text-lg">
+        <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.takeprofit
             : d.shortcoverprofit}
@@ -152,7 +152,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
       </div>
       <div
         className={cn(
-          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 2xl:p-2",
           "border border-[var(--cardborder)]"
         )}
       >
@@ -160,7 +160,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <MdOutlineAnchor size={15} className="" />
           Stop Loss
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:text-lg">
+        <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.stoploss
             : d.shortcoverloss}
@@ -168,7 +168,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
       </div>
       <div
         className={cn(
-          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+          "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 2xl:p-2",
           "border border-[var(--cardborder)]"
         )}
       >
@@ -176,7 +176,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <IoRibbonSharp size={15} className="" />
           Risk/Reward
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:text-lg">
+        <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">
           {/* {d.position === "long" ? `1:${calcLongRR()}` : `1:${calcShortRR()}`} */}
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? `1:${calcLongRR()}`
@@ -185,7 +185,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
       </div>
       <div
         className={cn(
-          "flex flex-col items-start justify-center gap-1 rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+          "flex flex-col items-start justify-center gap-1 rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
           "border border-[var(--cardborder)]"
         )}
       >
@@ -197,11 +197,11 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <span>dd/mm</span>
         </div>
         <div className="flex w-full items-center justify-between">
-          <span className="flex items-start gap-1 text-base font-light text-[var(--primarytext)] md:text-lg">
+          <span className="flex items-start gap-1 text-base font-light text-[var(--primarytext)] 2xl:text-lg">
             {timeFormatter()}
-            <span className="text-[8px] font-light text-[var(--primarytext)]">IST</span>
+            <span className="text-[8px] font-light text-[var(--secondarytext)]">IST</span>
           </span>
-          <span className="text-xs font-light text-[var(--primarytext)]">{dateFormatter()}</span>
+          <span className="text-xs font-light text-[var(--secondarytext)]">{dateFormatter()}</span>
         </div>
       </div>
     </div>

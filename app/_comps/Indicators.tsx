@@ -102,7 +102,7 @@ function Indicators() {
 
   return (
     <motion.div className={cn("flex w-full flex-col gap-1 rounded-lg")}>
-      <span className="font:medium text-sm text-[var(--secondarytext)] md:font-semibold">
+      <span className="font:medium text-sm text-[var(--secondarytext)] md:text-xs md:font-semibold 2xl:text-sm">
         Indicators
       </span>
       {isLoading ? (
@@ -125,7 +125,7 @@ function Indicator({ label, val, Logo }: { label: string; val: string; Logo: Ico
   return (
     <motion.div
       className={cn(
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
         "border border-[var(--cardborder)]"
       )}
     >
@@ -147,7 +147,7 @@ function Indicator({ label, val, Logo }: { label: string; val: string; Logo: Ico
           ""
         )}
       </div>
-      <span className="text-base font-light text-[var(--primarytext)] md:text-lg">{val}</span>
+      <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">{val}</span>
     </motion.div>
   );
 }
