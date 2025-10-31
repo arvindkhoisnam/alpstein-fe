@@ -186,7 +186,7 @@ function SentimentGauge() {
       }}
       className={cn(
         // "relative flex max-h-60 min-h-60 max-w-full min-w-full items-center justify-center rounded-lg p-2",
-        "relative flex max-h-40 min-h-40 w-full items-center justify-center rounded-lg p-2 md:max-h-60 md:min-h-60",
+        "relative flex max-h-40 min-h-40 w-full items-center justify-center rounded-lg p-2 md:max-h-56 md:min-h-56 2xl:max-h-60 2xl:min-h-60",
         "border border-[var(--cardborder)]"
         // "shadow-[var(--shadow)] transition-shadow duration-500"
         // "relative shadow-[var(--shadow)] transition-shadow duration-500"
