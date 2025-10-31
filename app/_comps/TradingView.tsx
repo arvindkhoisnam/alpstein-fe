@@ -67,7 +67,6 @@ function TW() {
     }
     getData();
   }, [cryptoData?.symbol]);
-  console.log(cryptoData?.symbol);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {

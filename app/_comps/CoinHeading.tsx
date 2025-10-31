@@ -18,7 +18,7 @@ function CoinHeading() {
         <p className="text-sm text-[var(--tertiarytext)] md:text-base 2xl:text-xl">
           {cryptoData?.symbol}/{cryptoData?.name}
         </p>
-        <WS symbol={cryptoData?.symbol} key={cryptoData?.symbol} showPrice={true} />
+        <WS symbol={cryptoData?.symbol} key={cryptoData?.symbol} showPrice={false} />
       </div>
     </div>
   );

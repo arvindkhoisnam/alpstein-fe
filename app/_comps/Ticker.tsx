@@ -35,9 +35,7 @@ function Ticker({ symbol }: { symbol: string }) {
         <span>
           <span
             className={`${
-              data?.priceChangePercent.startsWith("-")
-                ? "text-red-500"
-                : "text-green-500"
+              data?.priceChangePercent.startsWith("-") ? "text-red-500" : "text-green-500"
             }`}
           >
             {data?.priceChangePercent.startsWith("-") ? (

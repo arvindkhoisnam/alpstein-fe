@@ -51,7 +51,7 @@ function Page() {
       )}
 
       {data && (
-        <div className="mt-20 flex w-full flex-col overflow-scroll rounded-xl border border-neutral-700/50 bg-neutral-700/10 lg:mt-0">
+        <div className="mt-20 flex w-full flex-col overflow-scroll rounded-xl border border-neutral-700/50 bg-neutral-600/10 lg:mt-0">
           {allTrades.map((d: CryptoData, index: number) => (
             <Comp
               dataLength={allTrades.length}
@@ -113,7 +113,7 @@ function Comp({
     <div
       className={`grid grid-cols-6 p-3 text-[8px] font-extralight text-[var(--secondarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b border-neutral-700/50" : ""} `}
     >
-      <div className="flex items-center justify-start gap-1">
+      <div className="flex items-center justify-start gap-1 pl-3 md:pl-6">
         <Image height={20} width={20} src={`/${symbol}.png`} alt="crypto-image" />
         <span>{symbol}</span>
       </div>
@@ -130,8 +130,8 @@ function Comp({
         {status}
       </div>
       <div className="flex items-center justify-start">{position}</div>
-      <div className="flex items-center justify-start text-[7px] md:text-sm">{`${timeFormat(trigTime)} | ${dateFormatter(trigTime)}`}</div>
-      <div className="flex items-center justify-start text-[7px] md:text-sm">{`${timeFormat(closeTime)} | ${dateFormatter(closeTime)}`}</div>
+      <div className="flex items-center justify-start text-[7px] md:text-xs">{`${timeFormat(trigTime)} | ${dateFormatter(trigTime)}`}</div>
+      <div className="flex items-center justify-start text-[7px] md:text-xs">{`${timeFormat(closeTime)} | ${dateFormatter(closeTime)}`}</div>
     </div>
   );
 }

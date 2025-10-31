@@ -1,9 +1,11 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import axios from "axios";
 import { cn } from "../lib/utils";
 import LineChart from "./LineChart";
 import { motion } from "motion/react";
+import { useQuery } from "@tanstack/react-query";
+import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
 
 type Ticker = {
   symbol: string;
@@ -103,94 +105,79 @@ const COIN_CONFIG: CoinConfig = {
       dark: "#00d5be",
     },
   },
+  AAVE: {
+    name: "Polkadot",
+    color: {
+      light: "#00bba7",
+      dark: "#00d5be",
+    },
+  },
 };
 
 export default function TopPerformers() {
-  const [topCoins, setTopCoins] = useState<Ticker[]>([]);
-  const [loading, setLoading] = useState(false);
-  // const symbols1 = ["btc", "eth", "xrp", "bnb", "sol", "doge", "ada"];
-
   const symbols = useMemo(() => {
-    const symbols1 = ["btc", "eth", "xrp", "bnb", "sol", "doge", "ada", "link", "dot"];
+    const symbols1 = ["btc", "eth", "xrp", "bnb", "sol", "doge", "ada", "link", "dot", "aave"];
     return symbols1;
   }, []);
-  useEffect(() => {
-    async function getTopCoins() {
-      setLoading(true);
-      try {
-        // const res = await axios(
-        //   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10"
-        // );
 
-        // const symbols = res.data
-        //   .filter(d => !["usdt", "usdc", "steth"].includes(d.symbol))
-        //   .map(d => d.symbol);
+  // useEffect(() => {
+  //   async function getTopCoins() {
+  //     setLoading(true);
+  //     try {
+  //       // const res = await axios(
+  //       //   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10"
+  //       // );
 
-        // console.log(symbols);
-        const tickers = await Promise.all(symbols.map((c: string) => getTicker(c)));
-        setTopCoins(tickers);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching tickers:", err);
-      }
-    }
-    getTopCoins();
-  }, [symbols]);
+  //       // const symbols = res.data
+  //       //   .filter(d => !["usdt", "usdc", "steth"].includes(d.symbol))
+  //       //   .map(d => d.symbol);
 
-  const sortedCoins = [...topCoins].sort(
-    (a, b) => Number(b.priceChangePercent) - Number(a.priceChangePercent)
-  );
+  //       // console.log(symbols);
+  //       const tickers = await Promise.all(symbols.map((c: string) => getTicker(c)));
+  //       setTopCoins(tickers);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       console.error("Error fetching tickers:", err);
+  //     }
+  //   }
+  //   getTopCoins();
+  // }, [symbols]);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["performers"],
+    queryFn: async () => {
+      const tickers = await Promise.all(symbols.map((c: string) => getTicker(c)));
+      const sortedCoins = [...tickers].sort(
+        (a, b) => Number(b.priceChangePercent) - Number(a.priceChangePercent)
+      );
+      return sortedCoins;
+    },
+  });
+
+  // const sortedCoins = [...topCoins].sort(
+  //   (a, b) => Number(b.priceChangePercent) - Number(a.priceChangePercent)
+  // );
+
+  if (isLoading) {
+    return <PerformersSkeleton />;
+  }
 
   return (
     <div className="flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Top Three</h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Top Five</h2>
         </div>
-        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
-          {!loading ? (
-            sortedCoins.slice(0, 3).map(coin => <Coin coin={coin} key={coin.symbol} />)
-          ) : (
-            <>
-              {Array.from({ length: 3 }).map((_, index) => (
-                <div
-                  key={index}
-                  className={cn(
-                    // "relative flex h-1/2 h-[136px] flex-col gap-2 overflow-hidden rounded-2xl p-4",
-                    "relative flex h-[136px] w-full flex-col gap-2 overflow-x-scroll rounded-2xl p-4",
-                    "shadow-[var(--shadow)] transition-shadow duration-500"
-                  )}
-                >
-                  <span className="absolute top-0 left-0 h-[100%] w-30 animate-[skeleton-shimmer_1s_linear_infinite] bg-gradient-to-r from-transparent via-[var(--skeleton)] to-transparent"></span>
-                </div>
-              ))}
-            </>
-          )}
+        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-5 md:mask-x-from-100% md:p-0">
+          {!isLoading && data?.slice(0, 5).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Bottom Three</h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Bottom Five</h2>
         </div>
-        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-3 md:mask-x-from-100% md:p-0">
-          {!loading ? (
-            sortedCoins.slice(6, 9).map(coin => <Coin coin={coin} key={coin.symbol} />)
-          ) : (
-            <>
-              {Array.from({ length: 3 }).map((_, index) => (
-                <div
-                  key={index}
-                  className={cn(
-                    // "relative flex h-1/2 h-[136px] flex-col gap-2 overflow-hidden rounded-2xl p-4",
-                    "relative flex h-[136px] w-full flex-col gap-2 overflow-x-scroll rounded-2xl p-4",
-                    "shadow-[var(--shadow)] transition-shadow duration-500"
-                  )}
-                >
-                  <span className="absolute top-0 left-0 h-[100%] w-30 animate-[skeleton-shimmer_1s_linear_infinite] bg-gradient-to-r from-transparent via-[var(--skeleton)] to-transparent"></span>
-                </div>
-              ))}
-            </>
-          )}
+        <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-5 md:mask-x-from-100% md:p-0">
+          {!isLoading && data?.slice(5, 10).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
     </div>
@@ -210,8 +197,8 @@ function Coin({
     <motion.div
       draggable
       className={cn(
-        "relative flex h-full flex-col justify-between rounded-lg p-3 md:rounded-2xl",
-        "w-60 shadow-[var(--shadow)] transition-shadow duration-500"
+        "relative flex h-full flex-col justify-between rounded-md p-3 md:rounded-2xl",
+        "w-56 shadow-[var(--shadow)] transition-shadow duration-500"
       )}
     >
       <motion.div

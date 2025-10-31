@@ -121,7 +121,7 @@ function Comp({
       </motion.div>
 
       <motion.p
-        className={`my-2 ml-4 text-[12px] text-[var(--secondarytext)] transition-all ${show ? "max-h-30 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-300`}
+        className={`my-2 ml-4 text-[12px] text-[var(--secondarytext)] transition-all ${show ? "max-h-30 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-500`}
       >
         {content}
       </motion.p>

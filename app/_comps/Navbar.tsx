@@ -10,6 +10,7 @@ import { cn } from "../lib/utils";
 import { UserModal } from "./UserModal";
 import UserLogo from "./UserLogo";
 import SideBarToggle from "./SideBarToggle";
+
 function Navbar() {
   const path = usePathname();
   const { currUser } = useUser();

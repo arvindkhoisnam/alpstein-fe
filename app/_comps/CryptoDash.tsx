@@ -172,7 +172,7 @@ function CryptoDash() {
             ease: "easeIn",
             delay: 0.3,
           }}
-          className="grid h-full grid-rows-[1fr_1fr] items-center gap-2"
+          className="grid h-full grid-rows-[1fr_1fr] items-start gap-2"
         >
           {currChart === "area" ? (
             <>
