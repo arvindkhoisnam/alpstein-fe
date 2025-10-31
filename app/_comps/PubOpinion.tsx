@@ -61,7 +61,7 @@ function PubOpinion() {
     <div
       className={cn(
         // "flex w-full flex-col gap-3 rounded-lg",
-        "flex w-full flex-col gap-3 rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
+        "flex w-full flex-col gap-3 rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:gap-2 md:p-1 xl:p-1.5 2xl:gap-3 2xl:p-3",
         "border border-[var(--cardborder)]"
       )}
     >
@@ -96,7 +96,7 @@ function PubOpinion() {
         />
       </div>
       <span
-        className={`text-center text-[12px] font-extralight ${voteCasted ? "text-blue-600" : "text-[var(--secondarytext)]"}`}
+        className={`text-center text-[12px] font-extralight md:text-[10px] 2xl:text-[12px] ${voteCasted ? "text-blue-600" : "text-[var(--secondarytext)]"}`}
       >
         {message}
       </span>
