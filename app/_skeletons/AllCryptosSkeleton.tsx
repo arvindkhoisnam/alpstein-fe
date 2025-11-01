@@ -16,7 +16,8 @@ function CryptoComp() {
   return (
     <li
       className={cn(
-        "relative h-18 w-67 cursor-pointer rounded-md p-2",
+        // "relative h-18 w-67 cursor-pointer rounded-md p-2",
+        "relative h-18 w-full cursor-pointer rounded-md p-2",
         "shadow-[var(--shadow)] transition-shadow duration-500 ease-in-out hover:bg-[var(--cardhover)]"
       )}
     >

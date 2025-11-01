@@ -12,7 +12,7 @@ function PerformersSkeleton() {
             <div
               key={index}
               className={cn(
-                "relative flex h-[130px] w-56 flex-col justify-between rounded-lg p-3 md:rounded-2xl",
+                "relative flex h-[130px] w-56 flex-col justify-between rounded-lg p-3 md:w-52 md:rounded-2xl 2xl:w-56",
                 "shadow-[var(--shadow)] transition-shadow duration-500"
               )}
             >
@@ -30,7 +30,7 @@ function PerformersSkeleton() {
             <div
               key={index}
               className={cn(
-                "relative flex h-[130px] w-56 flex-col justify-between rounded-lg p-3 md:rounded-2xl",
+                "relative flex h-[130px] w-56 flex-col justify-between rounded-lg p-3 md:w-52 md:rounded-2xl 2xl:w-56",
                 "shadow-[var(--shadow)] transition-shadow duration-500"
               )}
             >

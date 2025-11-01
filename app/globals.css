@@ -269,7 +269,8 @@ main {
 @theme {
   --breakpoint-*: initial;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 1300px;
+  --breakpoint-l: 1024px;
+  --breakpoint-lg: 1280px;
   --breakpoint-xl: 1400px;
   --breakpoint-2xl: 1500px;
 }
