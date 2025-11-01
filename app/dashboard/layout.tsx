@@ -43,8 +43,8 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div
       id="dashboard-root"
       className={cn(
-        // "relative grid max-h-screen min-h-screen gap-2.5 md:grid-cols-[1fr_4.5fr]",
-        "relative grid max-h-full min-h-screen gap-2.5 lg:grid-cols-[1.5fr_6fr]",
+        "relative flex max-h-screen min-h-screen max-w-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
+        // "relative max-h-full min-h-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
         "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
         "bg-[var(--background)]",
         "mx-auto max-w-[1512px]"
@@ -54,13 +54,12 @@ function Layout({ children }: { children: React.ReactNode }) {
       }}
     >
       {showSidebar && <Sidebar />}
-      {/* <div className="absolute top-18 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div> */}
-      <div className="absolute top-14 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block 2xl:top-18"></div>
+      <div className="absolute top-12 left-0 hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% lg:block 2xl:top-18"></div>
       <div className="relative flex hidden w-full justify-center p-2 lg:block">
         {isLoading ? (
           <AllCryptosSkeleton />
         ) : (
-          <div className="2xl:mt-24">
+          <div className="lg:mt-14 2xl:mt-24">
             <AllCryptos />
             <Paginate />
           </div>

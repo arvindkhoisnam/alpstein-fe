@@ -77,7 +77,8 @@ function AllCryptos() {
       animate="show"
       ref={refUL}
       // className={`relative mt-24 flex flex-col gap-2 overflow-y-auto`}
-      className={`relative flex flex-col gap-2 lg:mt-16`}
+      // className={`relative flex flex-col gap-2 lg:mt-16`}
+      className={`relative flex flex-col gap-2`}
     >
       {allCryptos?.length > 0 ? (
         allCryptos?.map((d: CryptoData) => <CryptoComp key={d.id} d={d} calc={calc} />)

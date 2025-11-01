@@ -44,8 +44,8 @@ function CryptoDash() {
   const { currTab } = useDashNav();
 
   return (
-    <div className={cn("md:mt-16", "2xl:mt-24")}>
-      <div className="md:hidden">
+    <div className={cn("lg:mt-14", "2xl:mt-24")}>
+      <div className="lg:hidden">
         <DashNav />
         {currTab === 0 && (
           <motion.div
@@ -87,7 +87,7 @@ function CryptoDash() {
               ease: "easeIn",
               delay: 0.3,
             }}
-            className="grid h-full grid-rows-2 gap-2"
+            className="flex h-[calc(100vh-96px)] flex-col gap-2 py-2"
           >
             {currChart === "area" ? (
               <>
@@ -127,12 +127,11 @@ function CryptoDash() {
           </motion.div>
         )}
       </div>
-
       <div
         id="crypto-dash-parent"
         className={cn(
           // "relative hidden h-[calc(100vh-110px)] gap-2 md:grid md:w-full md:grid-cols-[1fr_2fr_1fr]"
-          "relative hidden h-full gap-2 md:grid md:w-full md:grid-cols-[1fr_2fr_1fr]"
+          "relative hidden h-full gap-2 lg:grid lg:w-full lg:grid-cols-[1fr_2fr_1fr]"
         )}
       >
         <motion.div

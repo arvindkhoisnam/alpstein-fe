@@ -163,21 +163,21 @@ export default function TopPerformers() {
   }
 
   return (
-    <div className="flex w-full flex-col items-start gap-2 md:gap-3 xl:items-center">
-      <div className="flex w-full flex-col gap-2 py-2">
+    <div className="flex flex-col gap-2 md:gap-3">
+      <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Top Five</h2>
         </div>
-        <div className="mx-auto flex h-full w-[95%] justify-start gap-2 overflow-x-auto py-2">
+        <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0">
           {!isLoading && data?.slice(0, 5).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
-      {/* <div className="flex w-full flex-col gap-2 bg-blue-500">
+      <div className="flex w-full flex-col gap-2">
         <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Bottom Five</h2>
-        <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto bg-rose-500 mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0">
-          {!isLoading && data?.slice(5, 8).map(coin => <Coin coin={coin} key={coin.symbol} />)}
+        <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0">
+          {!isLoading && data?.slice(5, 10).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

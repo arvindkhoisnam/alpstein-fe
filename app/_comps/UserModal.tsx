@@ -21,13 +21,13 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
   return createPortal(
     <div
       className={cn(
-        "absolute top-0 right-0 z-[9999] md:top-12 md:right-0",
+        "absolute top-0 right-0 z-[9999] lg:top-12 lg:right-0",
         "bg-[var(--background)]",
         "border border-[var(--cardborder)] text-[var(--secondarytext)]",
-        "h-screen w-full md:h-20 md:w-44 md:rounded"
+        "h-screen w-full lg:h-20 lg:w-44 lg:rounded-md"
       )}
     >
-      <ul className="flex flex-col border-b-[0.5px] border-[var(--cardborder)] md:hidden">
+      <ul className="flex flex-col border-b-[0.5px] border-[var(--cardborder)] lg:hidden">
         <li
           className="flex w-full justify-end border-b-[0.5px] border-[var(--cardborder)] p-3"
           onClick={() => setShowUserModal(false)}
