@@ -40,11 +40,7 @@ function Accordion() {
       variants={parentVariant}
       initial="hidden"
       animate="show"
-      className={cn(
-        "flex h-full w-full flex-col gap-3 rounded-lg p-1",
-        "bg-slate-500/10"
-        // "bg-green-400"
-      )}
+      className={cn("flex h-full w-full flex-col gap-3 rounded-lg p-1", "bg-slate-500/10")}
     >
       {cryptoData?.buy !== "" && (
         <Comp
@@ -71,7 +67,7 @@ function Accordion() {
         activeIndex={activeIndex}
         setActiveIndex={setIndex}
       />
-      {cryptoData?.waitout !== "" && (
+      {cryptoData?.waitout !== "" && cryptoData?.position !== "unclear" && (
         <Comp
           index={3}
           heading="Why should you consider waiting out."
@@ -121,7 +117,7 @@ function Comp({
       </motion.div>
 
       <motion.p
-        className={`my-2 ml-4 text-[12px] text-[var(--secondarytext)] transition-all ${show ? "max-h-30 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-500`}
+        className={`my-2 ml-4 text-[10px] text-[var(--secondarytext)] transition-all 2xl:text-[12px] ${show ? "max-h-30 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-500`}
       >
         {content}
       </motion.p>
