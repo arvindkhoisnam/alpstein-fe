@@ -144,11 +144,10 @@ export default function TopPerformers() {
   // }, [symbols]);
 
   const [width, setWidth] = useState(window.innerWidth);
-  const [top, setTop] = useState(5);
-  const [bot, setBot] = useState(9);
+  const [top, setTop] = useState(() => (window.innerWidth >= 1024 ? 5 : 4));
+  const [bot, setBot] = useState(() => (window.innerWidth >= 1024 ? 9 : 8));
   useEffect(() => {
     function handleResize() {
-      // console.log(window.innerWidth);
       setWidth(window.innerWidth);
       if (window.innerWidth >= 1024) {
         setTop(5);
@@ -165,7 +164,6 @@ export default function TopPerformers() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(width);
   const { data, isLoading } = useQuery({
     queryKey: ["performers"],
     queryFn: async () => {
@@ -194,7 +192,7 @@ export default function TopPerformers() {
           </h2>
         </div>
         {/* <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0"> */}
-        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
+        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
           {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
@@ -203,7 +201,7 @@ export default function TopPerformers() {
           {width < 1024 ? "Bottom Four" : "Bottom Five"}
         </h2>
         {/* <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0"> */}
-        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
+        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
           {!isLoading && data?.slice(4, bot).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
