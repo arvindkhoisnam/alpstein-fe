@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { cn } from "../lib/utils";
 import LineChart from "./LineChart";
@@ -143,6 +143,27 @@ export default function TopPerformers() {
   //   getTopCoins();
   // }, [symbols]);
 
+  const [width, setWidth] = useState(0);
+  const [top, setTop] = useState(0);
+  const [bot, setBot] = useState(0);
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+      if (window.innerWidth >= 1024) {
+        setTop(5);
+        setBot(9);
+      } else {
+        setTop(4);
+        setBot(8);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const { data, isLoading } = useQuery({
     queryKey: ["performers"],
     queryFn: async () => {
@@ -166,16 +187,22 @@ export default function TopPerformers() {
     <div className="flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Top Five</h2>
+          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
+            {width < 1024 ? "Top Four" : "Top Five"}
+          </h2>
         </div>
-        <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0">
-          {!isLoading && data?.slice(0, 5).map(coin => <Coin coin={coin} key={coin.symbol} />)}
+        {/* <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0"> */}
+        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
+          {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
       <div className="flex w-full flex-col gap-2">
-        <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Bottom Five</h2>
-        <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0">
-          {!isLoading && data?.slice(5, 10).map(coin => <Coin coin={coin} key={coin.symbol} />)}
+        <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
+          {width < 1024 ? "Bottom Four" : "Bottom Five"}
+        </h2>
+        {/* <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0"> */}
+        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
+          {!isLoading && data?.slice(4, bot).map(coin => <Coin coin={coin} key={coin.symbol} />)}
         </div>
       </div>
     </div>
@@ -196,7 +223,8 @@ function Coin({
       draggable
       className={cn(
         "relative flex h-full flex-col justify-between rounded-md p-3 md:rounded-2xl",
-        "l:w-48 w-56 shadow-[var(--shadow)] transition-shadow duration-500 2xl:w-56"
+        // "w-full shadow-[var(--shadow)] transition-shadow duration-500 md:w-48 2xl:w-56"
+        "w-full shadow-[var(--shadow)] transition-shadow duration-500"
       )}
     >
       <motion.div

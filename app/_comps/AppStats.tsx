@@ -1,15 +1,12 @@
 "use client";
 import { cn } from "../lib/utils";
 import { motion } from "motion/react";
-import React, { useEffect } from "react";
+import React from "react";
 import StatsBarGraph from "./StatsBarGraph";
 import StatsDoughnutGraph from "./StatsDoughnutGraph";
 import StatsPoleAreaGraph from "./StatsPoleAreaGraph";
 
 function AppStats() {
-  useEffect(() => {
-    console.log(window.innerWidth);
-  });
   return (
     <div className="flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col gap-2">
