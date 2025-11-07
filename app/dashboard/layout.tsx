@@ -41,20 +41,14 @@ function Layout({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    const setVH = () => {
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
-    };
-    setVH();
-    window.addEventListener("resize", setVH);
-    return () => window.removeEventListener("resize", setVH);
-  }, []);
-
+    console.log(window.innerHeight);
+  });
   return (
     <div
       id="dashboard-root"
       className={cn(
         // "relative flex max-h-screen min-h-screen max-w-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
-        "relative flex h-[calc(var(--vh)*100)] gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
+        "relative flex max-h-[100svh] min-h-[100svh] gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
         // "relative max-h-full min-h-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
         "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
         "bg-[var(--background)]",
