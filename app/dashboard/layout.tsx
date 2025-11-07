@@ -48,9 +48,9 @@ function Layout({ children }: { children: React.ReactNode }) {
       id="dashboard-root"
       className={cn(
         // "relative flex max-h-screen min-h-screen max-w-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
-        "relative flex max-h-full min-h-full max-w-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
+        "relative flex max-h-[100svh] min-h-[100svh] gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
         // "relative max-h-full min-h-full gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
-        // "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
+        "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
         "bg-[var(--background)]",
         "mx-auto max-w-[1512px]"
       )}
