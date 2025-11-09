@@ -9,10 +9,45 @@ import {
   Legend,
   ChartOptions,
 } from "chart.js";
+import { useEffect, useState } from "react";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function StatsBarGraph() {
+  // const [barColor, setBarColor] = useState("");
+  // const [textColor, setTextColor] = useState("");
+  const [labelColor, setLabelColor] = useState("");
+
+  const updateBarColor = () => {
+    // const barColor = getComputedStyle(document.documentElement)
+    //   .getPropertyValue("--barChart")
+    //   .trim();
+    // const barText = getComputedStyle(document.documentElement).getPropertyValue("--barText").trim();
+    const labelText = getComputedStyle(document.documentElement)
+      .getPropertyValue("--primarytext")
+      .trim();
+
+    // setBarColor(barColor);
+    // setTextColor(barText);
+    setLabelColor(labelText);
+  };
+
+  useEffect(() => {
+    updateBarColor();
+
+    // Watch for dark mode toggle
+    const observer = new MutationObserver(() => {
+      updateBarColor();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const options: ChartOptions<"bar"> = {
     responsive: true,
     maintainAspectRatio: false,
@@ -27,9 +62,9 @@ function StatsBarGraph() {
         grid: { display: false },
         border: { display: false },
         ticks: {
-          color: "#555",
+          color: labelColor,
           font: {
-            size: 12,
+            size: 10,
             weight: 500,
             family: "'Inter', sans-serif",
           },
@@ -40,6 +75,10 @@ function StatsBarGraph() {
     plugins: {
       legend: { display: false },
       title: { display: false },
+      datalabels: {
+        // color: textColor,
+        color: "#333",
+      },
     },
   };
 
@@ -51,10 +90,9 @@ function StatsBarGraph() {
       {
         label: "Articles",
         data: [65, 59, 80, 81, 56, 55, 40],
-        backgroundColor: "rgba(139, 92, 246, 0.4)", // violet-500/40
-        borderColor: "rgb(139, 92, 246)", // violet-500
-        borderWidth: 1,
-        borderRadius: 2,
+        // backgroundColor: barColor,
+        backgroundColor: "#a3b3ff",
+        borderRadius: 5,
       },
     ],
   };

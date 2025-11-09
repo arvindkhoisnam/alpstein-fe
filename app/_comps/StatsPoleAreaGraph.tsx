@@ -7,22 +7,45 @@ import {
   Legend,
   ChartOptions,
 } from "chart.js";
+import { useEffect, useState } from "react";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 function StatsPoleAreaGraph() {
+  const [labelColor, setLabelColor] = useState("");
+  const [poleBorder, setPoleBorder] = useState("");
+
+  function updateColor() {
+    const labelText = getComputedStyle(document.documentElement)
+      .getPropertyValue("--primarytext")
+      .trim();
+    const pole = getComputedStyle(document.documentElement).getPropertyValue("--poleGraph").trim();
+    setLabelColor(labelText);
+    setPoleBorder(pole);
+  }
+
+  useEffect(() => {
+    updateColor();
+
+    const observer = new MutationObserver(() => {
+      updateColor();
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  });
+
   const data = {
     labels: ["Target Hit", "SL Hit", "Pending"],
     datasets: [
       {
         label: "Trade Stats",
         data: [30, 45, 25],
-        backgroundColor: [
-          "rgba(34, 197, 94, 0.6)", // green-500/60
-          "rgba(239, 68, 68, 0.6)", // red-500/60
-          "rgba(156, 163, 175, 0.6)", // gray-400/60
-        ],
-        borderColor: ["rgb(34, 197, 94)", "rgb(239, 68, 68)", "rgb(156, 163, 175)"],
+        backgroundColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
+        borderColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
         borderWidth: 1,
       },
     ],
@@ -34,10 +57,8 @@ function StatsPoleAreaGraph() {
     scales: {
       r: {
         grid: {
-          color: "rgba(255,255,255,0.1)",
-        },
-        angleLines: {
-          color: "rgba(255,255,255,0.1)",
+          // color: "rgba(255,255,255,0.1)",
+          color: poleBorder,
         },
         ticks: {
           display: false,
@@ -48,7 +69,7 @@ function StatsPoleAreaGraph() {
       legend: {
         position: "bottom",
         labels: {
-          color: "#555",
+          color: labelColor,
           font: {
             size: 10,
             family: "'Inter', sans-serif",
@@ -56,12 +77,15 @@ function StatsPoleAreaGraph() {
           padding: 14,
         },
       },
-      tooltip: {
-        backgroundColor: "rgba(0, 0, 0, 0.7)",
-        titleFont: { size: 13 },
-        bodyFont: { size: 12 },
-        padding: 8,
+      datalabels: {
+        color: labelColor,
       },
+      // tooltip: {
+      //   backgroundColor: "rgba(0, 0, 0, 0.7)",
+      //   titleFont: { size: 13 },
+      //   bodyFont: { size: 12 },
+      //   padding: 8,
+      // },
     },
   };
 

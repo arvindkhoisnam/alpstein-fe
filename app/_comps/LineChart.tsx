@@ -96,6 +96,7 @@ export default function LineChart({ coin, direction }: { coin: string; direction
     }
     getData();
   }, [coin]);
+
   const DATA = {
     labels: label,
     datasets: [

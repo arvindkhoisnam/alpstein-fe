@@ -36,6 +36,9 @@
   /* --stripes: #d1d5db; */
   --stripes: #d4d4d8;
   --candleModalBG: #cad5e2;
+  --barChart: #404040;
+  --barText: #d4d4d4;
+  --poleGraph: rgba(0, 0, 0, 0.1);
 }
 
 .dark:root {
@@ -77,6 +80,9 @@
   --cardborder: #262626;
   --stripes: #27272a;
   --candleModalBG: #0f172b;
+  --barChart: #d4d4d4;
+  --barText: #404040;
+  --poleGraph: rgba(255, 255, 255, 0.1);
 }
 /* @media (prefers-color-scheme: dark) {
   :root {
