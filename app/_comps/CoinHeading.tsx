@@ -15,10 +15,10 @@ function CoinHeading() {
         />
       </div>
       <div className="flex flex-col">
-        <p className="text-sm text-[var(--tertiarytext)] md:text-base 2xl:text-xl">
+        <p className="text-sm text-[var(--tertiarytext)] md:text-base 2xl:text-lg">
           {cryptoData?.symbol}/{cryptoData?.name}
         </p>
-        <WS symbol={cryptoData?.symbol} key={cryptoData?.symbol} showPrice={false} />
+        <WS symbol={cryptoData?.symbol} key={cryptoData?.symbol} showPrice={true} />
       </div>
     </div>
   );

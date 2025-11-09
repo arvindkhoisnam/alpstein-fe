@@ -76,7 +76,7 @@ function Stats() {
           <Spinner showPrice={true} />
         </div>
       ) : (
-        <div className="grid w-full grid-cols-2 gap-1">
+        <div className="grid h-full w-full grid-cols-2 gap-1">
           <Comp label="High" val={high} Logo={SiChartmogul} />
           <Comp label="Low" val={low} Logo={SiChartmogul} />
           <Comp label="Open" val={open} Logo={SiChartmogul} />
@@ -92,7 +92,7 @@ function Comp({ label, val, Logo }: { label: string; val: string; Logo: IconType
     <div
       className={cn(
         // "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-1.5",
         "border border-[var(--cardborder)]"
       )}
     >

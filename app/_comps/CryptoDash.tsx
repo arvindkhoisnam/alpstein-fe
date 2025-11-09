@@ -44,7 +44,7 @@ function CryptoDash() {
   const { currTab } = useDashNav();
 
   return (
-    <div className={cn("lg:mt-14", "2xl:mt-24")}>
+    <div className={cn("lg:mt-14", "2xl:mt-20", "")}>
       <div className="lg:hidden">
         <DashNav />
         {currTab === 0 && (
@@ -149,7 +149,9 @@ function CryptoDash() {
             ease: "easeIn",
             delay: 0.3,
           }}
-          className="flex flex-col gap-4"
+          // className="flex h-[calc(100vh-90px)] flex-col gap-4 bg-rose-500"
+          // className="grid h-[calc(100vh-100px)] grid-rows-[0.5fr_2fr_1.5fr_1.5fr_1.5fr]"
+          className="grid h-[calc(100vh-100px)] grid-rows-[0.1fr_0.7fr_0.5fr_0.5fr_0.5fr] gap-4"
         >
           <CoinHeading />
           <Signals includeHeading={true} />
@@ -171,7 +173,7 @@ function CryptoDash() {
             ease: "easeIn",
             delay: 0.3,
           }}
-          className="grid h-full grid-rows-[1fr_1fr] items-start gap-2"
+          className="grid h-[calc(100vh-100px)] grid-rows-[1fr_1fr] items-start gap-2"
         >
           {currChart === "area" ? (
             <>
@@ -200,7 +202,8 @@ function CryptoDash() {
             ease: "easeIn",
             delay: 0.3,
           }}
-          className="flex max-h-full flex-col items-center gap-1"
+          // className="flex max-h-full flex-col items-center gap-1"
+          className="grid h-[calc(100vh-100px)] grid-rows-[0.5fr_0.5fr_1.5fr_2.5fr] gap-1"
         >
           <NewsHeading />
           <PubOpinion />

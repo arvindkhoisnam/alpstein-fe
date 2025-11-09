@@ -31,7 +31,7 @@ function page() {
             <div className="h-full w-full"></div>
             <div>
               <div
-                className="relative h-20 w-full rounded-lg border border-[var(--cardborder)] bg-rose-500 md:h-32 lg:h-44"
+                className="relative h-20 w-full rounded-lg border border-[var(--cardborder)] md:h-32 lg:h-44"
                 style={{
                   backgroundImage: "url(/alps-range.jpg)",
                   backgroundPosition: "top", // centers the image

@@ -14,7 +14,7 @@ function Page() {
   const { data, isLoading } = useQuery({
     queryKey: ["finished_trades"],
     queryFn: async () => {
-      const res = await axios.get(`https://api.alpstein.tech/api/v1/exec-cryptos?limit=12`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exec-cryptos?limit=${12}`, {
         withCredentials: true,
       });
 

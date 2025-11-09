@@ -19,7 +19,7 @@ function LIveStats({ includeHeading }: { includeHeading: boolean }) {
         </span>
       )}
 
-      <div className="grid w-full grid-cols-2 gap-1">
+      <div className="grid h-full w-full grid-cols-2 gap-1">
         <Comp
           label="Price at creation"
           val={String(Number(cryptoData?.priceAtCreation).toFixed(2))}
@@ -48,7 +48,7 @@ function Comp({
     <div
       className={cn(
         // "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-1.5",
         "w-full border border-[var(--cardborder)]"
       )}
     >
@@ -116,7 +116,7 @@ export function PandL({ id }: { id?: string }) {
     <div
       className={cn(
         // "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)]",
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-2",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5",
         "w-full border border-[var(--cardborder)]"
       )}
     >

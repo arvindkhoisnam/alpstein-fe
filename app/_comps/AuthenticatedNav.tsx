@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import UserLogo from "./UserLogo";
 
 const PATHS = [
   { label: "News", path: "/dashboard" },
@@ -42,6 +43,7 @@ function AuthenticatedNav() {
           {p.label}
         </Link>
       ))}
+      <UserLogo />
     </motion.div>
   );
 }

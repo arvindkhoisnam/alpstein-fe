@@ -3,7 +3,7 @@ import { useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
 import React, { useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import { redirect } from "next/navigation";
-import DarkModelToggle from "./DarkModelToggle";
+// import DarkModelToggle from "./DarkModelToggle";
 
 function UserLogo() {
   const { currUser, setUser } = useUser();
@@ -28,7 +28,7 @@ function UserLogo() {
   }, [setUser, toggleShowModal]);
   return (
     <div className="flex items-center gap-1 md:gap-4">
-      <DarkModelToggle />
+      {/* <DarkModelToggle /> */}
       <button
         className="cursor-pointer"
         onClick={() => {

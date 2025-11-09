@@ -81,7 +81,7 @@ function WS({ symbol, showPrice }: { symbol: string | undefined; showPrice: bool
         </div>
       ) : (
         <div className="flex w-10 justify-end">
-          <Spinner showPrice={showPrice} />
+          <Spinner showPrice={false} />
         </div>
       )}
     </div>

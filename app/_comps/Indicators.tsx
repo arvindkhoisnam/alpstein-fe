@@ -101,7 +101,7 @@ function Indicators() {
   }
 
   return (
-    <motion.div className={cn("flex w-full flex-col gap-1 rounded-lg")}>
+    <motion.div className={cn("flex h-full w-full flex-col gap-1 rounded-lg")}>
       <span className="font:medium text-sm text-[var(--secondarytext)] md:text-xs md:font-semibold 2xl:text-sm">
         Indicators
       </span>
@@ -110,7 +110,7 @@ function Indicators() {
           <Spinner showPrice={true} />
         </div>
       ) : (
-        <div className="grid w-full grid-cols-2 gap-1 rounded-md">
+        <div className="grid h-full w-full grid-cols-2 gap-1 rounded-md">
           <Indicator label={"RSI"} val={rsi} Logo={SiChartmogul} />
           <Indicator label={"EMA"} val={fiftyFiveEMA} Logo={TbSum} />
           <Indicator label={"SMA"} val={hundredSMA} Logo={TbSum} />
@@ -125,7 +125,7 @@ function Indicator({ label, val, Logo }: { label: string; val: string; Logo: Ico
   return (
     <motion.div
       className={cn(
-        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-2",
+        "flex flex-col items-start justify-center rounded-lg p-2 text-[10px] text-[var(--secondarytext)] md:p-1 xl:p-1.5 2xl:p-1",
         "border border-[var(--cardborder)]"
       )}
     >
