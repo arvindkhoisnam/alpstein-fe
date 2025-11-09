@@ -1,22 +1,22 @@
-import { BiStats } from "react-icons/bi";
+// import { BiStats } from "react-icons/bi";
 import { useLogoutModal, useUserModal } from "../lib/zustand";
-import { SlDocs, SlLogout } from "react-icons/sl";
-import { TbArrowsExchange2 } from "react-icons/tb";
+import { SlLogout } from "react-icons/sl";
+// import { TbArrowsExchange2 } from "react-icons/tb";
 import { createPortal } from "react-dom";
 import { cn } from "../lib/utils";
 import { IoCloseOutline } from "react-icons/io5";
-import { IoHome } from "react-icons/io5";
-import Link from "next/link";
+// import { IoHome } from "react-icons/io5";
+// import Link from "next/link";
 
 export function UserModal({ fName, lName }: { fName: string; lName: string }) {
   const { toggleLogoutModal } = useLogoutModal();
   const { setShowUserModal } = useUserModal();
-  const LINKS = [
-    { label: "Home", url: "/", logo: <IoHome size={18} /> },
-    { label: "Stats", url: "/dashboard", logo: <BiStats size={18} /> },
-    { label: "Docs", url: "/docs", logo: <SlDocs size={18} /> },
-    { label: "Trades", url: "/trades", logo: <TbArrowsExchange2 size={18} /> },
-  ];
+  // const LINKS = [
+  //   { label: "Home", url: "/", logo: <IoHome size={18} /> },
+  //   { label: "Stats", url: "/dashboard", logo: <BiStats size={18} /> },
+  //   { label: "Docs", url: "/docs", logo: <SlDocs size={18} /> },
+  //   { label: "Trades", url: "/trades", logo: <TbArrowsExchange2 size={18} /> },
+  // ];
 
   return createPortal(
     <div
@@ -34,7 +34,7 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
         >
           <IoCloseOutline size={20} />
         </li>
-        {LINKS.map((l, i) => (
+        {/* {LINKS.map((l, i) => (
           <Link
             href={l.url}
             onClick={() => setShowUserModal(false)}
@@ -43,7 +43,7 @@ export function UserModal({ fName, lName }: { fName: string; lName: string }) {
           >
             {l.logo} {l.label}
           </Link>
-        ))}
+        ))} */}
       </ul>
 
       <button className="w-full p-2 text-sm font-extralight text-sky-600">{`${fName} ${lName}`}</button>
