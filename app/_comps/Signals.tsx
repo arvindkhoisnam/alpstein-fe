@@ -108,7 +108,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
             </button>
           )}
         </div>
-        <span className="text-base font-light text-[var(--primarytext)] xl:text-xl">
+        <span className="text-base font-light text-[var(--primarytext)] xl:text-lg">
           {d.position}
         </span>
       </div>
@@ -128,7 +128,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
             ? "Buy"
             : "Sell"}
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] xl:text-xl">
+        <span className="text-base font-light text-[var(--primarytext)] xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.buyprice
             : d.sellprice}
@@ -144,7 +144,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <GrMoney size={15} className="" />
           Take Profit
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] xl:text-xl">
+        <span className="text-base font-light text-[var(--primarytext)] xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.takeprofit
             : d.shortcoverprofit}
@@ -160,7 +160,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <MdOutlineAnchor size={15} className="" />
           Stop Loss
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] xl:text-xl">
+        <span className="text-base font-light text-[var(--primarytext)] xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.stoploss
             : d.shortcoverloss}
@@ -176,7 +176,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <IoRibbonSharp size={15} className="" />
           Risk/Reward
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] xl:text-xl">
+        <span className="text-base font-light text-[var(--primarytext)] xl:text-lg">
           {/* {d.position === "long" ? `1:${calcLongRR()}` : `1:${calcShortRR()}`} */}
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? `1:${calcLongRR()}`
