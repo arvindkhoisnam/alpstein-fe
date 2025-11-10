@@ -19,7 +19,7 @@ function page() {
               References
             </span>
           </div>
-          <div className="hidden h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% lg:block 2xl:top-18"></div>
+          <div className="h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% 2xl:top-18"></div>
           <div className="grid h-[calc(100vh-131px)] grid-cols-1 gap-2 xl:grid-cols-[1fr_0.1fr_4fr_0.1fr]">
             <div className="hidden h-full w-full p-10 xl:block">
               <ul className="flex flex-col gap-10 text-sm font-extralight text-[var(--secondarytext)]">
