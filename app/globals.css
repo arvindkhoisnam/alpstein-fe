@@ -190,11 +190,10 @@ body {
 } */
 
 .scroller {
-  /* background-color: #ededed; */
   margin-block: 2.5rem;
   margin-inline: auto;
   height: 2.5rem;
-  max-width: 900px;
+  /* max-width: 900px; */
   display: flex;
   align-items: center;
   overflow: hidden;

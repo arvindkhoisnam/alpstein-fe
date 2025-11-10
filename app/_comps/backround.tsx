@@ -234,7 +234,7 @@ export function GridBackgroundDemo() {
           filter: useMotionTemplate`blur(${translateBlur}px)`,
         }}
         ref={imageRef}
-        className="absolute -bottom-5 left-1/2 z-10 h-[400px] w-[1100px] -translate-x-1/2"
+        className="l:block absolute -bottom-5 left-1/2 z-10 hidden h-[400px] w-[1100px] -translate-x-1/2"
       >
         <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] opacity-10"></div>
         <Image

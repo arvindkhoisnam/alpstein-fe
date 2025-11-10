@@ -3,14 +3,13 @@ function page() {
   return (
     <div
       className={cn(
-        "flex h-screen items-center justify-center bg-[var(--background)]",
+        "flex h-full items-center justify-center md:h-screen",
         "mx-auto max-w-[1440px] p-2 lg:flex lg:items-center lg:gap-0 lg:p-0",
-        "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%",
-        "flex justify-between"
+        "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
       )}
     >
       <div className="h-full w-full px-2 lg:px-10">
-        <div className="my-24 flex flex-col">
+        <div className="my-14 flex flex-col md:my-24">
           <div className="mb-4 flex w-full gap-4 text-sm text-[var(--secondarytext)]">
             <span className="cursor-pointer font-extralight hover:text-[var(--secondarytext)]/50">
               Guide

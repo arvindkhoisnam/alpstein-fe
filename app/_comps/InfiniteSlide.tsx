@@ -30,18 +30,16 @@ function InfiniteSlide() {
   });
 
   return (
-    <motion.div className="scroller" ref={parentRef}>
-      <ul className="flex gap-10 scroller-inner">
+    <motion.div
+      className="scroller max-w-[300px] md:max-w-[600px] lg:max-w-[900px]"
+      ref={parentRef}
+    >
+      <ul className="scroller-inner flex gap-10">
         {coins.map((coin, index) => (
-          <div
-            key={index}
-            className={`flex items-center gap-2 ${index === 6 ? "" : ""}`}
-          >
+          <div key={index} className={`flex items-center gap-2 ${index === 6 ? "" : ""}`}>
             {displayTickerTape && (
               <>
-                <span className="text-[10px] text-[var(--primarytext)]">
-                  {coin.toUpperCase()}
-                </span>
+                <span className="text-[10px] text-[var(--primarytext)]">{coin.toUpperCase()}</span>
               </>
             )}
             <Ticker symbol={coin} />
