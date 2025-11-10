@@ -10,7 +10,7 @@ function page() {
       )}
     >
       <div className="h-full w-full px-2 lg:px-10">
-        <div className="mt-24 flex flex-col">
+        <div className="my-24 flex flex-col">
           <div className="mb-4 flex w-full gap-4 text-sm text-[var(--secondarytext)]">
             <span className="cursor-pointer font-extralight hover:text-[var(--secondarytext)]/50">
               Guide
