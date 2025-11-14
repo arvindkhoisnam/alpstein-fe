@@ -85,9 +85,10 @@ export function PandL({ id }: { id?: string }) {
       ws.send(JSON.stringify({ event: "SUB", payload: id }));
     };
 
-    // const heartBeatInterval = setInterval(() => {
-    //   ws.send(JSON.stringify({ event: "heartbeat" }));
-    // }, 55000);
+    const heartBeatInterval = setInterval(() => {
+      ws.send(JSON.stringify({ event: "ping" }));
+    }, 55000);
+
     ws.onmessage = event => {
       try {
         const msg = JSON.parse(event.data as string);
@@ -104,12 +105,12 @@ export function PandL({ id }: { id?: string }) {
     };
 
     ws.onclose = () => {
-      // clearInterval(heartBeatInterval);
+      clearInterval(heartBeatInterval);
     };
     return () => {
       ws.close();
-      // clearInterval(heartBeatInterval);
-      // console.log("WS disconnected");
+      clearInterval(heartBeatInterval);
+      console.log("WS disconnected");
     };
   }, [id]);
   return (
