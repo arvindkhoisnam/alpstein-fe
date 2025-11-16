@@ -9,7 +9,7 @@ function LLMQuestions() {
   const [mask, setMask] = useState("mask-b-from-80%");
   // const [containerHeight, setContainerHeight] = useState(window.innerHeight);
   const [containerHeight, setContainerHeight] = useState(
-    window.visualViewport?.height || window.innerHeight
+    window?.visualViewport?.height || window?.innerHeight
   );
 
   useEffect(() => {

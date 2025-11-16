@@ -1,27 +1,41 @@
+"use client";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
 function PerformersSkeleton() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [numSkel, setNumSkel] = useState(() => (window.innerWidth >= 1024 ? 5 : 4));
+  // const [width, setWidth] = useState(window?.innerWidth);
+  const [width, setWidth] = useState(0);
+  // const [numSkel, setNumSkel] = useState(() => (window?.innerWidth >= 1024 ? 5 : 4));
+  const [numSkel, setNumSkel] = useState(4);
 
+  // useEffect(() => {
+  //   function handleResize() {
+  //     setWidth(window.innerWidth);
+  //     if (window.innerWidth >= 1024) {
+  //       setNumSkel(5);
+  //     } else {
+  //       setNumSkel(4);
+  //     }
+  //   }
+
+  //   window.addEventListener("resize", handleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
   useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-      if (window.innerWidth >= 1024) {
-        setNumSkel(5);
-      } else {
-        setNumSkel(4);
-      }
+    function update() {
+      const w = window.innerWidth;
+      setWidth(w);
+      setNumSkel(w >= 1024 ? 5 : 4);
     }
 
-    window.addEventListener("resize", handleResize);
+    update(); // run once on mount
+    window.addEventListener("resize", update);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", update);
   }, []);
-
   return (
     <div className="flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col gap-2">

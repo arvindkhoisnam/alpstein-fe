@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { cn } from "../lib/utils";
-import React, { useEffect } from "react";
+import React from "react";
 // import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
 import AllCryptosSkeleton from "../_skeletons/AllCryptosSkeleton";
@@ -42,9 +42,6 @@ function Layout({ children }: { children: React.ReactNode }) {
     },
   });
 
-  useEffect(() => {
-    console.log(window.innerHeight);
-  });
   return (
     <div
       id="dashboard-root"

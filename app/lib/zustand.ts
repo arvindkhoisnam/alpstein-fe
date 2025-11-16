@@ -259,15 +259,6 @@ const useChart = create<SwitchChart>((set, get) => ({
     }),
 }));
 
-type WindowWidth = {
-  windowWidth: number;
-  setWindowWidth: (width: number) => void;
-};
-const useWindowWidth = create<WindowWidth>(set => ({
-  windowWidth: 0,
-  setWindowWidth: (width: number) => set({ windowWidth: width }),
-}));
-
 type DashNav = {
   currTab: number;
   setCurrTab: (tab: number) => void;
@@ -309,7 +300,6 @@ export {
   useTVCandleModal,
   useTVAreaModal,
   useChart,
-  useWindowWidth,
   useDashNav,
   useToggleSidebar,
   useUserModal,

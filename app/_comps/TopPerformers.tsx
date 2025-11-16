@@ -143,9 +143,10 @@ export default function TopPerformers() {
   //   getTopCoins();
   // }, [symbols]);
 
-  const [width, setWidth] = useState(window.innerWidth);
-  const [top, setTop] = useState(() => (window.innerWidth >= 1024 ? 5 : 4));
-  const [bot, setBot] = useState(() => (window.innerWidth >= 1024 ? 9 : 8));
+  const [width, setWidth] = useState(window?.innerWidth);
+  const [top, setTop] = useState(() => (window?.innerWidth >= 1024 ? 5 : 4));
+  const [bot, setBot] = useState(() => (window?.innerWidth >= 1024 ? 9 : 8));
+
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
@@ -164,6 +165,7 @@ export default function TopPerformers() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const { data, isLoading } = useQuery({
     queryKey: ["performers"],
     queryFn: async () => {
