@@ -2,7 +2,6 @@
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import AppStatsSkeleton from "../_skeletons/AppStatsSkeleton";
-// import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
 import { cn } from "../lib/utils";
 import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
 
@@ -10,10 +9,6 @@ const AppStats = dynamic(() => import("./AppStats"), {
   ssr: false,
   loading: () => <AppStatsSkeleton />,
 });
-// const PremiumCard = dynamic(() => import("./PremiumCard"), {
-//   ssr: false,
-//   loading: () => <PremiumSkeleton />,
-// });
 const TopPerformers = dynamic(() => import("./TopPerformers"), {
   ssr: false,
   loading: () => <PerformersSkeleton />,

@@ -105,12 +105,12 @@ export function PandL({ id }: { id?: string }) {
     };
 
     ws.onclose = () => {
-      clearInterval(heartBeatInterval);
       ws.send(JSON.stringify({ event: "UNSUB", payload: id }));
+      clearInterval(heartBeatInterval);
     };
     return () => {
-      ws.close();
       ws.send(JSON.stringify({ event: "UNSUB", payload: id }));
+      ws.close();
       clearInterval(heartBeatInterval);
       console.log("WS disconnected");
     };

@@ -1,6 +1,6 @@
 import StatsDash from "../_comps/StatsDash";
 
-async function Page() {
+function Page() {
   return <StatsDash />;
 }
 
