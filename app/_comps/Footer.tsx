@@ -3,24 +3,28 @@ import { BiStats } from "react-icons/bi";
 import { SlDocs } from "react-icons/sl";
 import { TbArrowsExchange2 } from "react-icons/tb";
 import Link from "next/link";
+import { useUser } from "../lib/zustand";
 
 function Footer() {
+  const { currUser } = useUser();
   const LINKS = [
     { label: "Stats", url: "/dashboard", logo: <BiStats size={12} /> },
     { label: "Docs", url: "/docs", logo: <SlDocs size={12} /> },
     { label: "Trades", url: "/trades", logo: <TbArrowsExchange2 size={12} /> },
   ];
   return (
-    <div className="fixed bottom-0 left-0 z-50 grid w-full grid-cols-4 border-t border-[var(--cardborder)] bg-[var(--background)] p-2 text-[var(--secondarytext)] lg:hidden">
-      {LINKS.map((l, i) => (
-        <Link href={l.url} className="flex w-full flex-col items-center text-[10px]" key={i}>
-          {l.logo} {l.label}
-        </Link>
-      ))}
-      <div className="flex justify-center">
-        <UserLogo />
+    currUser && (
+      <div className="fixed bottom-0 left-0 z-50 grid w-full grid-cols-4 border-t border-[var(--cardborder)] bg-[var(--background)] p-2 text-[var(--secondarytext)] lg:hidden">
+        {LINKS.map((l, i) => (
+          <Link href={l.url} className="flex w-full flex-col items-center text-[10px]" key={i}>
+            {l.logo} {l.label}
+          </Link>
+        ))}
+        <div className="flex justify-center">
+          <UserLogo />
+        </div>
       </div>
-    </div>
+    )
   );
 }
 
