@@ -287,4 +287,5 @@ main {
   --breakpoint-lg: 1280px;
   --breakpoint-xl: 1400px;
   --breakpoint-2xl: 1500px;
+  --breakpoint-3xl: 1600px;
 }
