@@ -62,8 +62,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         {isLoading ? (
           <AllCryptosSkeleton />
         ) : (
-          // <div className="lg:mt-14 2xl:mt-16">
-          <div className="lg:mt-14 2xl:mt-0">
+          <div className="lg:mt-14 2xl:mt-16">
             <AllCryptos />
             <Paginate />
           </div>

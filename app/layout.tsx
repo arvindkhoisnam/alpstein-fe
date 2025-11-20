@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Provider from "./lib/Provider";
-// import Navbar from "./_comps/Navbar";
+import Navbar from "./_comps/Navbar";
 import LogoutModal from "./_comps/LogoutModal";
 // import Footer from "./_comps/Footer";
 
@@ -32,7 +32,7 @@ export default function RootLayout({
         id="root-container"
         className={`${geistSans.variable} ${geistMono.variable} relative bg-[var(--background)] antialiased`}
       >
-        {/* <Navbar /> */}
+        <Navbar />
         <LogoutModal />
         <Provider>{children}</Provider>
         {/* <Footer /> */}

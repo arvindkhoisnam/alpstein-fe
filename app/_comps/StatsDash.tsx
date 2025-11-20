@@ -21,7 +21,7 @@ function StatsDash() {
       className={cn(
         // "relative mt-14 grid h-[calc(100vh-96px)] grid-cols-[5fr_2fr] md:gap-0 2xl:mt-20"
         // "l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-3 l:mb-0 relative mt-14 mb-14 flex h-full flex-col gap-3 md:grid md:max-h-[calc(100vh-56px)] md:grid-rows-[1.5fr_1fr] md:gap-3 2xl:mt-16 2xl:max-h-[calc(100vh-64px)]"
-        "l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-3 l:mb-0 relative mt-14 mb-14 flex h-full flex-col gap-3 md:grid md:max-h-[calc(100vh-56px)] md:grid-rows-[1.5fr_1fr] md:gap-3 2xl:mt-0 2xl:max-h-screen"
+        "l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-3 l:mb-0 relative mt-14 mb-14 flex max-h-[1000px] flex-col gap-3 md:grid md:max-h-[calc(100vh-56px)] md:grid-rows-[1.5fr_1fr] md:gap-3 2xl:mt-16"
       )}
     >
       <div className="l:grid-rows-[1fr_2fr] l:grid-cols-1 l:gap-3 flex max-h-full w-full flex-col gap-3 md:grid md:grid-cols-[1fr_2.5fr]">
