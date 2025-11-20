@@ -59,7 +59,7 @@ function PremiumCard() {
       )}
     >
       <div className="flex flex-col gap-10 p-8">
-        <div className="hidden cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:flex md:text-sm lg:text-sm">
+        <div className="flex cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:text-sm lg:text-sm">
           <span>
             <GiMountaintop size={30} />
           </span>
