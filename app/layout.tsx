@@ -32,7 +32,7 @@ export default function RootLayout({
         id="root-container"
         className={`${geistSans.variable} ${geistMono.variable} relative bg-[var(--background)] antialiased`}
       >
-        <Navbar />
+        {/* <Navbar /> */}
         <LogoutModal />
         <Provider>{children}</Provider>
         {/* <Footer /> */}
