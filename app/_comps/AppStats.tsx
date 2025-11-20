@@ -24,7 +24,7 @@ function Comp1({ label, graph }: { label: string; graph: React.ReactElement }) {
   return (
     <div
       className={cn(
-        "flex h-52 w-72 flex-col gap-5 rounded-2xl p-2 md:h-64 md:max-w-full md:min-w-full lg:h-70",
+        "flex h-52 w-72 flex-col gap-5 rounded-2xl p-2 md:h-64 md:max-w-full md:min-w-full lg:h-full",
         "relative",
         "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
         "bg-radial-[at_20%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%"
