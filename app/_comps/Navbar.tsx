@@ -17,17 +17,18 @@ function Navbar() {
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
   const { showUserModal } = useUserModal();
+
   return (
     <div
       id="navbar"
       className={cn(
-        "top-0 w-full bg-[var(--background)] p-3",
-        // "md:bg-transparent lg:top-2 lg:w-[90%] lg:px-6 lg:py-0",
-        "bg-transparent lg:top-2 lg:w-[90%] lg:px-6 lg:py-0",
+        "top-0 w-full p-3",
+        "lg:top-2 lg:w-[90%] lg:px-6 lg:py-0",
         "fixed left-1/2 z-50 -translate-x-1/2",
         "flex justify-between",
         "2xl:py-2",
-        "mx-auto max-w-[1512px]"
+        "mx-auto max-w-[1512px]",
+        `${path === "/" ? "bg-transparent" : "bg-[var(--background)]"}`
       )}
     >
       {currUser && showUserModal && (
@@ -51,7 +52,6 @@ function Navbar() {
           )}
         </div>
         <DarkModelToggle />
-        {/* <UserLogo /> */}
       </div>
     </div>
   );
