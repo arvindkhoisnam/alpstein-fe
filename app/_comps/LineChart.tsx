@@ -176,7 +176,7 @@ export default function LineChart({ coin, direction }: { coin: string; direction
     },
   };
   return (
-    <div className="max-h-12 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90% md:max-h-18">
+    <div className="l:block hidden max-h-12 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90% md:max-h-18">
       {/* <div className="max-h-10 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90%"> */}
       <Line options={options} data={DATA} />
     </div>

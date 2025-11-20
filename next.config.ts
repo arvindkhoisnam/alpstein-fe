@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "lh3.googleusercontent.com", // replace with your image domain
       },
+      {
+        protocol: "https",
+        hostname: "bin.bnbstatic.com",
+      },
     ],
   },
   allowedDevOrigins: [

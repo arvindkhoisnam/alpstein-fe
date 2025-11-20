@@ -5,21 +5,15 @@ import React from "react";
 import StatsBarGraph from "./StatsBarGraph";
 import StatsDoughnutGraph from "./StatsDoughnutGraph";
 import StatsPoleAreaGraph from "./StatsPoleAreaGraph";
+import StatsHalfDoughnut from "./StatsHalfDoughnut";
 
 function AppStats() {
   return (
-    <div className="flex flex-col gap-2 md:gap-3">
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">Statistics</h2>
-        </div>
-        <div className="l:grid-cols-3 l:grid l:max-w-full l:gap-5 l:mask-x-from-100% mx-auto flex max-w-[95%] gap-3 overflow-x-auto mask-x-from-95%">
-          {/* <div className="mx-auto flex max-w-[95%] gap-3 overflow-x-auto md:grid md:max-w-full md:grid-cols-3 md:gap-5"> */}
-          <Comp1 label={"Week's articles"} graph={<StatsBarGraph />} />
-          <Comp1 label={"Positions generated "} graph={<StatsDoughnutGraph />} />
-          <Comp1 label={"Weekly performance"} graph={<StatsPoleAreaGraph />} />
-        </div>
-      </div>
+    <div className="flex h-full w-full gap-3 overflow-x-auto md:grid md:grid-cols-2 md:gap-2">
+      <Comp1 label={"Week's total articles"} graph={<StatsBarGraph />} />
+      <Comp1 label={"Positions generated "} graph={<StatsDoughnutGraph />} />
+      <Comp1 label={"Weekly performance"} graph={<StatsPoleAreaGraph />} />
+      <Comp1 label={"Week's sentiments"} graph={<StatsHalfDoughnut />} />
     </div>
   );
 }
@@ -30,9 +24,10 @@ function Comp1({ label, graph }: { label: string; graph: React.ReactElement }) {
   return (
     <div
       className={cn(
-        // "flex h-56 w-full flex-col gap-1 rounded-lg p-2 md:h-80 md:w-96 md:gap-2 md:rounded-xl md:p-4",
-        "l:h-64 flex h-52 w-80 flex-col gap-1 rounded-md p-2 md:gap-2 md:rounded-xl md:p-4 xl:h-68 xl:w-90 2xl:h-80 2xl:w-94",
-        "shadow-[var(--shadow)] transition-shadow duration-500"
+        "flex h-52 max-w-72 min-w-72 flex-col gap-5 rounded-2xl p-2 md:h-64 md:max-w-full md:min-w-full lg:h-70",
+        "relative",
+        "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
+        "bg-radial-[at_20%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%"
       )}
     >
       <motion.h2
@@ -51,11 +46,11 @@ function Comp1({ label, graph }: { label: string; graph: React.ReactElement }) {
           ease: "easeIn",
           delay: 0.1,
         }}
-        className="l:text-sm flex items-center gap-1 text-xs font-extralight text-[var(--secondarytext)] md:gap-2"
+        className="l:text-sm flex items-center gap-1 text-xs font-light text-[var(--secondarytext)] md:gap-2"
       >
         {label}
       </motion.h2>
-      {graph}
+      <div className="min-h-0 flex-1">{graph}</div>
     </div>
   );
 }

@@ -76,8 +76,8 @@ function StatsBarGraph() {
       legend: { display: false },
       title: { display: false },
       datalabels: {
-        // color: textColor,
-        color: "#333",
+        display: false,
+        // color: "#333",
       },
     },
   };
@@ -92,13 +92,16 @@ function StatsBarGraph() {
         data: [65, 59, 80, 81, 56, 55, 40],
         // backgroundColor: barColor,
         backgroundColor: "#a3b3ff",
-        borderRadius: 5,
+        borderRadius: 50,
+        barThickness: 2, // <<<< reduce bar width (fixed)
       },
     ],
   };
 
   return (
-    <div className="h-[90%]">
+    <div className="relative max-h-[100%] min-h-[100%] max-w-full rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-2 shadow-lg shadow-gray-500/50">
+      <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></span>
+
       <Bar data={data} options={options} />
     </div>
   );

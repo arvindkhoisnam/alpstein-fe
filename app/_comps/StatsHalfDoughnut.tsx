@@ -1,27 +1,17 @@
-import { PolarArea } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  ArcElement,
-  Tooltip,
-  Legend,
-  ChartOptions,
-} from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, ChartOptions } from "chart.js";
 import { useEffect, useState } from "react";
 
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-function StatsPoleAreaGraph() {
+function StatsHalfDoughnut() {
   const [labelColor, setLabelColor] = useState("");
-  const [poleBorder, setPoleBorder] = useState("");
 
   function updateColor() {
     const labelText = getComputedStyle(document.documentElement)
       .getPropertyValue("--primarytext")
       .trim();
-    const pole = getComputedStyle(document.documentElement).getPropertyValue("--poleGraph").trim();
     setLabelColor(labelText);
-    setPoleBorder(pole);
   }
 
   useEffect(() => {
@@ -39,34 +29,28 @@ function StatsPoleAreaGraph() {
   });
 
   const data = {
-    labels: ["Target Hit", "SL Hit", "Pending", "Untriggered"],
+    labels: ["#bearish", "#volatility", "#bullish", "#whale"],
     datasets: [
       {
-        label: "Trade Stats",
-        data: [45, 40, 25, 20],
-        // backgroundColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
+        data: [30, 50, 40, 10],
         backgroundColor: ["#51a2ff", "#b8e6fe", "#c4b4ff", "#53eafd"],
-        // borderColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
-        borderColor: ["#51a2ff", "#b8e6fe", "#c4b4ff", "#53eafd"],
-        borderWidth: 1,
+        // borderWidth: 4,
+        borderColor: "transparent",
+        borderRadius: 3,
+        hoverOffset: 0,
+        rotation: 270,
+        circumference: 180,
       },
     ],
   };
-  // #a2f4fd
-  const options: ChartOptions<"polarArea"> = {
+  // #51a2ff blue
+  // #8e51ff violet
+  // #7c86ff indigo
+  // #74d4ff sky
+  const options: ChartOptions<"doughnut"> = {
     responsive: true,
     maintainAspectRatio: false,
-    scales: {
-      r: {
-        grid: {
-          // color: "rgba(255,255,255,0.1)",
-          color: poleBorder,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-    },
+    cutout: "90%", // controls the inner hole size
     plugins: {
       legend: {
         position: "right",
@@ -74,13 +58,13 @@ function StatsPoleAreaGraph() {
           color: labelColor,
           font: {
             size: 10,
-            family: "'Inter', sans-serif",
           },
-          padding: 14,
+          padding: 16,
         },
       },
       datalabels: {
-        color: labelColor,
+        // color: labelColor,
+        color: "#333",
         display: false,
       },
       // tooltip: {
@@ -95,9 +79,9 @@ function StatsPoleAreaGraph() {
   return (
     <div className="relative max-h-[100%] min-h-[100%] max-w-full rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-2 shadow-lg shadow-gray-500/50">
       <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></span>
-      <PolarArea data={data} options={options} />
+      <Doughnut data={data} options={options} />
     </div>
   );
 }
 
-export default StatsPoleAreaGraph;
+export default StatsHalfDoughnut;

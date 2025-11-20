@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import AppStatsSkeleton from "../_skeletons/AppStatsSkeleton";
 import { cn } from "../lib/utils";
 import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
+import PremiumCard from "./PremiumCard";
+import Performers from "./Performers";
 
 const AppStats = dynamic(() => import("./AppStats"), {
   ssr: false,
@@ -16,15 +18,19 @@ const TopPerformers = dynamic(() => import("./TopPerformers"), {
 function StatsDash() {
   return (
     <motion.div
-      // className={cn("relative mt-10 flex w-full flex-1 flex-col gap-2 p-2 md:mt-20 md:gap-0")}
-      className={cn("relative my-14 flex w-full flex-1 flex-col gap-2 md:gap-0 2xl:mt-20")}
+      className={cn(
+        // "relative mt-14 grid h-[calc(100vh-96px)] grid-cols-[5fr_2fr] md:gap-0 2xl:mt-20"
+        "l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-3 relative mt-14 flex h-full flex-col gap-3 md:grid md:max-h-[calc(100vh-56px)] md:grid-rows-[1.5fr_1fr] md:gap-3 2xl:mt-16 2xl:max-h-[calc(100vh-64px)]"
+      )}
     >
-      {/* <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-[2fr_1fr]"> */}
-      {/* <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-1"> */}
-      <TopPerformers />
-      <div className="my-5 hidden h-[0.5px] bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div>
-      <div className="grid w-full grid-cols-1">
+      <div className="l:grid-rows-[1fr_2fr] l:grid-cols-1 l:gap-3 flex max-h-full w-full flex-col gap-3 md:grid md:grid-cols-[1fr_2.5fr]">
+        <TopPerformers />
+        {/* <div className="my-3 hidden h-[0.5px] bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div> */}
         <AppStats />
+      </div>
+      <div className="l:grid-cols-1 l:grid-rows-[1.8fr_1.2fr] grid max-h-full grid-rows-[1.5fr_1fr] gap-2 md:grid-cols-[2fr_1fr] md:grid-rows-1">
+        <Performers />
+        <PremiumCard />
       </div>
     </motion.div>
   );

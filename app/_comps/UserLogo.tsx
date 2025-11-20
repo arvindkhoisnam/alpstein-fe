@@ -39,8 +39,8 @@ function UserLogo() {
           <Image
             className="size-8 rounded-full"
             src={currUser.imageUrl}
-            width={10}
-            height={10}
+            width={20}
+            height={20}
             alt="user-logo"
           />
         )}

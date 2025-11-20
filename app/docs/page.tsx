@@ -5,7 +5,8 @@ function page() {
       className={cn(
         "flex h-full items-center justify-center md:h-screen",
         "mx-auto max-w-[1440px] p-2 lg:flex lg:items-center lg:gap-0 lg:p-0",
-        "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
+        // "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
+        "bg-[var(--background)]"
       )}
     >
       <div className="h-full w-full px-2 lg:px-10">

@@ -33,21 +33,31 @@ function StatsDoughnutGraph() {
     datasets: [
       {
         data: [30, 30, 40],
-        backgroundColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
-        borderColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
-        borderWidth: 1,
-        hoverOffset: 5,
+        // backgroundColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
+        backgroundColor: ["#51a2ff", "#b8e6fe", "#c4b4ff"],
+        // borderColor: ["#a3b3ff", "#ff637e", "#3ab2b2"],
+        // borderColor: ["#51a2ff", "#b8e6fe", "#c4b4ff"],
+        // borderWidth: 4,
+        // borderColor: border,
+        borderColor: "transparent",
+        borderRadius: 3,
+        hoverOffset: 0,
+        // rotation: 180,
+        // circumference: 180,
       },
     ],
   };
-
+  // #51a2ff blue
+  // #8e51ff violet
+  // #7c86ff indigo
+  // #74d4ff sky
   const options: ChartOptions<"doughnut"> = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: "65%", // controls the inner hole size
+    cutout: "80%", // controls the inner hole size
     plugins: {
       legend: {
-        position: "bottom",
+        position: "right",
         labels: {
           color: labelColor,
           font: {
@@ -59,6 +69,7 @@ function StatsDoughnutGraph() {
       datalabels: {
         // color: labelColor,
         color: "#333",
+        display: false,
       },
       // tooltip: {
       //   backgroundColor: "rgba(0, 0, 0, 0.7)",
@@ -70,7 +81,8 @@ function StatsDoughnutGraph() {
   };
 
   return (
-    <div className="h-[90%]">
+    <div className="relative max-h-[100%] min-h-[100%] max-w-full rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-2 shadow-lg shadow-gray-500/50">
+      <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></span>
       <Doughnut data={data} options={options} />
     </div>
   );

@@ -10,7 +10,7 @@ function Ticker({ symbol }: { symbol: string }) {
     queryKey: [symbol],
     queryFn: async () => {
       const res = await axios.get(
-        `https://api.binance.com/api/v3/ticker?symbol=${symbol.toUpperCase()}USDT`
+        `https://api.binance.com/api/v3/ticker/tradingDay?symbol=${symbol.toUpperCase()}USDT`
       );
       return res.data;
     },

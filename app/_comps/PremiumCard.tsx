@@ -53,31 +53,35 @@ function PremiumCard() {
         backgroundImage,
       }}
       className={cn(
-        "relative h-48 rounded-xl p-6 md:h-full md:rounded-2xl md:p-10",
-        "shadow-[var(--shadow)] transition-shadow duration-500"
+        "relative grid h-full w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2",
+        // "shadow-[var(--shadow)] transition-shadow duration-500"
+        "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/20 backdrop-blur-xl"
       )}
     >
-      <div className="hidden cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:flex md:text-lg lg:text-xl">
-        <span>
-          <GiMountaintop size={35} />
-        </span>
-        <span>Alpstein</span>
+      <div className="flex flex-col gap-10 p-8">
+        <div className="hidden cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:flex md:text-sm lg:text-sm">
+          <span>
+            <GiMountaintop size={30} />
+          </span>
+          <span>Alpstein</span>
+        </div>
+        <div className="flex w-full flex-col gap-3">
+          <h2 className="text-sm font-extralight text-[var(--primarytext)] md:text-sm">
+            Become a Premium Member
+          </h2>
+          <div>
+            <p className="text-[10px] text-zinc-500 md:text-xs">Never miss an opportunity.</p>
+            <p className="text-[10px] text-zinc-500 md:text-xs">
+              Get instantly notified whenever a news is updated.
+            </p>
+          </div>
+        </div>
       </div>
-      {/* <div className="absolute top-1/2 left-1/2  -translate-x-1/2  -translate-y-1/2  w-full px-10"> */}
-      <div className="w-full md:mt-16">
-        <h2 className="text-sm font-extralight text-[var(--primarytext)] md:text-xl">
-          Become a Premium Member
-        </h2>
-        <p className="text-[10px] text-zinc-500 md:text-xs">Never miss an opportunity.</p>
-        <p className="text-[10px] text-zinc-500 md:text-xs">
-          Get instantly notified whenever a news is updated.
-        </p>
-      </div>
-      <div className="absolute inset-x-0 bottom-5 z-10 flex w-full flex-col gap-2 px-6">
+      <div className="z-10 flex w-full flex-col gap-2 px-0">
         <input
           type="text"
           className={cn(
-            "w-full rounded-md p-2 text-xs text-[var(--secondarytext)] md:text-sm",
+            "w-full rounded-md p-2 text-xs text-[var(--secondarytext)]",
             "shadow-[var(--shadow)] transition-shadow duration-500",
             "focus:outline-none"
           )}
@@ -85,7 +89,7 @@ function PremiumCard() {
         />
         <button
           className={cn(
-            "w-full cursor-pointer rounded-md bg-transparent px-4 py-2 text-xs text-[var(--secondarytext)] md:text-sm",
+            "w-full cursor-pointer rounded-md bg-transparent px-4 py-2 text-xs text-[var(--secondarytext)]",
             "shadow-[var(--shadow)] transition-shadow duration-500"
           )}
           onClick={() => alert("fasd")}

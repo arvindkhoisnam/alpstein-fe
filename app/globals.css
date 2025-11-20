@@ -39,12 +39,17 @@
   --barChart: #404040;
   --barText: #d4d4d4;
   --poleGraph: rgba(0, 0, 0, 0.1);
+  /* --stats-comp-bg: #d4d4d4; */
+  --stats-comp-bg: #d4d4d8;
+  --stats-comp-inner: #f4f4f5;
+  --stats-comp-inner-border: #9f9fa9;
 }
 
 .dark:root {
   /* --background: #01030c; */
   /* --background: #020618; */
   --background: #09090b;
+  /* --background: #262626; */
   /* --background: #0a0a0a; */
 
   /* --logobgfill: #d4d4d8; */
@@ -83,6 +88,10 @@
   --barChart: #d4d4d4;
   --barText: #404040;
   --poleGraph: rgba(255, 255, 255, 0.1);
+  /* --stats-comp-bg: #262626; */
+  --stats-comp-bg: #27272a;
+  --stats-comp-inner: #09090b;
+  --stats-comp-inner-border: #27272a;
 }
 /* @media (prefers-color-scheme: dark) {
   :root {

@@ -109,10 +109,14 @@ export function PandL({ id }: { id?: string }) {
       clearInterval(heartBeatInterval);
     };
     return () => {
-      ws.send(JSON.stringify({ event: "UNSUB", payload: id }));
+      // ws.send(JSON.stringify({ event: "UNSUB", payload: id }));
+      // Only send UNSUB if socket is open
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ event: "UNSUB", payload: id }));
+      }
       ws.close();
       clearInterval(heartBeatInterval);
-      console.log("WS disconnected");
+      console.log("WS disconnected..");
     };
   }, [id]);
   return (

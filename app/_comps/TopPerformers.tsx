@@ -143,16 +143,16 @@ export default function TopPerformers() {
   //   getTopCoins();
   // }, [symbols]);
 
-  const [width, setWidth] = useState(window?.innerWidth);
-  const [top, setTop] = useState(() => (window?.innerWidth >= 1024 ? 5 : 4));
-  const [bot, setBot] = useState(() => (window?.innerWidth >= 1024 ? 9 : 8));
+  // const [width, setWidth] = useState(window?.innerWidth);
+  const [top, setTop] = useState(() => (window?.innerWidth >= 1024 ? 4 : 4));
+  const [bot, setBot] = useState(() => (window?.innerWidth >= 1024 ? 8 : 8));
 
   useEffect(() => {
     function handleResize() {
-      setWidth(window.innerWidth);
+      // setWidth(window.innerWidth);
       if (window.innerWidth >= 1024) {
-        setTop(5);
-        setBot(9);
+        setTop(4);
+        setBot(8);
       } else {
         setTop(4);
         setBot(8);
@@ -186,26 +186,23 @@ export default function TopPerformers() {
   }
 
   return (
-    <div className="flex flex-col gap-2 md:gap-3">
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
-            {width < 1024 ? "Top Four" : "Top Five"}
-          </h2>
-        </div>
-        {/* <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0"> */}
-        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
-          {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
-        </div>
+    <div
+      className={cn(
+        "flex max-h-full flex-col",
+        "rounded-2xl",
+        "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
+        "bg-radial-[at_80%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%",
+        "gap-2 p-2"
+      )}
+    >
+      {/* <h2 className="text-xs font-medium text-[var(--secondarytext)]">Popular in Alpstein</h2> */}
+      {/* <div className="flex flex-col gap-2"> */}
+      {/* <div className="l:grid-cols-4 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0"> */}
+      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
+        {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
-      <div className="flex w-full flex-col gap-2">
-        <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
-          {width < 1024 ? "Bottom Four" : "Bottom Five"}
-        </h2>
-        {/* <div className="mx-auto flex h-full w-[95%] gap-2 overflow-x-auto mask-x-from-95% py-2 xl:grid xl:w-full xl:grid-cols-5 xl:mask-x-from-100% xl:p-0"> */}
-        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
-          {!isLoading && data?.slice(4, bot).map(coin => <Coin coin={coin} key={coin.symbol} />)}
-        </div>
+      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
+        {!isLoading && data?.slice(4, bot).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
     </div>
   );
@@ -222,11 +219,13 @@ function Coin({
 }) {
   return (
     <motion.div
-      draggable
       className={cn(
-        "relative flex h-full flex-col justify-between rounded-md p-3 md:rounded-2xl",
+        "relative flex h-full flex-col justify-between rounded-2xl p-3",
         // "w-full shadow-[var(--shadow)] transition-shadow duration-500 md:w-48 2xl:w-56"
-        "w-full shadow-[var(--shadow)] transition-shadow duration-500"
+        // "shadow-[var(--shadow)] transition-shadow duration-500",
+        "w-full",
+        // "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/10 backdrop-blur-xl",
+        "border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60"
       )}
     >
       <motion.div
@@ -251,7 +250,7 @@ function Coin({
           ease: "easeIn",
           delay: 0.3,
         }}
-        className={`absolute -left-[0.5px] w-[2px]`}
+        className={`l:block absolute -left-[0.5px] hidden w-[2px]`}
         style={{
           backgroundImage: `linear-gradient(to top, transparent 40%, ${
             COIN_CONFIG[coin.symbol.split("U")[0]].color.light

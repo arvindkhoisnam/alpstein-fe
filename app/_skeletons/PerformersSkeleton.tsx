@@ -1,12 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
 function PerformersSkeleton() {
   // const [width, setWidth] = useState(window?.innerWidth);
-  const [width, setWidth] = useState(0);
+  // const [width, setWidth] = useState(0);
   // const [numSkel, setNumSkel] = useState(() => (window?.innerWidth >= 1024 ? 5 : 4));
-  const [numSkel, setNumSkel] = useState(4);
+  // const [numSkel, setNumSkel] = useState(4);
 
   // useEffect(() => {
   //   function handleResize() {
@@ -24,29 +24,29 @@ function PerformersSkeleton() {
   //     window.removeEventListener("resize", handleResize);
   //   };
   // }, []);
-  useEffect(() => {
-    function update() {
-      const w = window.innerWidth;
-      setWidth(w);
-      setNumSkel(w >= 1024 ? 5 : 4);
-    }
+  // useEffect(() => {
+  //   function update() {
+  //     const w = window.innerWidth;
+  //     setWidth(w);
+  //     setNumSkel(w >= 1024 ? 5 : 4);
+  //   }
 
-    update(); // run once on mount
-    window.addEventListener("resize", update);
+  //   update(); // run once on mount
+  //   window.addEventListener("resize", update);
 
-    return () => window.removeEventListener("resize", update);
-  }, []);
+  //   return () => window.removeEventListener("resize", update);
+  // }, []);
   return (
     <div className="flex flex-col gap-2 md:gap-3">
       <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
             {width < 1024 ? "Top Four" : "Top Five"}
           </h2>
-        </div>
+        </div> */}
         {/* <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-5 md:mask-x-from-100% md:p-0"> */}
         <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
-          {Array.from({ length: numSkel }).map((_, index) => (
+          {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
               className={cn(
@@ -62,14 +62,14 @@ function PerformersSkeleton() {
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
             {width < 1024 ? "Bottom Four" : "Bottom Five"}
           </h2>
-        </div>
+        </div> */}
         {/* <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-5 md:mask-x-from-100% md:p-0"> */}
         <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
-          {Array.from({ length: numSkel }).map((_, index) => (
+          {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
               className={cn(
