@@ -11,7 +11,7 @@ function Footer() {
     { label: "Trades", url: "/trades", logo: <TbArrowsExchange2 size={12} /> },
   ];
   return (
-    <div className="fixed bottom-0 left-0 grid w-full grid-cols-4 border-t border-[var(--cardborder)] bg-[var(--background)] p-2 text-[var(--secondarytext)] lg:hidden">
+    <div className="fixed bottom-0 left-0 z-50 grid w-full grid-cols-4 border-t border-[var(--cardborder)] bg-[var(--background)] p-2 text-[var(--secondarytext)] lg:hidden">
       {LINKS.map((l, i) => (
         <Link href={l.url} className="flex w-full flex-col items-center text-[10px]" key={i}>
           {l.logo} {l.label}
