@@ -3,12 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiMountaintop } from "react-icons/gi";
 import { useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
-// import Search from "./Search";
 import AuthenticatedNav from "./AuthenticatedNav";
-
 import { cn } from "../lib/utils";
 import { UserModal } from "./UserModal";
-// import UserLogo from "./UserLogo";
 import SideBarToggle from "./SideBarToggle";
 import DarkModelToggle from "./DarkModelToggle";
 
