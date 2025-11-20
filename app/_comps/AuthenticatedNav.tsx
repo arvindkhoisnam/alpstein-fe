@@ -4,19 +4,43 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import UserLogo from "./UserLogo";
+import { useShowSigninModal, useUser } from "../lib/zustand";
+import axios, { AxiosError } from "axios";
+import { redirect } from "next/navigation";
 
 const PATHS = [
   { label: "News", path: "/dashboard" },
-  { label: "Docs", path: "/docs" },
+  // { label: "Docs", path: "/docs" },
   { label: "Trades", path: "/trades" },
 ];
 
 function AuthenticatedNav() {
   const [activePath, setActivePath] = useState("/dashboard");
+  const { setUser } = useUser();
+  const { toggleShowModal } = useShowSigninModal();
   const path = usePathname();
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
+          withCredentials: true,
+        });
+        setUser(true, res.data.data);
+      } catch (err) {
+        if (err instanceof AxiosError) {
+          toggleShowModal(true);
+          redirect("/");
+        }
+      }
+    }
+    getData();
+  }, [setUser, toggleShowModal]);
+
   useEffect(() => {
     setActivePath(path.toLowerCase());
   }, [path]);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}

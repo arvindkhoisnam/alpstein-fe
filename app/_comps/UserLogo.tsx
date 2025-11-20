@@ -1,31 +1,31 @@
 import Image from "next/image";
-import { useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
-import React, { useEffect } from "react";
-import axios, { AxiosError } from "axios";
-import { redirect } from "next/navigation";
-// import DarkModelToggle from "./DarkModelToggle";
+import { useUser, useUserModal } from "../lib/zustand";
+import React from "react";
+// import axios, { AxiosError } from "axios";
+// import { redirect } from "next/navigation";
 
 function UserLogo() {
-  const { currUser, setUser } = useUser();
+  const { currUser } = useUser();
   const { showUserModal, setShowUserModal } = useUserModal();
-  const { toggleShowModal } = useShowSigninModal();
+  // const { toggleShowModal } = useShowSigninModal();
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
-          withCredentials: true,
-        });
-        setUser(true, res.data.data);
-      } catch (err) {
-        if (err instanceof AxiosError) {
-          toggleShowModal(true);
-          redirect("/");
-        }
-      }
-    }
-    getData();
-  }, [setUser, toggleShowModal]);
+  // useEffect(() => {
+  //   async function getData() {
+  //     try {
+  //       const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
+  //         withCredentials: true,
+  //       });
+  //       setUser(true, res.data.data);
+  //     } catch (err) {
+  //       if (err instanceof AxiosError) {
+  //         toggleShowModal(true);
+  //         redirect("/");
+  //       }
+  //     }
+  //   }
+  //   getData();
+  // }, [setUser, toggleShowModal]);
+
   return (
     <div className="flex items-center gap-1 md:gap-4">
       {/* <DarkModelToggle /> */}

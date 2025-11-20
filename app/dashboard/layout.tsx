@@ -10,7 +10,6 @@ import { useAllCryptos, usePaginate, useToggleSidebar } from "../lib/zustand";
 import Sidebar from "../_comps/Sidebar";
 import AllCryptos from "../_comps/AllCryptos";
 import Paginate from "../_comps/Paginate";
-import Footer from "../_comps/Footer";
 
 function Layout({ children }: { children: React.ReactNode }) {
   // const AllCryptos = dynamic(() => import("../_comps/AllCryptos"), {
@@ -71,7 +70,6 @@ function Layout({ children }: { children: React.ReactNode }) {
         <div className="absolute top-0 right-0 z-10 hidden h-full w-[0.5px] bg-gradient-to-t from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block 2xl:max-h-[calc(1000px-100px)]"></div>
       </div>
       <main className={cn("h-full w-full px-2")}>{children}</main>
-      <Footer />
     </div>
   );
 }
