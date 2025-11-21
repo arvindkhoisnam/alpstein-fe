@@ -28,7 +28,7 @@ function StatsDash() {
         {/* <div className="my-3 hidden h-[0.5px] bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div> */}
         <AppStats />
       </div>
-      <div className="l:grid-cols-1 l:grid-rows-[1fr_1fr] l:max-h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 2xl:max-h-[calc(100vh-100px)]">
+      <div className="l:grid-cols-1 l:flex l:flex-col l:max-h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 2xl:max-h-[calc(100vh-100px)]">
         <Performers />
         <PremiumCard />
       </div>
