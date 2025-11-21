@@ -195,9 +195,6 @@ export default function TopPerformers() {
         "gap-2 p-2"
       )}
     >
-      {/* <h2 className="text-xs font-medium text-[var(--secondarytext)]">Popular in Alpstein</h2> */}
-      {/* <div className="flex flex-col gap-2"> */}
-      {/* <div className="l:grid-cols-4 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0"> */}
       <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
         {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
@@ -220,11 +217,9 @@ function Coin({
   return (
     <motion.div
       className={cn(
-        "relative flex h-full flex-col justify-between rounded-2xl p-3",
-        // "w-full shadow-[var(--shadow)] transition-shadow duration-500 md:w-48 2xl:w-56"
+        "l:h-32 md2:h-18 relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16",
         // "shadow-[var(--shadow)] transition-shadow duration-500",
         "w-full",
-        // "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/10 backdrop-blur-xl",
         "border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60"
       )}
     >

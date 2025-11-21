@@ -9,11 +9,15 @@ import StatsHalfDoughnut from "./StatsHalfDoughnut";
 
 function AppStats() {
   return (
-    <div className="flex max-h-full max-w-full gap-3 overflow-x-auto md:grid md:grid-cols-2 md:gap-2">
+    <div className="flex max-h-full max-w-full gap-3 overflow-x-auto md:grid md:grid-cols-2 md:gap-2 lg:gap-2">
       <Comp1 label={"Week's total articles"} graph={<StatsBarGraph />} />
       <Comp1 label={"Positions generated "} graph={<StatsDoughnutGraph />} />
       <Comp1 label={"Weekly performance"} graph={<StatsPoleAreaGraph />} />
       <Comp1 label={"Week's sentiments"} graph={<StatsHalfDoughnut />} />
+      {/* <div className="h-full w-full bg-lime-500">f</div>
+      <div className="h-full w-full bg-lime-600">f</div>
+      <div className="h-full w-full bg-lime-700">fsafsd</div>
+      <div className="h-full w-full bg-lime-800">rwerew</div> */}
     </div>
   );
 }
@@ -23,8 +27,9 @@ export default AppStats;
 function Comp1({ label, graph }: { label: string; graph: React.ReactElement }) {
   return (
     <div
+      // [@media(min-width:1024px)_and_(max-height:1366px)]:h-76 [@media(min-width:1024px)_and_(max-height:768px)]:h-44 [@media(min-width:1024px)_and_(max-height:820px)]:h-50
       className={cn(
-        "flex h-52 w-72 flex-col gap-5 rounded-2xl p-2 md:h-68 md:max-w-full md:min-w-full",
+        "l:h-44 l2:h-50 md2:h-86 flex h-52 w-72 flex-col gap-5 rounded-2xl p-2 md:h-72 md:max-w-full md:min-w-full lg:h-full",
         "relative",
         "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
         "bg-radial-[at_20%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%"

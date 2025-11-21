@@ -53,12 +53,12 @@ function PremiumCard() {
         backgroundImage,
       }}
       className={cn(
-        "relative grid h-full w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2",
+        "l:h-51 l2:h-64 md2:h-80 relative grid h-full w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-70 lg:h-full",
         // "shadow-[var(--shadow)] transition-shadow duration-500"
         "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/20 backdrop-blur-xl"
       )}
     >
-      <div className="flex flex-col gap-10 p-8">
+      <div className="l:p-0 l:gap-3 l2:gap-10 flex flex-col gap-10 p-8">
         <div className="flex cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:text-sm lg:text-sm">
           <span>
             <GiMountaintop size={30} />
