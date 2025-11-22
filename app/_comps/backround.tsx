@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import InfiniteSlide from "./InfiniteSlide";
 import Image from "next/image";
-import { motion, useMotionTemplate, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Button2 from "./Button2";
 import { useShowSigninModal, useUser } from "../lib/zustand";
 export function GridBackgroundDemo() {
@@ -14,8 +14,8 @@ export function GridBackgroundDemo() {
   // const defaultUrl = rootStyles.getPropertyValue("--url").trim();
   const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
   const translateScale = useTransform(scrollYProgress, [0.4, 1], [1, 0.75]);
-  const translateMarquee = useTransform(scrollYProgress, [0.4, 1], [1, 0.4]);
-  const translateBlur = useTransform(scrollYProgress, [0.4, 1], [0, 3]);
+  // const translateMarquee = useTransform(scrollYProgress, [0.4, 1], [1, 0.4]);
+  // const translateBlur = useTransform(scrollYProgress, [0.4, 1], [0, 3]);
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
 
