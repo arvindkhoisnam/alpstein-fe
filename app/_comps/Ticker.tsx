@@ -23,7 +23,7 @@ function Ticker({ symbol }: { symbol: string }) {
     }
   }, [isLoading, setDisplay, isError]);
   return (
-    <div className="flex gap-1 text-[10px]">
+    <div className="flex gap-1 text-[8px] md:text-[10px]">
       {!isLoading && !isError && (
         <span className="text-[var(--primarytext)]">
           {parseFloat(data?.lastPrice).toLocaleString(undefined, {

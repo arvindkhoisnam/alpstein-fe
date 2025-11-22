@@ -21,7 +21,7 @@ function Button2({ text, onClick }: { text: string; onClick: () => void }) {
       }}
       onClick={onClick}
       className={cn(
-        "group relative h-10 w-32 cursor-pointer overflow-hidden rounded-lg p-[1px]"
+        "group relative h-10 w-24 cursor-pointer overflow-hidden rounded-lg p-[1px] md:w-32"
         // "animate-[var(--animate-rotate-border)] bg-conic/[from_var(--border-angle)] from-[var(--btnbg)] from-30% via-fuchsia-500 via-50% to-[var(--btnbg)] to-70%"
       )}
     >

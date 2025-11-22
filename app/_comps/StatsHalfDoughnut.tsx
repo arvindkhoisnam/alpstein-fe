@@ -38,8 +38,8 @@ function StatsHalfDoughnut() {
         borderColor: "transparent",
         borderRadius: 3,
         hoverOffset: 0,
-        rotation: 270,
-        circumference: 180,
+        // rotation: 270,
+        // circumference: 180,
       },
     ],
   };

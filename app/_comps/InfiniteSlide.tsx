@@ -39,7 +39,9 @@ function InfiniteSlide() {
           <div key={index} className={`flex items-center gap-2 ${index === 6 ? "" : ""}`}>
             {displayTickerTape && (
               <>
-                <span className="text-[10px] text-[var(--primarytext)]">{coin.toUpperCase()}</span>
+                <span className="text-[8px] text-[var(--primarytext)] md:text-[10px]">
+                  {coin.toUpperCase()}
+                </span>
               </>
             )}
             <Ticker symbol={coin} />
