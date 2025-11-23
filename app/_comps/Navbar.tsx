@@ -41,7 +41,7 @@ function Navbar() {
       {path.startsWith("/dashboard") && <SideBarToggle />}
       <div className="flex items-center gap-4">
         <div className="hidden h-10 items-center gap-6 text-[12px] text-[var(--secondarytext)] opacity-90 transition-colors duration-700 lg:flex 2xl:text-xs">
-          {path !== "/" && <AuthenticatedNav />}
+          {path !== "/" && path !== "/docs" && <AuthenticatedNav />}
           {path === "/" && currUser === null && (
             <button onClick={() => toggleShowModal(true)} className="text-[var(--secondarytext)]">
               Sign In
