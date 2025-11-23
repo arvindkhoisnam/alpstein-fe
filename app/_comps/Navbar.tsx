@@ -48,6 +48,9 @@ function Navbar() {
             </button>
           )}
         </div>
+        <Link className="text-[12px] text-[var(--secondarytext)]" href={"/docs"}>
+          Docs
+        </Link>
         <DarkModelToggle />
       </div>
     </div>
