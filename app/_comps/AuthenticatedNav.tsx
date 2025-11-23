@@ -28,14 +28,14 @@ function AuthenticatedNav() {
         });
         setUser(true, res.data.data);
       } catch (err) {
-        if (err instanceof AxiosError) {
+        if (err instanceof AxiosError && activePath !== "/docs") {
           toggleShowModal(true);
           redirect("/");
         }
       }
     }
     getData();
-  }, [setUser, toggleShowModal]);
+  }, [setUser, toggleShowModal, activePath]);
 
   useEffect(() => {
     setActivePath(path.toLowerCase());
