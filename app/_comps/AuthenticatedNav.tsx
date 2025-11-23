@@ -16,7 +16,7 @@ const PATHS = [
 
 function AuthenticatedNav() {
   const [activePath, setActivePath] = useState("/dashboard");
-  const { setUser } = useUser();
+  const { currUser, setUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
   const path = usePathname();
 
@@ -42,33 +42,35 @@ function AuthenticatedNav() {
   }, [path]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 0.7,
-        ease: "easeInOut",
-      }}
-      className="relative hidden items-center gap-6 md:flex"
-    >
-      {PATHS.map(p => (
-        <Link key={p.label} href={p.path} className="relative">
-          {activePath.startsWith(p.path) && (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.7,
-                ease: "easeInOut",
-              }}
-              className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
-            />
-          )}
-          {p.label}
-        </Link>
-      ))}
-      <UserLogo />
-    </motion.div>
+    currUser && (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.7,
+          ease: "easeInOut",
+        }}
+        className="relative hidden items-center gap-6 md:flex"
+      >
+        {PATHS.map(p => (
+          <Link key={p.label} href={p.path} className="relative">
+            {activePath.startsWith(p.path) && (
+              <motion.span
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.7,
+                  ease: "easeInOut",
+                }}
+                className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
+              />
+            )}
+            {p.label}
+          </Link>
+        ))}
+        <UserLogo />
+      </motion.div>
+    )
   );
 }
 
