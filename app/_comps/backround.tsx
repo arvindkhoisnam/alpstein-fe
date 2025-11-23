@@ -191,7 +191,7 @@ export function GridBackgroundDemo() {
           // filter: useMotionTemplate`blur(${translateBlur}px)`,
         }}
         ref={imageRef}
-        className="l:bottom-25 l:h-[200px] l:w-[850px] absolute left-1/2 z-10 hidden -translate-x-1/2 bg-rose-500 md:bottom-65 md:block md:w-[650px] lg:-bottom-5 lg:h-[400px] lg:w-[1100px]"
+        className="l:bottom-25 l:h-[200px] l:w-[850px] absolute left-1/2 z-10 hidden -translate-x-1/2 md:bottom-65 md:block md:w-[650px] lg:-bottom-5 lg:h-[400px] lg:w-[1100px]"
       >
         {/* <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] bg-lime-500 opacity-10"></div> */}
         <Image
