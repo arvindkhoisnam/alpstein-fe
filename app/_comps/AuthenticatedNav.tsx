@@ -42,35 +42,50 @@ function AuthenticatedNav() {
   }, [path]);
 
   return (
-    currUser && (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.7,
-          ease: "easeInOut",
-        }}
-        className="relative hidden items-center gap-6 md:flex"
-      >
-        {PATHS.map(p => (
-          <Link key={p.label} href={p.path} className="relative">
-            {activePath.startsWith(p.path) && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.7,
-                  ease: "easeInOut",
-                }}
-                className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
-              />
-            )}
-            {p.label}
-          </Link>
-        ))}
-        <UserLogo />
-      </motion.div>
-    )
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.7,
+        ease: "easeInOut",
+      }}
+      className="relative hidden items-center gap-6 md:flex"
+    >
+      {PATHS.map(
+        p =>
+          currUser && (
+            <Link key={p.label} href={p.path} className="relative">
+              {activePath.startsWith(p.path) && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    ease: "easeInOut",
+                  }}
+                  className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
+                />
+              )}
+              {p.label}
+            </Link>
+          )
+      )}
+      <Link href={"/docs"} className="relative">
+        {activePath.startsWith("/docs") && (
+          <motion.span
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.7,
+              ease: "easeInOut",
+            }}
+            className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
+          />
+        )}
+        Docs
+      </Link>
+      <UserLogo />
+    </motion.div>
   );
 }
 
