@@ -48,6 +48,7 @@ function Navbar() {
             </button>
           )}
         </div>
+
         <DarkModelToggle />
       </div>
     </div>

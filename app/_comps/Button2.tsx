@@ -33,7 +33,6 @@ function Button2({ text, onClick }: { text: string; onClick: () => void }) {
         )}
       ></span>
       <span className="flex h-full w-full items-center justify-center rounded-lg border border-[var(--btnborder)] bg-[var(--btnbg)] text-xs text-[var(--secondarytext)]">
-        {/* <span className="flex h-full w-full items-center justify-center rounded-lg border border-[var(--btnborder)] bg-transparent text-xs text-[var(--secondarytext)]"> */}
         {text}
       </span>
     </motion.button>

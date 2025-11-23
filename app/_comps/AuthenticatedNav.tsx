@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 
 const PATHS = [
   { label: "News", path: "/dashboard" },
-  // { label: "Docs", path: "/docs" },
+  { label: "Docs", path: "/docs" },
   { label: "Trades", path: "/trades" },
 ];
 
@@ -21,6 +21,7 @@ function AuthenticatedNav() {
   const path = usePathname();
 
   useEffect(() => {
+    if (path.startsWith("/docs")) return;
     async function getData() {
       try {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user`, {
@@ -28,14 +29,14 @@ function AuthenticatedNav() {
         });
         setUser(true, res.data.data);
       } catch (err) {
-        if (err instanceof AxiosError && activePath !== "/docs") {
+        if (err instanceof AxiosError) {
           toggleShowModal(true);
           redirect("/");
         }
       }
     }
     getData();
-  }, [setUser, toggleShowModal, activePath]);
+  }, [setUser, toggleShowModal, path]);
 
   useEffect(() => {
     setActivePath(path.toLowerCase());
@@ -70,7 +71,7 @@ function AuthenticatedNav() {
             </Link>
           )
       )}
-      <Link href={"/docs"} className="relative">
+      {/* <Link href={"/docs"} className="relative">
         {activePath.startsWith("/docs") && (
           <motion.span
             initial={{ opacity: 0, scale: 0.95 }}
@@ -83,7 +84,7 @@ function AuthenticatedNav() {
           />
         )}
         Docs
-      </Link>
+      </Link> */}
       <UserLogo />
     </motion.div>
   );
