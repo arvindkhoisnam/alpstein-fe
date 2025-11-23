@@ -5,7 +5,7 @@ import { cn } from "../lib/utils";
 import LineChart from "./LineChart";
 import { motion } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
-import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
+import PopularSkeleton from "../_skeletons/PopularSkeleton";
 
 type Ticker = {
   symbol: string;
@@ -114,7 +114,7 @@ const COIN_CONFIG: CoinConfig = {
   },
 };
 
-export default function TopPerformers() {
+export default function PopularCoins() {
   const symbols = useMemo(() => {
     const symbols1 = ["btc", "eth", "xrp", "bnb", "sol", "doge", "ada", "link", "dot", "aave"];
     return symbols1;
@@ -182,7 +182,7 @@ export default function TopPerformers() {
   // );
 
   if (isLoading) {
-    return <PerformersSkeleton />;
+    return <PopularSkeleton />;
   }
 
   return (

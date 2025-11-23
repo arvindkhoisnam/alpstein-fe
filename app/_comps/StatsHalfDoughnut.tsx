@@ -1,5 +1,13 @@
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, ChartOptions } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  ChartOptions,
+  ChartData,
+  ScriptableContext,
+} from "chart.js";
 import { useEffect, useState } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -28,58 +36,73 @@ function StatsHalfDoughnut() {
     return () => observer.disconnect();
   });
 
-  const data = {
-    labels: ["#bearish", "#volatility", "#bullish", "#whale"],
-    datasets: [
-      {
-        data: [30, 50, 40, 10],
-        backgroundColor: ["#51a2ff", "#b8e6fe", "#c4b4ff", "#53eafd"],
-        // borderWidth: 4,
-        borderColor: "transparent",
-        borderRadius: 3,
-        hoverOffset: 0,
-        // rotation: 270,
-        // circumference: 180,
-      },
-    ],
-  };
-  // #51a2ff blue
-  // #8e51ff violet
-  // #7c86ff indigo
-  // #74d4ff sky
-  const options: ChartOptions<"doughnut"> = {
+  const options: ChartOptions<"bar"> = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: "90%", // controls the inner hole size
-    plugins: {
-      legend: {
-        position: "right",
-        labels: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: { display: false },
+        ticks: { display: false },
+        border: { display: false },
+      },
+      x: {
+        grid: { display: false },
+        border: { display: false },
+        ticks: {
           color: labelColor,
           font: {
             size: 10,
+            weight: 500,
+            family: "'Inter', sans-serif",
           },
-          padding: 16,
+          padding: 8,
         },
       },
+    },
+    plugins: {
+      legend: { display: false },
+      title: { display: false },
       datalabels: {
-        // color: labelColor,
-        color: "#333",
         display: false,
+        // color: "#333",
       },
-      // tooltip: {
-      //   backgroundColor: "rgba(0, 0, 0, 0.7)",
-      //   titleFont: { size: 13 },
-      //   bodyFont: { size: 12 },
-      //   padding: 8,
-      // },
     },
   };
 
+  const labels = ["#bearish", "#volatility", "#bullish", "#whale"];
+
+  const data: ChartData<"bar"> = {
+    labels,
+    datasets: [
+      {
+        // label: "Articles",
+        data: [65, 59, 80, 40],
+        // backgroundColor: "#a3b3ff",
+        backgroundColor: (ctx: ScriptableContext<"bar">) => {
+          const chart = ctx.chart;
+          const { ctx: canvasCtx, chartArea } = chart;
+
+          if (!chartArea) return undefined; // required for initial load
+
+          // Create gradient top→bottom
+          const gradient = canvasCtx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+          gradient.addColorStop(0.0, "#51a2ff"); // Start
+          gradient.addColorStop(0.33, "#b8e6fe");
+          gradient.addColorStop(0.66, "#c4b4ff");
+          gradient.addColorStop(1.0, "#53eafd"); // End
+
+          return gradient;
+        },
+        borderRadius: 5,
+        barThickness: 5,
+      },
+    ],
+  };
   return (
     <div className="relative max-h-[100%] min-h-[100%] max-w-full rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-2 shadow-lg shadow-gray-500/50">
       <span className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-300 to-transparent"></span>
-      <Doughnut data={data} options={options} />
+      <Bar data={data} options={options} />
     </div>
   );
 }

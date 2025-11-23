@@ -1,88 +1,44 @@
-"use client";
-// import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 
 function PerformersSkeleton() {
-  // const [width, setWidth] = useState(window?.innerWidth);
-  // const [width, setWidth] = useState(0);
-  // const [numSkel, setNumSkel] = useState(() => (window?.innerWidth >= 1024 ? 5 : 4));
-  // const [numSkel, setNumSkel] = useState(4);
-
-  // useEffect(() => {
-  //   function handleResize() {
-  //     setWidth(window.innerWidth);
-  //     if (window.innerWidth >= 1024) {
-  //       setNumSkel(5);
-  //     } else {
-  //       setNumSkel(4);
-  //     }
-  //   }
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-  // useEffect(() => {
-  //   function update() {
-  //     const w = window.innerWidth;
-  //     setWidth(w);
-  //     setNumSkel(w >= 1024 ? 5 : 4);
-  //   }
-
-  //   update(); // run once on mount
-  //   window.addEventListener("resize", update);
-
-  //   return () => window.removeEventListener("resize", update);
-  // }, []);
   return (
-    <div className="flex flex-col gap-2 md:gap-3">
-      <div className="flex flex-col gap-2">
-        {/* <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
-            {width < 1024 ? "Top Four" : "Top Five"}
-          </h2>
-        </div> */}
-        {/* <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-5 md:mask-x-from-100% md:p-0"> */}
-        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div
-              key={index}
-              className={cn(
-                // "relative flex h-[130px] w-56 flex-col justify-between rounded-lg p-3 md:w-52 md:rounded-2xl 2xl:w-56",
-                // "shadow-[var(--shadow)] transition-shadow duration-500"
-                "relative flex h-full flex-col justify-between rounded-md p-3 md:rounded-2xl",
-                "l:h-32 h-26 w-full shadow-[var(--shadow)] transition-shadow duration-500"
-              )}
-            >
+    <div
+      className={cn(
+        "max-h-full max-w-full rounded-2xl",
+        "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
+        "bg-radial-[at_80%_20%] from-transparent from-60% via-indigo-300/20 via-80% to-indigo-400/20 to-100%",
+        "l:grid-rows-2 l:grid-cols-1 grid grid-rows-2 gap-2 p-2 md:grid-cols-2 md:grid-rows-1"
+      )}
+    >
+      <div className="l:h-52 l:p-2 md2:h-76 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 lg:h-full lg:p-3">
+        <h2 className="text-xs font-medium text-[var(--secondarytext)]">Top Gainers</h2>
+        <ul className="l:mt-1 l:gap-2 mt-3 flex flex-col gap-3 lg:mt-3 lg:gap-3">
+          <li className="grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[10px] text-[var(--secondarytext)] lg:text-xs">
+            <span className="flex items-center justify-center">Symbol</span>
+            <span className="flex items-center justify-center">Price</span>
+            <span className="flex items-center justify-center">24hChange</span>
+          </li>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <li className="relative h-5 overflow-hidden" key={index}>
               <span className="absolute top-0 left-0 h-[100%] w-30 animate-[skeleton-shimmer_1s_linear_infinite] bg-gradient-to-r from-transparent via-[var(--skeleton)] to-transparent"></span>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-      <div className="flex flex-col gap-2">
-        {/* <div className="flex items-center justify-between">
-          <h2 className="text-sm text-[var(--primarytext)] md:text-lg">
-            {width < 1024 ? "Bottom Four" : "Bottom Five"}
-          </h2>
-        </div> */}
-        {/* <div className="mx-auto flex h-full w-[95%] grid-cols-2 gap-2 overflow-x-auto mask-x-from-95% py-2 md:grid md:w-full md:grid-cols-5 md:mask-x-from-100% md:p-0"> */}
-        <div className="l:grid-cols-5 mx-auto grid h-full w-[95%] grid-cols-2 gap-2 py-2 md:grid-cols-2 xl:grid xl:w-full xl:mask-x-from-100% xl:p-0">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div
-              key={index}
-              className={cn(
-                // "relative flex h-[130px] w-56 flex-col justify-between rounded-lg p-3 md:w-52 md:rounded-2xl 2xl:w-56",
-                // "shadow-[var(--shadow)] transition-shadow duration-500"
-                "relative flex h-full flex-col justify-between rounded-md p-3 md:rounded-2xl",
-                "l:h-32 h-26 w-full shadow-[var(--shadow)] transition-shadow duration-500"
-              )}
-            >
+      <div className="l:h-52 l:p-2 md2:h-76 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 lg:h-full lg:p-3">
+        <h2 className="text-xs font-medium text-[var(--secondarytext)]">Top Losers</h2>
+        <ul className="l:mt-1 l:gap-2 mt-3 flex flex-col gap-3 lg:mt-3 lg:gap-3">
+          <li className="grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[10px] text-[var(--secondarytext)] lg:text-xs">
+            <span className="flex items-center justify-center">Symbol</span>
+            <span className="flex items-center justify-center">Price</span>
+            <span className="flex items-center justify-center">24hChange</span>
+          </li>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <li className="relative h-5 overflow-hidden" key={index}>
               <span className="absolute top-0 left-0 h-[100%] w-30 animate-[skeleton-shimmer_1s_linear_infinite] bg-gradient-to-r from-transparent via-[var(--skeleton)] to-transparent"></span>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );

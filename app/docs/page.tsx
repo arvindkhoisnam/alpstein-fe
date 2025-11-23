@@ -1,3 +1,4 @@
+import DocsImage from "../_comps/DocsImage";
 import { cn } from "../lib/utils";
 function page() {
   return (
@@ -5,7 +6,6 @@ function page() {
       className={cn(
         "flex h-full items-center justify-center md:h-screen",
         "mx-auto max-w-[1440px] p-2 lg:flex lg:items-center lg:gap-0 lg:p-0",
-        // "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
         "bg-[var(--background)]"
       )}
     >
@@ -39,23 +39,7 @@ function page() {
               }}
             ></div>
             <div className="md:pt-10">
-              <div
-                className="relative hidden h-20 w-full rounded-lg border border-[var(--cardborder)] md:block md:h-32 lg:h-44"
-                style={{
-                  backgroundImage: "url(/alps-range.jpg)",
-                  backgroundPosition: "top", // centers the image
-                  backgroundSize: "cover", // ensures it fills the div nicely
-                }}
-              >
-                <div className="absolute inset-0 rounded-md bg-neutral-700/30" />
-                <div className="absolute bottom-5 left-0 pl-10 text-neutral-700 lg:w-2/5">
-                  <h2 className="text-2xl font-medium">Welcome to Alpstein</h2>
-                  <p className="text-[10px] leading-[15px] font-extralight text-wrap md:text-xs lg:text-sm">
-                    Alpstein empowers you to make smart crypto decisions. Giving you an extra edge
-                    with assisted AI insights.
-                  </p>
-                </div>
-              </div>
+              <DocsImage />
               <div className="w-full tracking-wide text-[var(--primarytext)] md:mt-7 md:px-10 lg:mt-14 xl:px-20">
                 <h3 className="text-2xl font-medium">About</h3>
                 <div className="my-5 text-xs font-light text-[var(--secondarytext)] md:text-sm">
@@ -105,29 +89,6 @@ function page() {
                   </p>
                 </div>
               </div>
-              {/* <div className="my-14 w-full px-20 tracking-wide text-[var(--primarytext)]">
-                <h3 className="text-2xl font-medium">What Alpstein does</h3>
-                <p className="my-5 text-sm font-extralight">
-                  Alpstein constantly gathers news from trusted crypto sites like CoinTelegraph, The
-                  Block, and NewsBTC.
-                  <p>It then uses AI to:</p>
-                  <ul className="my-2 flex flex-col gap-2 pl-4">
-                    <li>
-                      Summarize the articles so you don&apos;t have to read through pages of text.
-                    </li>
-                    <li>Judge the market mood — is the story bullish, bearish, or unclear?</li>
-                    <li>
-                      Suggest what to watch — like possible buy or sell levels, take-profit zones,
-                      and stop-loss points.
-                    </li>
-                  </ul>
-                  <p className="">
-                    So instead of juggling ten tabs, you get one screen that shows what&apos;s
-                    happening, what people are saying, and what the numbers are telling you — all
-                    updated live.
-                  </p>
-                </p>
-              </div> */}
             </div>
             <div
               className="hidden min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"

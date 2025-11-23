@@ -14,10 +14,6 @@ function AppStats() {
       <Comp1 label={"Positions generated "} graph={<StatsDoughnutGraph />} />
       <Comp1 label={"Weekly performance"} graph={<StatsPoleAreaGraph />} />
       <Comp1 label={"Week's sentiments"} graph={<StatsHalfDoughnut />} />
-      {/* <div className="h-full w-full bg-lime-500">f</div>
-      <div className="h-full w-full bg-lime-600">f</div>
-      <div className="h-full w-full bg-lime-700">fsafsd</div>
-      <div className="h-full w-full bg-lime-800">rwerew</div> */}
     </div>
   );
 }

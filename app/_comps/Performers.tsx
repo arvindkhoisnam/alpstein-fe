@@ -4,6 +4,7 @@ import Gainers from "./Gainers";
 import Losers from "./Losers";
 import axios from "axios";
 import { useState } from "react";
+import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
 
 type TickerStats = {
   symbol: string;
@@ -70,6 +71,9 @@ function Performers() {
       return res.data;
     },
   });
+  if (isLoading) {
+    return <PerformersSkeleton />;
+  }
   return (
     <div
       className={cn(

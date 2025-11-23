@@ -10,9 +10,7 @@ function PremiumCard() {
   // const [background, setBackground] = useState("#e7e5e4");
   // const [background, setBackground] = useState("#09090b");
   const COLORS = useMemo(() => ["#1E67C6", "#CE84CF", "#715bff"], []);
-  // const COLORS = ["#1E67C6", "#CE84CF", "#715bff"];
   const color = useMotionValue(COLORS[0]);
-  // const backgroundImage = useMotionTemplate`radial-gradient(170% 170% at 50% 0%, ${background} 45%,${color})`;
   const backgroundImage = useMotionTemplate`radial-gradient(170% 170% at 50% 0%, transparent 45%,${color})`;
   useEffect(() => {
     animate(color, COLORS, {
@@ -53,19 +51,20 @@ function PremiumCard() {
         backgroundImage,
       }}
       className={cn(
-        "l:h-51 l2:h-64 md2:h-80 relative grid h-full w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-70 lg:flex-1",
+        "l:h-51 l2:h-64 md2:h-80 relative grid h-full min-h-0 w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-70 lg:flex-1",
         // "shadow-[var(--shadow)] transition-shadow duration-500"
-        "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/20 backdrop-blur-xl"
+        // "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/20 backdrop-blur-xl",
+        "flex flex-col gap-6 bg-[var(--stats-comp-inner)]/60"
       )}
     >
-      <div className="l:p-0 l:gap-3 l2:gap-10 flex flex-col gap-10 p-8">
-        <div className="flex cursor-pointer items-center gap-2 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:text-sm lg:text-sm">
+      <div className="l:p-0 l:gap-3 l2:gap-4 flex flex-col gap-10">
+        <div className="flex cursor-pointer items-center gap-2 p-6 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:text-sm lg:text-sm">
           <span>
             <GiMountaintop size={30} />
           </span>
           <span>Alpstein</span>
         </div>
-        <div className="flex w-full flex-col gap-3">
+        <div className="flex w-full flex-col gap-3 p-4">
           <h2 className="text-sm font-extralight text-[var(--primarytext)] md:text-sm">
             Become a Premium Member
           </h2>
