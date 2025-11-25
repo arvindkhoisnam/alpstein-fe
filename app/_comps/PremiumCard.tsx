@@ -4,7 +4,7 @@ import { useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { cn } from "../lib/utils";
-import { GiMountaintop } from "react-icons/gi";
+// import { GiMountaintop } from "react-icons/gi";
 
 function PremiumCard() {
   // const [background, setBackground] = useState("#e7e5e4");
@@ -51,13 +51,13 @@ function PremiumCard() {
         backgroundImage,
       }}
       className={cn(
-        "l:h-51 l2:h-64 md2:h-80 relative grid h-full min-h-0 w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-70 lg:flex-1",
+        "l:h-51 l2:h-64 md2:h-68 relative grid h-full min-h-0 w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-56 lg:flex-1",
         // "shadow-[var(--shadow)] transition-shadow duration-500"
         // "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/20 backdrop-blur-xl",
         "flex flex-col gap-6 bg-[var(--stats-comp-inner)]/60"
       )}
     >
-      <div className="l:p-0 l:gap-3 l2:gap-4 flex flex-col gap-10">
+      {/* <div className="l:p-0 l:gap-3 l2:gap-4 flex flex-col gap-10">
         <div className="flex cursor-pointer items-center gap-2 p-6 text-sm text-[var(--logostroke)] opacity-90 transition-colors duration-700 md:text-sm lg:text-sm">
           <span>
             <GiMountaintop size={30} />
@@ -95,7 +95,7 @@ function PremiumCard() {
         >
           Become a member
         </button>
-      </div>
+      </div> */}
       <div className="absolute inset-0 z-0">
         <Canvas>
           <Stars radius={200} count={200} factor={10} fade speed={1} />
