@@ -17,6 +17,7 @@ import {
 } from "chart.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { cn } from "../lib/utils";
 
 ChartJS.register(
   CategoryScale,
@@ -176,7 +177,12 @@ export default function LineChart({ coin, direction }: { coin: string; direction
     },
   };
   return (
-    <div className="l:block l:max-h-14 hidden max-h-12 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90% md:max-h-18 lg:max-h-18">
+    <div
+      className={cn(
+        "[@media(min-width:1024px)_and_(min-height:1366px)]:hidden",
+        "l:block l:max-h-14 hidden max-h-12 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90% md:max-h-18 lg:max-h-18"
+      )}
+    >
       {/* <div className="max-h-10 mask-t-from-80% mask-r-from-90% mask-b-from-80% mask-l-from-90%"> */}
       <Line options={options} data={DATA} />
     </div>

@@ -195,10 +195,22 @@ export default function PopularCoins() {
         "gap-2 p-2"
       )}
     >
-      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
+      <div
+        className={cn(
+          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex",
+          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex-col",
+          "l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col"
+        )}
+      >
         {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
-      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
+      <div
+        className={cn(
+          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex",
+          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex-col",
+          "l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col"
+        )}
+      >
         {!isLoading && data?.slice(4, bot).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
     </div>
@@ -217,6 +229,7 @@ function Coin({
   return (
     <motion.div
       className={cn(
+        "[@media(min-width:1024px)_and_(min-height:1366px)]:h-22",
         "l:h-25 md2:h-full relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16 lg:h-32",
         // "shadow-[var(--shadow)] transition-shadow duration-500",
         "w-full",

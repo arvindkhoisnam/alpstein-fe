@@ -77,6 +77,8 @@ function Performers() {
   return (
     <div
       className={cn(
+        "[@media(min-width:1024px)_and_(min-height:1366px)]:grid-rows-1",
+        "[@media(min-width:1024px)_and_(min-height:1366px)]:grid-cols-2",
         "h-full w-full rounded-2xl",
         "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
         "bg-radial-[at_80%_20%] from-transparent from-60% via-indigo-300/20 via-80% to-indigo-400/20 to-100%",
