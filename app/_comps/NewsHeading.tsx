@@ -18,7 +18,7 @@ function NewsHeading() {
         <span className="text-sm font-semibold">News</span>
         {/* <span>News</span> */}
         <a
-          className="flex cursor-pointer items-center gap-1 text-[10px] text-blue-500 hover:text-blue-500"
+          className="flex cursor-pointer items-center gap-1 text-[10px] font-medium text-blue-500 hover:text-blue-600"
           href={cryptoData?.sourceurl}
           target="_blank"
         >
@@ -27,7 +27,7 @@ function NewsHeading() {
         </a>
       </div>
       {/* <p className="text-[12px]"> */}
-      <p className="text-[10px] font-light text-[var(--primarytext)] 2xl:text-[12px]">
+      <p className="text-[10px] font-medium text-[var(--primarytext)] 2xl:text-[12px]">
         {cryptoData?.heading}
       </p>
     </motion.h1>

@@ -40,7 +40,7 @@ function PubOpinion() {
         case "down":
           setDownSelect(true);
           setVoteCasted(true);
-          setMessage("You've already casted you vote for this signal");
+          setMessage("You've already casted you vote");
           break;
         case "":
           setVoteCasted(false);
@@ -96,7 +96,7 @@ function PubOpinion() {
         />
       </div>
       <span
-        className={`text-center text-[12px] font-extralight md:text-[10px] 2xl:text-[12px] ${voteCasted ? "text-blue-600" : "text-[var(--secondarytext)]"}`}
+        className={`text-center text-[12px] font-medium md:text-[10px] 2xl:text-[12px] ${voteCasted ? "text-blue-500" : "text-[var(--secondarytext)]"}`}
       >
         {message}
       </span>
@@ -138,7 +138,7 @@ function Comp({
         "flex flex-col items-center justify-center rounded-lg text-[10px] text-[var(--secondarytext)]"
       )}
     >
-      <span className={`flex items-center gap-1`}>
+      <span className={`flex items-center gap-1 font-medium`}>
         <button
           disabled={voteCasted}
           onClick={() => {
@@ -167,7 +167,7 @@ function Comp({
         </button>
         {label}
       </span>
-      <span className="text-lg font-light text-[var(--primarytext)]">{val}</span>
+      <span className="text-lg font-medium text-[var(--primarytext)]">{val}</span>
     </div>
   );
 }

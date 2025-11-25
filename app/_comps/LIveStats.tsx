@@ -71,7 +71,7 @@ function Comp({
         )}
       </div>
       {/* <span className="text-base font-light text-[var(--primarytext)] md:text-lg"> */}
-      <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">{val}</span>
+      <span className="text-base font-medium text-[var(--primarytext)] 2xl:text-lg">{val}</span>
     </div>
   );
 }
@@ -137,7 +137,7 @@ export function PandL({ id }: { id?: string }) {
         <span
           className={cn(
             // "text-base font-light text-[var(--primarytext)] md:text-lg",
-            "text-base font-light text-[var(--primarytext)] 2xl:text-lg",
+            "text-base font-medium text-[var(--primarytext)] 2xl:text-lg",
             `${kind === "profit" ? "text-green-500" : "text-red-500"}`
           )}
         >

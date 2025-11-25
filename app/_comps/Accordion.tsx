@@ -70,7 +70,7 @@ function Accordion() {
       {cryptoData?.waitout !== "" && cryptoData?.position !== "unclear" && (
         <Comp
           index={3}
-          heading="Why should you consider waiting out."
+          heading="Why should you consider waiting out"
           content={cryptoData!.waitout}
           activeIndex={activeIndex}
           setActiveIndex={setIndex}
@@ -103,21 +103,23 @@ function Comp({
   const show = activeIndex === index;
   return (
     <div
-      className={cn(`relative w-full ${!show ? "h-12" : "h-36"} p-3 transition-all duration-500`)}
+      className={cn(
+        `relative w-full ${!show ? "h-12" : "h-36"} p-3 font-medium transition-all duration-500`
+      )}
     >
       <motion.div
         variants={childVariant}
         className="flex cursor-pointer items-center justify-between text-[var(--secondarytext)]"
         onClick={() => setActiveIndex(show ? null : index)}
       >
-        <p className="text-[12px]">{heading}</p>
+        <p className="text-[14px] font-bold">{heading}</p>
         <button className="cursor-pointer text-[--primarytext]">
           {!show ? <IoChevronDown /> : <IoChevronUp />}
         </button>
       </motion.div>
 
       <motion.p
-        className={`my-2 ml-4 text-[10px] text-[var(--secondarytext)] transition-all 2xl:text-[12px] ${show ? "max-h-30 max-w-full overflow-y-auto opacity-100" : "opacity-0"} transition-all duration-500`}
+        className={`my-2 ml-4 text-[10px] text-[var(--primarytext)] transition-all 2xl:text-[12px] ${show ? "max-h-28 max-w-full overflow-y-auto opacity-100 md:max-h-38" : "opacity-0"} transition-all duration-500`}
       >
         {content}
       </motion.p>

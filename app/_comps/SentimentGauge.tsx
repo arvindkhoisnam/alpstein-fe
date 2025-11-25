@@ -201,7 +201,7 @@ function SentimentGauge() {
         plugins={[gaugeNeedle]}
         style={{ backgroundColor: "transparent", height: "120px", width: "120px" }}
       />
-      <div className="absolute bottom-3 left-1/2 flex w-[95%] -translate-x-1/2 items-center justify-center gap-3 text-[10px] text-[var(--secondarytext)]">
+      <div className="absolute bottom-3 left-1/2 flex w-[95%] -translate-x-1/2 items-center justify-center gap-3 text-[10px] font-medium text-[var(--secondarytext)]">
         <div className="flex items-center gap-1">
           <span className="size-2 rounded-full bg-[#ffa2a2]" />
           Bearish

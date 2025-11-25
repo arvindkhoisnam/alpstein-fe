@@ -12,8 +12,6 @@ import GaugeSkeleton from "../_skeletons/GaugeSkeleton";
 import { motion } from "motion/react";
 import CoinHeading from "./CoinHeading";
 import AccordionSkeleton from "../_skeletons/AccordionSkeleton";
-import LIveStats from "./LIveStats";
-// import TVCandleStick from "./TVCandleStick";
 import TVCandleModal from "./TVCandleModal";
 import TVLineModal from "./TVModal";
 import NewsHeading from "./NewsHeading";
@@ -28,6 +26,7 @@ const Signals = dynamic(() => import("./Signals"), {
 });
 const Indicators = dynamic(() => import("./Indicators"), { ssr: false });
 const Stats = dynamic(() => import("./Stats"), { ssr: false });
+const LiveStats = dynamic(() => import("./LIveStats"), { ssr: false });
 const PubOpinion = dynamic(() => import("./PubOpinion"), { ssr: false });
 const TradingView = dynamic(() => import("./TradingView"), { ssr: false });
 const TVCandleStick = dynamic(() => import("./TVCandleStick"), { ssr: false });
@@ -70,7 +69,7 @@ function CryptoDash() {
             <Signals includeHeading={true} />
             <Indicators />
             <Stats />
-            <LIveStats includeHeading={true} />
+            <LiveStats includeHeading={true} />
           </motion.div>
         )}
         {currTab === 1 && (
@@ -120,10 +119,7 @@ function CryptoDash() {
       </div>
       <div
         id="crypto-dash-parent"
-        className={cn(
-          // "relative hidden h-[calc(100vh-110px)] gap-2 md:grid md:w-full md:grid-cols-[1fr_2fr_1fr]"
-          "relative hidden h-full gap-2 lg:grid lg:w-full lg:grid-cols-[1fr_2fr_1fr]"
-        )}
+        className={cn("relative hidden h-full gap-2 lg:grid lg:w-full lg:grid-cols-[1fr_2fr_1fr]")}
       >
         <motion.div
           key={currentCryptoId}
@@ -148,7 +144,7 @@ function CryptoDash() {
           <Signals includeHeading={true} />
           <Indicators />
           <Stats />
-          <LIveStats includeHeading={true} />
+          <LiveStats includeHeading={true} />
         </motion.div>
         <motion.div
           initial={{

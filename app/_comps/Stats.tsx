@@ -103,7 +103,7 @@ function Comp({ label, val, Logo }: { label: string; val: string; Logo: IconType
         </span>
       </div>
       {/* <span className="text-base font-light text-[var(--primarytext)] md:text-lg"> */}
-      <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">{val}</span>
+      <span className="font-mdeium text-base text-[var(--primarytext)] 2xl:text-lg">{val}</span>
     </div>
   );
 }

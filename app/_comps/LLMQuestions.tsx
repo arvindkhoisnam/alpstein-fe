@@ -64,7 +64,6 @@ function LLMQuestions() {
             `${mask}`
           )}
         >
-          {/* <span className="text-sm text-[var(--secondarytext)]">About {cryptoData?.symbol}</span> */}
           {cryptoData?.about}
         </div>
       </div>

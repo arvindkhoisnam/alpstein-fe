@@ -67,7 +67,7 @@ function AuthenticatedNav() {
                   className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
                 />
               )}
-              {p.label}
+              <span className="font-medium md:text-sm">{p.label}</span>
             </Link>
           )
       )}

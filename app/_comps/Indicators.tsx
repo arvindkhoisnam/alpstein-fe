@@ -147,7 +147,7 @@ function Indicator({ label, val, Logo }: { label: string; val: string; Logo: Ico
           ""
         )}
       </div>
-      <span className="text-base font-light text-[var(--primarytext)] 2xl:text-lg">{val}</span>
+      <span className="text-base font-medium text-[var(--primarytext)] 2xl:text-lg">{val}</span>
     </motion.div>
   );
 }
