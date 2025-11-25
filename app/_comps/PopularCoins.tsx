@@ -188,7 +188,7 @@ export default function PopularCoins() {
   return (
     <div
       className={cn(
-        "flex max-h-full flex-col",
+        "flex h-full flex-col",
         "rounded-2xl",
         "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
         "bg-radial-[at_80%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%",
