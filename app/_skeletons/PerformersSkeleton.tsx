@@ -10,10 +10,12 @@ function PerformersSkeleton() {
         "l:grid-rows-2 l:grid-cols-1 grid grid-rows-2 gap-2 p-2 md:grid-cols-2 md:grid-rows-1"
       )}
     >
-      <div className="l:h-52 l:p-2 md2:h-76 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 lg:h-full lg:p-3">
-        <h2 className="text-xs font-medium text-[var(--secondarytext)]">Top Gainers</h2>
-        <ul className="l:mt-1 l:gap-2 mt-3 flex flex-col gap-3 lg:mt-3 lg:gap-3">
-          <li className="grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[10px] text-[var(--secondarytext)] lg:text-xs">
+      <div className="l:h-52 l:p-2 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 md:h-full lg:h-full lg:p-3">
+        <h2 className="text-xs font-medium text-[var(--secondarytext)] md:text-base">
+          Top Gainers
+        </h2>
+        <ul className="l:mt-1 l:gap-2 mt-3 flex flex-col gap-3 md:gap-4 lg:mt-3 lg:gap-3">
+          <li className="grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[10px] text-[var(--secondarytext)] md:text-base lg:text-xs">
             <span className="flex items-center justify-center">Symbol</span>
             <span className="flex items-center justify-center">Price</span>
             <span className="flex items-center justify-center">24hChange</span>
@@ -25,10 +27,10 @@ function PerformersSkeleton() {
           ))}
         </ul>
       </div>
-      <div className="l:h-52 l:p-2 md2:h-76 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 lg:h-full lg:p-3">
-        <h2 className="text-xs font-medium text-[var(--secondarytext)]">Top Losers</h2>
-        <ul className="l:mt-1 l:gap-2 mt-3 flex flex-col gap-3 lg:mt-3 lg:gap-3">
-          <li className="grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[10px] text-[var(--secondarytext)] lg:text-xs">
+      <div className="l:h-52 l:p-2 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 md:h-full lg:h-full lg:p-3">
+        <h2 className="text-xs font-medium text-[var(--secondarytext)] md:text-base">Top Losers</h2>
+        <ul className="l:mt-1 l:gap-2 mt-3 flex flex-col gap-3 md:gap-4 lg:mt-3 lg:gap-3">
+          <li className="grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[10px] text-[var(--secondarytext)] md:text-base lg:text-xs">
             <span className="flex items-center justify-center">Symbol</span>
             <span className="flex items-center justify-center">Price</span>
             <span className="flex items-center justify-center">24hChange</span>

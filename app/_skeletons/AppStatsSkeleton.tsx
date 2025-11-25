@@ -18,7 +18,7 @@ function AppStatsSkeleton() {
             "bg-radial-[at_20%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%"
           )}
         >
-          <h2 className="l:text-sm flex items-center gap-1 text-xs font-light text-[var(--secondarytext)] md:gap-2">
+          <h2 className="l:text-sm flex items-center gap-1 text-xs font-light text-[var(--secondarytext)] md:gap-2 md:text-base">
             {label}
           </h2>
           <div className="min-h-0 flex-1">
