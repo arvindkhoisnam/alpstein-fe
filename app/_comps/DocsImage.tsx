@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function DocsImage() {
   return (
-    <div className="relative hidden h-20 w-full rounded-lg border border-[var(--cardborder)] md:block md:h-32 lg:h-44">
+    <div className="relative mx-auto hidden h-20 w-[95%] rounded-lg md:block md:h-32 lg:h-44">
       <Image
         loading="lazy"
         src="/alps-range.jpg"
@@ -13,9 +13,9 @@ export default function DocsImage() {
       />
 
       <div className="absolute inset-0 rounded-md bg-neutral-700/30" />
-      <div className="absolute bottom-5 left-0 pl-10 text-neutral-700 lg:w-2/5">
+      <div className="absolute bottom-3 left-0 pl-10 text-neutral-700 lg:w-3/7">
         <h2 className="text-2xl font-medium">Welcome to Alpstein</h2>
-        <p className="text-[10px] leading-[15px] font-extralight text-wrap md:text-xs lg:text-sm">
+        <p className="text-neutral-20-0 text-[10px] leading-[15px] font-light tracking-wide text-wrap md:text-xs lg:text-sm">
           Alpstein empowers you to make smart crypto decisions. Giving you an extra edge with
           assisted AI insights.
         </p>

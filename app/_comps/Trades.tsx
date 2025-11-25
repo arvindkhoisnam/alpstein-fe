@@ -6,15 +6,19 @@ import { useQuery } from "@tanstack/react-query";
 import { CryptoData, useAllTrades, useTradePaginate } from "../lib/zustand";
 import Spinner from "../_comps/Spinner";
 import { useRouter } from "next/navigation";
-import TradesPaginate from "../_comps/TradesPaginate";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function Trades() {
-  const { setCursor } = useTradePaginate();
   const { allTrades, setAllTrades } = useAllTrades();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const debounceTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { HasNextPage, LastSeenId, LastSeenTimeStamp, setCursor } = useTradePaginate();
+  const [loadingMore, setLoadingMore] = useState(false);
+
   const { data, isLoading } = useQuery({
     queryKey: ["finished_trades"],
     queryFn: async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exec-cryptos?limit=${12}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exec-cryptos?limit=${20}`, {
         withCredentials: true,
       });
 
@@ -30,15 +34,65 @@ function Trades() {
       return res.data.data;
     },
   });
+
+  const fetchMore = useCallback(async () => {
+    setLoadingMore(true);
+    const res = await axios.get(
+      `https://api.alpstein.tech/api/v1/exec-cryptos?action=next&limit=${10}&last_seen=${LastSeenTimeStamp}|${LastSeenId}`,
+      {
+        withCredentials: true,
+      }
+    );
+    const newArr = [...allTrades, ...res.data.data];
+    setAllTrades(newArr);
+    setCursor(
+      res.data.metadata.hasPrevPage,
+      res.data.metadata.hasNextPage,
+      res.data.metadata.lastSeenId,
+      res.data.metadata.lastSeenTime,
+      res.data.metadata.firstSeenId,
+      res.data.metadata.firstSeenTime
+    );
+    setLoadingMore(false);
+  }, [LastSeenTimeStamp, LastSeenId, setAllTrades, setCursor, allTrades]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const container = ref.current;
+    let lastScrollTop = container.scrollTop;
+
+    function handleScroll() {
+      if (debounceTimeout.current != null) {
+        console.log("Debounced");
+        return;
+      }
+      const { scrollTop, scrollHeight, clientHeight } = container;
+
+      const isScrollingDown = scrollTop > lastScrollTop;
+
+      if (isScrollingDown) {
+        const progress = Math.floor((scrollTop / (scrollHeight - clientHeight)) * 100);
+        if (progress >= 99 && HasNextPage) {
+          console.log("Fetching more...");
+
+          debounceTimeout.current = setTimeout(() => {
+            fetchMore();
+            clearTimeout(debounceTimeout.current!);
+            debounceTimeout.current = null;
+          }, 1000);
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [fetchMore, HasNextPage]);
+
   return (
-    <div
-      className={cn(
-        "mx-auto max-w-[1440px] p-2 lg:flex lg:items-center lg:gap-4 lg:p-0"
-        // "bg-gradient-to-tl from-transparent from-20% via-slate-600/20 via-50% to-transparent to-80%"
-      )}
-    >
+    <div className={cn("mx-auto flex h-screen max-w-[1440px] justify-between gap-4 p-2 lg:p-0")}>
       <div
-        className="hidden h-screen min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"
+        className="hidden h-full min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"
         style={{
           backgroundImage: `repeating-linear-gradient(315deg, var(--stripes) 0, var(--stripes) 1px, transparent 0, transparent 50%)`,
           backgroundSize: "10px 10px",
@@ -51,7 +105,20 @@ function Trades() {
       )}
 
       {data && (
-        <div className="mt-20 flex w-full flex-col overflow-scroll rounded-xl border border-neutral-700/50 bg-neutral-600/10 lg:mt-0">
+        <div ref={ref} className="relative my-14 flex w-full flex-col overflow-y-auto lg:mt-20">
+          <div
+            className={`sticky top-0 left-0 grid w-full grid-cols-6 rounded bg-indigo-200 p-3 text-[9px] font-medium text-zinc-700 md:gap-4 md:p-4 md:text-sm 2xl:p-1`}
+          >
+            <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
+              <span>Coin</span>
+            </div>
+            <div className={`0 flex items-center justify-center gap-1 lg:gap-2`}>Review</div>
+            <div className={`flex items-center justify-center gap-1 lg:gap-2`}>Status</div>
+            <div className="flex items-center justify-center">Position</div>
+            <div className="flex items-center justify-center">Triggerd at</div>
+            <div className="flex items-center justify-center">Closure at</div>
+          </div>
+
           {allTrades.map((d: CryptoData, index: number) => (
             <Comp
               dataLength={allTrades.length}
@@ -65,11 +132,16 @@ function Trades() {
               closeTime={d.closureat}
             />
           ))}
-          <TradesPaginate />
+          {/* <TradesPaginate /> */}
+          {loadingMore && (
+            <div className="flex w-full justify-center">
+              <Spinner showPrice={false} />
+            </div>
+          )}
         </div>
       )}
       <div
-        className="hidden h-screen min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"
+        className="hidden h-full min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"
         style={{
           backgroundImage: `repeating-linear-gradient(315deg, var(--stripes) 0, var(--stripes) 1px, transparent 0, transparent 50%)`,
           backgroundSize: "10px 10px",
@@ -113,27 +185,30 @@ function Comp({
   }
   return (
     <div
-      className={`grid grid-cols-6 p-3 text-[8px] font-extralight text-[var(--secondarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b border-neutral-700/50" : ""} `}
+      className={`grid grid-cols-6 p-3 text-[9px] font-medium text-[var(--primarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b-[0.5px] border-neutral-700/50" : ""} `}
     >
-      <div className="flex items-center justify-start gap-1 pl-3 md:pl-6">
+      <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
+        <span>{index + 1}.</span>
         <Image height={20} width={20} src={`/${symbol}.png`} alt="crypto-image" />
         <span>{symbol}</span>
       </div>
-      <button
-        className="flex w-fit cursor-pointer items-center justify-start rounded-full bg-sky-700/20 px-2 text-sky-600 hover:text-indigo-600 lg:font-medium"
-        onClick={() => router.replace(`/trades/${id}`)}
-      >
-        review
-      </button>
-      <div className={`flex items-center justify-start gap-1 lg:gap-2`}>
+      <div className="flex w-full items-center justify-center">
+        <button
+          className="flex w-fit cursor-pointer items-center justify-center rounded-full bg-sky-700/20 px-2 text-sky-600 hover:text-indigo-600 lg:font-medium"
+          onClick={() => router.replace(`/trades/${id}`)}
+        >
+          review
+        </button>
+      </div>
+      <div className={`flex items-center justify-center gap-1 lg:gap-2`}>
         <span
           className={`size-1 rounded-full md:size-2 ${status === "sl_hit" ? "bg-red-500" : "bg-green-500"}`}
         ></span>
         {status}
       </div>
-      <div className="flex items-center justify-start">{position}</div>
-      <div className="flex items-center justify-start text-[7px] md:text-xs">{`${timeFormat(trigTime)} | ${dateFormatter(trigTime)}`}</div>
-      <div className="flex items-center justify-start text-[7px] md:text-xs">{`${timeFormat(closeTime)} | ${dateFormatter(closeTime)}`}</div>
+      <div className="flex items-center justify-center">{position}</div>
+      <div className="flex items-center justify-center text-[8px] md:text-xs">{`${timeFormat(trigTime)}|${dateFormatter(trigTime)}`}</div>
+      <div className="flex items-center justify-center text-[8px] md:text-xs">{`${timeFormat(closeTime)}|${dateFormatter(closeTime)}`}</div>
     </div>
   );
 }

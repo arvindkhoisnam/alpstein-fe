@@ -13,7 +13,7 @@ import { motion } from "motion/react";
 import CoinHeading from "./CoinHeading";
 import AccordionSkeleton from "../_skeletons/AccordionSkeleton";
 import LIveStats from "./LIveStats";
-import TVCandleStick from "./TVCandleStick";
+// import TVCandleStick from "./TVCandleStick";
 import TVCandleModal from "./TVCandleModal";
 import TVLineModal from "./TVModal";
 import NewsHeading from "./NewsHeading";
@@ -30,6 +30,7 @@ const Indicators = dynamic(() => import("./Indicators"), { ssr: false });
 const Stats = dynamic(() => import("./Stats"), { ssr: false });
 const PubOpinion = dynamic(() => import("./PubOpinion"), { ssr: false });
 const TradingView = dynamic(() => import("./TradingView"), { ssr: false });
+const TVCandleStick = dynamic(() => import("./TVCandleStick"), { ssr: false });
 const Accordion = dynamic(() => import("./Accordion"), {
   ssr: false,
   loading: () => <AccordionSkeleton />,
@@ -45,7 +46,7 @@ function CryptoDash() {
 
   return (
     <div className={cn("lg:mt-14", "2xl:mt-20")}>
-      <div className="my-10 lg:hidden">
+      <div className="my-12 lg:hidden">
         <DashNav />
         {currTab === 0 && (
           <motion.div
@@ -87,19 +88,9 @@ function CryptoDash() {
               ease: "easeIn",
               delay: 0.3,
             }}
-            className="flex h-[calc(100vh-96px)] flex-col gap-2 py-2"
+            className="grid h-[calc(100vh-150px)] grid-rows-2 gap-2"
           >
-            {currChart === "area" ? (
-              <>
-                <TradingView />
-                {showAreaModal && <TVLineModal />}
-              </>
-            ) : (
-              <>
-                <TVCandleStick />
-                {showCandleModal && <TVCandleModal />}
-              </>
-            )}
+            {currChart === "area" ? <TradingView /> : <TVCandleStick />}
             <Accordion />
           </motion.div>
         )}

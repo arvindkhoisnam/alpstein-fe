@@ -107,7 +107,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="mt-5 mb-10 px-4 text-center text-[10px] leading-5 font-extralight text-[var(--secondarytext)] transition-colors duration-500 md:px-0 md:text-sm lg:text-base"
+          className="mt-5 mb-10 px-4 text-center text-[10px] leading-5 font-medium tracking-wide text-[var(--secondarytext)] transition-colors duration-500 md:px-0 md:text-sm lg:text-base"
         >
           Make crypto articles make sense. Intense, data heavy blogs cleansed and made actionable.
         </motion.p>

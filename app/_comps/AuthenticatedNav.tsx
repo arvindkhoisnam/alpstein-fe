@@ -71,20 +71,6 @@ function AuthenticatedNav() {
             </Link>
           )
       )}
-      {/* <Link href={"/docs"} className="relative">
-        {activePath.startsWith("/docs") && (
-          <motion.span
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.7,
-              ease: "easeInOut",
-            }}
-            className="inxet-x-0 absolute -bottom-0.5 h-0.5 w-full bg-[var(--secondarytext)]"
-          />
-        )}
-        Docs
-      </Link> */}
       <UserLogo />
     </motion.div>
   );

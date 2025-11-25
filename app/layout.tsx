@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inconsolata } from "next/font/google";
 import "./globals.css";
 import Provider from "./lib/Provider";
 import Navbar from "./_comps/Navbar";
 import LogoutModal from "./_comps/LogoutModal";
+
+// const josefin = Josefin_Sans({ subsets: ["latin"], display: "swap" });
+const incon = Inconsolata({ subsets: ["latin"], display: "swap" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +36,7 @@ export default function RootLayout({
     <html lang="en" className="">
       <body
         id="root-container"
-        className={`${geistSans.variable} ${geistMono.variable} relative bg-[var(--background)] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${incon.className} relative bg-[var(--background)] antialiased`}
       >
         <Navbar />
         <LogoutModal />

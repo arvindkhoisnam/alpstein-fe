@@ -147,7 +147,7 @@ function TVCandleStick() {
   return (
     <div
       className={cn(
-        "relative h-[400px] w-full rounded-lg pb-5 md:h-full",
+        "relative h-full w-full rounded-lg pb-5 md:h-full",
         "border border-[var(--cardborder)]"
       )}
     >
