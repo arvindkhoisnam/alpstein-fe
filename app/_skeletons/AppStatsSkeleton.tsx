@@ -13,7 +13,7 @@ function AppStatsSkeleton() {
         <div
           key={index}
           className={cn(
-            "l:h-44 l2:h-50 md2:h-86 flex h-52 w-72 flex-col gap-5 rounded-2xl p-2 md:h-72 md:max-w-full md:min-w-full lg:h-67",
+            "l:h-44 l2:h-50 md2:h-86 flex h-52 min-h-52 w-72 min-w-72 flex-col gap-5 rounded-2xl p-2 md:h-72 md:max-w-full md:min-w-full lg:h-67",
             "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
             "bg-radial-[at_20%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%"
           )}

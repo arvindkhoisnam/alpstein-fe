@@ -59,27 +59,28 @@ function Trades() {
   useEffect(() => {
     if (!ref.current) return;
     const container = ref.current;
-    let lastScrollTop = container.scrollTop;
-
+    let lastScrollTop = container?.scrollTop;
+    console.log(container.scrollTop, container.clientHeight, container.scrollHeight);
     function handleScroll() {
+      console.log("Scrolling...");
       if (debounceTimeout.current != null) {
         console.log("Debounced");
         return;
       }
       const { scrollTop, scrollHeight, clientHeight } = container;
-
+      console.log(scrollTop, scrollHeight, clientHeight);
       const isScrollingDown = scrollTop > lastScrollTop;
 
       if (isScrollingDown) {
         const progress = Math.floor((scrollTop / (scrollHeight - clientHeight)) * 100);
-        if (progress >= 99 && HasNextPage) {
+        if (progress >= 97 && HasNextPage) {
           console.log("Fetching more...");
 
           debounceTimeout.current = setTimeout(() => {
             fetchMore();
             clearTimeout(debounceTimeout.current!);
             debounceTimeout.current = null;
-          }, 1000);
+          }, 500);
         }
       }
 
@@ -90,7 +91,11 @@ function Trades() {
   }, [fetchMore, HasNextPage]);
 
   return (
-    <div className={cn("mx-auto flex h-screen max-w-[1440px] justify-between gap-4 p-2 lg:p-0")}>
+    <div
+      className={cn(
+        "relative mx-auto flex h-screen max-w-[1440px] justify-between gap-4 p-2 lg:p-0"
+      )}
+    >
       <div
         className="hidden h-full min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"
         style={{
@@ -98,48 +103,48 @@ function Trades() {
           backgroundSize: "10px 10px",
         }}
       ></div>
-      {isLoading && (
-        <div className="flex h-screen w-full items-center justify-center lg:mt-0">
-          <Spinner showPrice={true} />
-        </div>
-      )}
 
-      {data && (
-        <div ref={ref} className="relative my-14 flex w-full flex-col overflow-y-auto lg:mt-20">
-          <div
-            className={`sticky top-0 left-0 grid w-full grid-cols-6 rounded bg-indigo-200 p-3 text-[9px] font-medium text-zinc-700 md:gap-4 md:p-4 md:text-sm 2xl:p-1`}
-          >
-            <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
-              <span>Coin</span>
-            </div>
-            <div className={`0 flex items-center justify-center gap-1 lg:gap-2`}>Review</div>
-            <div className={`flex items-center justify-center gap-1 lg:gap-2`}>Status</div>
-            <div className="flex items-center justify-center">Position</div>
-            <div className="flex items-center justify-center">Triggerd at</div>
-            <div className="flex items-center justify-center">Closure at</div>
+      <div
+        ref={ref}
+        className="relative my-14 flex h-[100vh-100px] w-full min-w-[calc(100vw-112px)] flex-col overflow-y-scroll lg:my-0 lg:mt-20 lg:pb-5"
+      >
+        {isLoading && (
+          <div className="flex h-screen w-full items-center justify-center lg:mt-0">
+            <Spinner showPrice={true} />
           </div>
-
-          {allTrades.map((d: CryptoData, index: number) => (
-            <Comp
-              dataLength={allTrades.length}
-              index={index}
-              key={d.id}
-              id={d.id}
-              symbol={d.symbol}
-              status={d.status}
-              position={d.triggeredposition}
-              trigTime={d.triggeredat}
-              closeTime={d.closureat}
-            />
-          ))}
-          {/* <TradesPaginate /> */}
-          {loadingMore && (
-            <div className="flex w-full justify-center">
-              <Spinner showPrice={false} />
+        )}
+        {data && (
+          <>
+            <div
+              className={`sticky top-0 left-0 grid w-full grid-cols-6 rounded bg-indigo-200 p-3 text-[9px] font-medium text-zinc-700 md:gap-4 md:p-4 md:text-sm 2xl:p-1`}
+            >
+              <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
+                <span>Coin</span>
+              </div>
+              <div className={`0 flex items-center justify-center gap-1 lg:gap-2`}>Review</div>
+              <div className={`flex items-center justify-center gap-1 lg:gap-2`}>Status</div>
+              <div className="flex items-center justify-center">Position</div>
+              <div className="flex items-center justify-center">Triggerd at</div>
+              <div className="flex items-center justify-center">Closure at</div>
             </div>
-          )}
-        </div>
-      )}
+
+            {allTrades.map((d: CryptoData, index: number) => (
+              <Comp
+                dataLength={allTrades.length}
+                index={index}
+                key={d.id}
+                id={d.id}
+                symbol={d.symbol}
+                status={d.status}
+                position={d.triggeredposition}
+                trigTime={d.triggeredat}
+                closeTime={d.closureat}
+              />
+            ))}
+          </>
+        )}
+      </div>
+
       <div
         className="hidden h-full min-w-10 border-x border-[var(--cardborder)]/50 bg-fixed lg:block"
         style={{
@@ -147,6 +152,11 @@ function Trades() {
           backgroundSize: "10px 10px",
         }}
       ></div>
+      {loadingMore && (
+        <div className="absolute bottom-14 left-0 flex w-full justify-center p-1 lg:bottom-2">
+          <Spinner showPrice={false} />
+        </div>
+      )}
     </div>
   );
 }
@@ -185,7 +195,7 @@ function Comp({
   }
   return (
     <div
-      className={`grid grid-cols-6 p-3 text-[9px] font-medium text-[var(--primarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b-[0.5px] border-neutral-700/50" : ""} `}
+      className={`grid grid-cols-6 px-0 py-3 text-[9px] font-medium text-[var(--primarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b-[0.5px] border-neutral-700/50" : ""} `}
     >
       <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
         <span>{index + 1}.</span>
