@@ -38,8 +38,9 @@ function StatsDash() {
   return (
     <motion.div
       className={cn(
-        `l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-2 3xl:max-h-[calc(1000px-100px)] l:grid-rows-[1.5fr_1fr] md2:grid-rows-[1fr_1fr] l:mt-14 l:max-h-[calc(100vh-114px)] md2:h-[calc(100vh-${navbar}px+${footer}px)] relative mt-14 mb-14 flex h-full flex-col gap-3 md:mt-14 md:mb-0 md:grid md:h-[calc(100vh-104px)] md:grid-rows-[1fr_1fr] md:gap-3 2xl:mt-16`
-        // "lg:bg-transparent"
+        `l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-2 3xl:max-h-[calc(1000px-100px)] l:grid-rows-[1.5fr_1fr] md2:grid-rows-[1fr_1fr] l:mt-14 l:max-h-[calc(100vh-114px)] md2:h-[calc(100vh-${navbar}px+${footer}px)] relative mt-14 mb-14 flex h-full flex-col gap-3 md:mt-14 md:mb-0 md:grid md:h-[calc(100vh-104px)] md:grid-rows-[1fr_1fr] md:gap-3 2xl:mt-16`,
+        "lg:bg-transparent"
+        // "bg-red-400"
       )}
     >
       <div className="l:grid-rows-[1fr_2fr] l:grid-cols-1 l:gap-3 l:max-h-[calc(100vh-114px)] flex w-full flex-col gap-3 md:grid md:max-h-[calc(100vh-56px)] md:grid-cols-[1fr_2.5fr] 2xl:max-h-[calc(100vh-100px)]">
@@ -47,7 +48,7 @@ function StatsDash() {
         {/* <div className="my-3 hidden h-[0.5px] bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div> */}
         <AppStats />
       </div>
-      <div className="l:grid-cols-1 l:grid-rows-[2fr_1fr] l:max-h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 lg:flex lg:flex-col 2xl:max-h-[calc(100vh-100px)]">
+      <div className="l:grid-cols-1 l:grid-rows-[1.5fr_1fr] l:max-h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 2xl:max-h-[calc(100vh-100px)]">
         <Performers />
         <PremiumCard />
       </div>
