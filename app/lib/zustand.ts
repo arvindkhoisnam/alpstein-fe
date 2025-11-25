@@ -116,6 +116,21 @@ type SwitchChart = {
   toggleCurrChart: (curr: CHART) => void;
 };
 
+type NavBarHeight = {
+  height: number;
+  setHeight: (h: number) => void;
+};
+
+const useNavBarHeight = create<NavBarHeight>(set => ({
+  height: 0,
+  setHeight: (h: number) => set({ height: h }),
+}));
+
+const useFooterHeight = create<NavBarHeight>(set => ({
+  height: 0,
+  setHeight: (h: number) => set({ height: h }),
+}));
+
 const useTickerTapeDisplay = create<TickerTapeDisplayType>(set => ({
   displayTickerTape: false,
   setDisplay: show => set({ displayTickerTape: show }),
@@ -305,4 +320,6 @@ export {
   useUserModal,
   useAllTrades,
   useTradePaginate,
+  useNavBarHeight,
+  useFooterHeight,
 };

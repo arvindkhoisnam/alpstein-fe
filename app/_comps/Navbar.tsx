@@ -2,21 +2,30 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GiMountaintop } from "react-icons/gi";
-import { useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
+import { useNavBarHeight, useShowSigninModal, useUser, useUserModal } from "../lib/zustand";
 import AuthenticatedNav from "./AuthenticatedNav";
 import { cn } from "../lib/utils";
 import { UserModal } from "./UserModal";
 import SideBarToggle from "./SideBarToggle";
 import DarkModelToggle from "./DarkModelToggle";
+import { useEffect, useRef } from "react";
 
 function Navbar() {
   const path = usePathname();
   const { currUser } = useUser();
   const { toggleShowModal } = useShowSigninModal();
   const { showUserModal } = useUserModal();
+  const ref = useRef<HTMLDivElement | null>(null);
+  const { setHeight } = useNavBarHeight();
+
+  useEffect(() => {
+    if (!ref.current) return;
+    setHeight(ref.current.clientHeight);
+  }, [setHeight]);
 
   return (
     <div
+      ref={ref}
       id="navbar"
       className={cn(
         "top-0 w-full p-3",
