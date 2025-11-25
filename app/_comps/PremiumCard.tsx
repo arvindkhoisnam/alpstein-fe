@@ -51,7 +51,7 @@ function PremiumCard() {
         backgroundImage,
       }}
       className={cn(
-        "l:h-51 l2:h-64 md2:h-68 relative grid h-full min-h-0 w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-56 lg:flex-1",
+        "l:h-51 l2:h-64 relative grid h-full min-h-0 w-full grid-rows-[3fr_1fr] rounded-2xl rounded-xl p-2 md:h-full lg:flex-1",
         // "shadow-[var(--shadow)] transition-shadow duration-500"
         // "border border-[var(--stats-comp-bg)] bg-[var(--stats-comp-bg)]/20 backdrop-blur-xl",
         "flex flex-col gap-6 bg-[var(--stats-comp-inner)]/60"

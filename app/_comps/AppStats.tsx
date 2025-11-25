@@ -47,7 +47,7 @@ function Comp1({ label, graph }: { label: string; graph: React.ReactElement }) {
           ease: "easeIn",
           delay: 0.1,
         }}
-        className="l:text-sm flex items-center gap-1 text-xs font-light text-[var(--secondarytext)] md:gap-2"
+        className="l:text-sm flex items-center gap-1 text-xs font-light text-[var(--secondarytext)] md:gap-2 md:text-base"
       >
         {label}
       </motion.h2>

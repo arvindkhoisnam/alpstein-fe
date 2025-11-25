@@ -77,7 +77,7 @@ function Performers() {
   return (
     <div
       className={cn(
-        "max-h-full max-w-full rounded-2xl",
+        "h-full w-full rounded-2xl",
         "border border-[var(--stats-comp-bg)]/90 bg-[var(--stats-comp-bg)]/30 backdrop-blur-xl",
         "bg-radial-[at_80%_20%] from-transparent from-60% via-indigo-300/20 via-80% to-indigo-400/20 to-100%",
         "l:grid-rows-2 l:grid-cols-1 grid grid-rows-2 gap-2 p-2 md:grid-cols-2 md:grid-rows-1"

@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import AppStatsSkeleton from "../_skeletons/AppStatsSkeleton";
 import { cn } from "../lib/utils";
 import PopularSkeleton from "../_skeletons/PopularSkeleton";
-// import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
-// import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
+import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
+import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
 import { useFooterHeight, useNavBarHeight } from "../lib/zustand";
 import { useEffect } from "react";
 
@@ -18,15 +18,15 @@ const PopularCoins = dynamic(() => import("./PopularCoins"), {
   loading: () => <PopularSkeleton />,
 });
 
-// const Performers = dynamic(() => import("./Performers"), {
-//   ssr: false,
-//   loading: () => <PerformersSkeleton />,
-// });
+const Performers = dynamic(() => import("./Performers"), {
+  ssr: false,
+  loading: () => <PerformersSkeleton />,
+});
 
-// const PremiumCard = dynamic(() => import("./PremiumCard"), {
-//   ssr: false,
-//   loading: () => <PremiumSkeleton />,
-// });
+const PremiumCard = dynamic(() => import("./PremiumCard"), {
+  ssr: false,
+  loading: () => <PremiumSkeleton />,
+});
 
 function StatsDash() {
   const { height: navbar } = useNavBarHeight();
@@ -43,14 +43,14 @@ function StatsDash() {
         "bg-red-400"
       )}
     >
-      <div className="l:grid-rows-[1fr_2fr] l:grid-cols-1 l:gap-3 l:max-h-[calc(100vh-114px)] flex w-full flex-col gap-3 bg-white md:grid md:max-h-[calc(100vh-56px)] md:grid-cols-[1fr_2.5fr] 2xl:max-h-[calc(100vh-100px)]">
+      <div className="l:grid-rows-[1fr_2fr] l:grid-cols-1 l:gap-3 l:max-h-[calc(100vh-114px)] flex w-full flex-col gap-3 md:grid md:max-h-[calc(100vh-56px)] md:grid-cols-[1fr_2.5fr] 2xl:max-h-[calc(100vh-100px)]">
         <PopularCoins />
         {/* <div className="my-3 hidden h-[0.5px] bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% md:block"></div> */}
         <AppStats />
       </div>
-      <div className="l:grid-cols-1 l:flex l:flex-col l:max-h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 bg-white md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 2xl:max-h-[calc(100vh-100px)]">
-        {/* <Performers /> */}
-        {/* <PremiumCard /> */}
+      <div className="l:grid-cols-1 l:flex l:flex-col l:max-h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 2xl:max-h-[calc(100vh-100px)]">
+        <Performers />
+        <PremiumCard />
       </div>
     </motion.div>
   );

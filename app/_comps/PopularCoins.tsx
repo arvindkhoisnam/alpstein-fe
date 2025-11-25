@@ -195,10 +195,10 @@ export default function PopularCoins() {
         "gap-2 p-2"
       )}
     >
-      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
+      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 bg-lime-500 md:flex md:flex-col">
         {!isLoading && data?.slice(0, top).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
-      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col">
+      <div className="l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 bg-lime-500 md:flex md:flex-col">
         {!isLoading && data?.slice(4, bot).map(coin => <Coin coin={coin} key={coin.symbol} />)}
       </div>
     </div>
@@ -217,7 +217,7 @@ function Coin({
   return (
     <motion.div
       className={cn(
-        "l:h-32 md2:h-18 relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16",
+        "l:h-32 md2:h-full relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16",
         // "shadow-[var(--shadow)] transition-shadow duration-500",
         "w-full",
         "border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60"
@@ -293,10 +293,10 @@ function Coin({
             }}
             className="flex flex-col"
           >
-            <span className="md:text-md text-[10px] text-[var(--primarytext)]">
+            <span className="text-[10px] text-[var(--primarytext)] md:text-base">
               {coin.symbol.split("U")[0]}
             </span>
-            <span className="md:text-md text-[10px] text-zinc-600">
+            <span className="text-[10px] text-zinc-600 md:text-base">
               {COIN_CONFIG[coin.symbol.split("U")[0]].name}
             </span>
           </motion.div>
@@ -319,12 +319,12 @@ function Coin({
           }}
           className="flex flex-col"
         >
-          <span className="md:text-md text-[10px] text-[var(--primarytext)]">
+          <span className="text-[10px] text-[var(--primarytext)] md:text-sm">
             {coin.priceChange.startsWith("-") ? "" : "+"}
             {Math.round(100 * Number(coin.priceChange)) / 100}
           </span>
           <span
-            className={`md:text-md text-[10px] ${coin.priceChangePercent?.startsWith("-") ? "text-red-500" : "text-green-500"}`}
+            className={`text-[10px] md:text-sm ${coin.priceChangePercent?.startsWith("-") ? "text-red-500" : "text-green-500"}`}
           >
             {coin.priceChangePercent?.startsWith("-") ? (
               <span>&#9660;{Math.round(100 * Number(coin.priceChangePercent)) / 100}%</span>
