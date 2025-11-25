@@ -217,7 +217,7 @@ function Coin({
   return (
     <motion.div
       className={cn(
-        "l:h-32 md2:h-full relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16",
+        "l:h-25 md2:h-full relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16",
         // "shadow-[var(--shadow)] transition-shadow duration-500",
         "w-full",
         "border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60"
