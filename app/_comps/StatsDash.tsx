@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import AppStatsSkeleton from "../_skeletons/AppStatsSkeleton";
 import { cn } from "../lib/utils";
 import PopularSkeleton from "../_skeletons/PopularSkeleton";
-// import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
-// import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
+import PerformersSkeleton from "../_skeletons/PerformersSkeleton";
+import PremiumSkeleton from "../_skeletons/PremiumSkeleton";
 import { useFooterHeight, useNavBarHeight } from "../lib/zustand";
 import { useEffect } from "react";
 
@@ -18,15 +18,15 @@ const PopularCoins = dynamic(() => import("./PopularCoins"), {
   loading: () => <PopularSkeleton />,
 });
 
-// const Performers = dynamic(() => import("./Performers"), {
-//   ssr: false,
-//   loading: () => <PerformersSkeleton />,
-// });
+const Performers = dynamic(() => import("./Performers"), {
+  ssr: false,
+  loading: () => <PerformersSkeleton />,
+});
 
-// const PremiumCard = dynamic(() => import("./PremiumCard"), {
-//   ssr: false,
-//   loading: () => <PremiumSkeleton />,
-// });
+const PremiumCard = dynamic(() => import("./PremiumCard"), {
+  ssr: false,
+  loading: () => <PremiumSkeleton />,
+});
 
 function StatsDash() {
   const { height: navbar } = useNavBarHeight();
@@ -50,8 +50,8 @@ function StatsDash() {
         <AppStats />
       </div>
       <div className="l:grid-cols-1 l:grid-rows-[1.5fr_1fr] l:h-[calc(100vh-114px)] grid grid-rows-[1.5fr_1fr] gap-2 bg-rose-500 md:max-h-[calc(100vh-56px)] md:grid-cols-[2fr_1fr] md:grid-rows-1 2xl:max-h-[calc(100vh-100px)]">
-        {/* <Performers />
-        <PremiumCard /> */}
+        <Performers />
+        <PremiumCard />
       </div>
     </motion.div>
   );
