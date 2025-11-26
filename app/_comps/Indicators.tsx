@@ -101,16 +101,16 @@ function Indicators() {
   }
 
   return (
-    <motion.div className={cn("flex h-full w-full flex-col gap-1 rounded-lg")}>
+    <motion.div className={cn("flex w-full flex-col gap-1 rounded-lg")}>
       <span className="font:medium text-sm text-[var(--secondarytext)] md:text-xs md:font-semibold 2xl:text-sm">
         Indicators
       </span>
       {isLoading ? (
-        <div className="flex h-30 w-full items-center justify-center rounded-lg border border-[var(--cardborder)]">
+        <div className="flex h-36 w-full items-center justify-center rounded-lg border border-[var(--cardborder)]">
           <Spinner showPrice={true} />
         </div>
       ) : (
-        <div className="grid h-full w-full grid-cols-2 gap-1 rounded-md">
+        <div className="grid w-full grid-cols-2 gap-1 rounded-md">
           <Indicator label={"RSI"} val={rsi} Logo={SiChartmogul} />
           <Indicator label={"EMA"} val={fiftyFiveEMA} Logo={TbSum} />
           <Indicator label={"SMA"} val={hundredSMA} Logo={TbSum} />

@@ -49,7 +49,7 @@ function LLMQuestions() {
     <motion.div
       key={cryptoData?.id}
       className={cn(
-        "max-h-full min-h-full w-full rounded-md bg-rose-500 bg-white p-px",
+        "h-96 w-full rounded-md bg-rose-500 bg-white p-px lg:max-h-full lg:min-h-full",
         // "max-w-full min-w-full rounded-md bg-white p-px md:max-h-full 2xl:max-h-full",
         // `max-w-full min-w-full rounded-md bg-white p-px md:max-h-80 2xl:max-h-[calc(100vh-${containerHeight})]`,
         "animate-[var(--animate-rotate-border)] bg-conic/[from_var(--border-angle)] from-[var(--btnbg)] from-0% via-indigo-500/80 via-15% to-[var(--btnbg)] to-0%"

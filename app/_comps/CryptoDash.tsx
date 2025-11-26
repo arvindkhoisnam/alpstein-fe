@@ -45,7 +45,7 @@ function CryptoDash() {
 
   return (
     <div className={cn("lg:mt-14", "2xl:mt-20")}>
-      <div className="my-12 lg:hidden">
+      <div className="mt-14 lg:hidden">
         <DashNav />
         {currTab === 0 && (
           <motion.div
@@ -63,7 +63,7 @@ function CryptoDash() {
               ease: "easeIn",
               delay: 0.3,
             }}
-            className="flex flex-col gap-4 pb-4"
+            className="flex h-[calc(100vh-150px)] flex-col gap-4 overflow-y-scroll pb-2"
           >
             <CoinHeading />
             <Signals includeHeading={true} />
@@ -87,7 +87,7 @@ function CryptoDash() {
               ease: "easeIn",
               delay: 0.3,
             }}
-            className="grid h-[calc(100vh-150px)] grid-rows-2 gap-2"
+            className="grid h-[calc(100vh-150px)] grid-rows-2 gap-2 pb-2"
           >
             {currChart === "area" ? <TradingView /> : <TVCandleStick />}
             <Accordion />
@@ -108,7 +108,7 @@ function CryptoDash() {
               ease: "easeIn",
               delay: 0.3,
             }}
-            className="flex h-full flex-col items-center gap-2 pb-2"
+            className="flex h-[calc(100vh-150px)] flex-col items-center gap-2 overflow-y-auto pb-2"
           >
             <NewsHeading />
             <PubOpinion />

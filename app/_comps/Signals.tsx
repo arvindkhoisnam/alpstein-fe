@@ -108,7 +108,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
             </button>
           )}
         </div>
-        <span className="text-base font-light text-[var(--primarytext)] md:font-medium xl:text-lg">
+        <span className="text-base font-medium text-[var(--primarytext)] xl:text-lg">
           {d.position}
         </span>
       </div>
@@ -128,7 +128,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
             ? "Buy"
             : "Sell"}
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:font-medium xl:text-lg">
+        <span className="text-base font-medium text-[var(--primarytext)] xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.buyprice
             : d.sellprice}
@@ -144,7 +144,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <GrMoney size={15} className="" />
           Take Profit
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:font-medium xl:text-lg">
+        <span className="text-base font-medium text-[var(--primarytext)] xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.takeprofit
             : d.shortcoverprofit}
@@ -160,7 +160,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <MdOutlineAnchor size={15} className="" />
           Stop Loss
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:font-medium xl:text-lg">
+        <span className="text-base font-medium text-[var(--primarytext)] xl:text-lg">
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? d.stoploss
             : d.shortcoverloss}
@@ -176,7 +176,7 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <IoRibbonSharp size={15} className="" />
           Risk/Reward
         </span>
-        <span className="text-base font-light text-[var(--primarytext)] md:font-medium xl:text-lg">
+        <span className="text-base text-[var(--primarytext)] md:font-medium xl:text-lg">
           {/* {d.position === "long" ? `1:${calcLongRR()}` : `1:${calcShortRR()}`} */}
           {(d.position === "long" || d.position === "unclear") && positionDisplayed === "long"
             ? `1:${calcLongRR()}`
@@ -197,13 +197,13 @@ function Card({ cryptoData: d }: { cryptoData: CryptoData }) {
           <span>dd/mm</span>
         </div>
         <div className="flex w-full items-center justify-between">
-          <span className="flex items-start gap-1 text-base font-light text-[var(--primarytext)] md:font-medium 2xl:text-lg">
+          <span className="flex items-start gap-1 text-base font-medium text-[var(--primarytext)] 2xl:text-lg">
             {timeFormatter()}
             <span className="text-[8px] font-light text-[var(--secondarytext)] md:font-medium">
               IST
             </span>
           </span>
-          <span className="text-xs font-light text-[var(--secondarytext)] md:text-sm md:font-medium">
+          <span className="text-xs font-medium text-[var(--secondarytext)] md:text-sm">
             {dateFormatter()}
           </span>
         </div>
