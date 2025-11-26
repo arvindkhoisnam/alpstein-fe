@@ -32,7 +32,7 @@ function Button2({ text, onClick }: { text: string; onClick: () => void }) {
           "transition-all ease-in group-hover:animate-[shimmer_0.5s_linear]"
         )}
       ></span>
-      <span className="flex h-full w-full items-center justify-center rounded-lg border border-[var(--btnborder)] bg-[var(--btnbg)] text-xs text-[var(--secondarytext)]">
+      <span className="flex h-full w-full items-center justify-center rounded-lg border border-[var(--btnborder)] bg-[var(--btnbg)] text-[10px] text-[var(--secondarytext)] md:text-xs">
         {text}
       </span>
     </motion.button>

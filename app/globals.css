@@ -199,7 +199,7 @@ body {
 } */
 
 .scroller {
-  margin-block: 2.5rem;
+  /* margin-block: 4.5rem; */
   margin-inline: auto;
   height: 2.5rem;
   /* max-width: 900px; */

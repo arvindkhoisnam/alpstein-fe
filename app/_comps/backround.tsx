@@ -43,9 +43,6 @@ export function GridBackgroundDemo() {
   const navigate = useRouter();
 
   return (
-    // <div
-    //   className={cn("relative flex h-[80%] w-[80%] flex-col items-center bg-[var(--background)]")}
-    // >
     <div className="relative flex h-[100%] w-[100%] flex-col items-center bg-[var(--background)]">
       <div
         className={cn("absolute inset-0 z-10 h-full w-full opacity-30")}
@@ -68,7 +65,7 @@ export function GridBackgroundDemo() {
           "bg-[var(--background)]"
         )}
       />
-      <div className="l:mt-24 z-10 mt-10 flex h-1/2 max-w-sm flex-col items-center justify-center md:mt-16 md:max-w-xl lg:max-w-5xl">
+      <div className="md2:mt-40 z-10 mt-24 flex w-full flex-col items-center justify-center gap-8 md:mt-36 lg:mt-14 lg:h-full">
         <motion.h2
           initial={{
             opacity: 0,
@@ -85,11 +82,8 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="text-center text-xl font-light text-[var(--primarytext)]/90 transition-colors duration-700 md:text-3xl lg:text-6xl"
+          className="px-10 text-center text-xl font-light text-[var(--primarytext)]/90 transition-colors duration-700 md:text-3xl lg:px-26 lg:text-6xl"
         >
-          {/* Actionable crypto decisions. */}
-          {/* AI powered insights for <span className="text-[var(--primarytext)]">smarter</span> crypto
-          decisions */}
           Cut through crypto chaos, with{" "}
           <span className="font-medium text-[var(--primarytext)]/60">intelligent</span> insights.
         </motion.h2>
@@ -111,7 +105,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="mt-10 mb-10 max-w-3xl px-4 text-center text-[10px] leading-5 font-extralight tracking-wide text-[var(--primarytext)] transition-colors duration-500 md:px-0 md:text-sm lg:text-lg"
+          className="max-w-2xl px-14 text-center text-[10px] font-extralight tracking-wide text-[var(--primarytext)]/50 transition-colors duration-500 md:px-0 md:text-sm lg:text-lg lg:leading-5"
         >
           {/* Make crypto articles make sense. Intense, data heavy blogs cleansed and made actionable. */}
           Stay ahead with AI-powered crypto analysis. Intense, data heavy blogs cleansed and made
@@ -135,7 +129,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.3,
           }}
-          className="flex items-center justify-center gap-4 md:my-5"
+          className="flex items-center justify-center gap-4"
         >
           <Button2
             text={"Try for free"}
@@ -168,9 +162,47 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.5,
           }}
+          // className="bg-white"
           // style={{ scale: translateMarquee, filter: useMotionTemplate`blur(${translateBlur}px)` }}
         >
           <InfiniteSlide />
+        </motion.div>
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.9,
+            filter: "blur(10px)",
+            y: 100,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            y: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeIn",
+            delay: 1,
+          }}
+          style={{
+            scale: translateScale,
+            // filter: useMotionTemplate`blur(${translateBlur}px)`,
+          }}
+          ref={imageRef}
+          className="l:w-[850px] z-10 mt-0 w-[400px] md:w-[650px] lg:w-[1100px]"
+        >
+          {/* <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] bg-lime-500 opacity-10"></div> */}
+          <Image
+            src={imageUrl}
+            height={400}
+            width={1100}
+            alt="temp"
+            className="rounded-t-xl bg-[var(--background)]"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
+            }}
+          />
         </motion.div>
       </div>
 
@@ -197,10 +229,10 @@ export function GridBackgroundDemo() {
           // filter: useMotionTemplate`blur(${translateBlur}px)`,
         }}
         ref={imageRef}
-        className="l:bottom-25 l:h-[200px] l:w-[850px] absolute left-1/2 z-10 hidden -translate-x-1/2 md:bottom-65 md:block md:w-[650px] lg:-bottom-5 lg:h-[400px] lg:w-[1100px]"
+        // className="l:bottom-25 l:w-[850px] absolute left-1/2 z-10 hidden -translate-x-1/2 md:bottom-65 md:block md:w-[650px] lg:bottom-20 lg:w-[900px]"
       >
         {/* <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] bg-lime-500 opacity-10"></div> */}
-        <Image
+        {/* <Image
           src={imageUrl}
           height={400}
           width={1100}
@@ -209,10 +241,8 @@ export function GridBackgroundDemo() {
           style={{
             maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
           }}
-        />
+        /> */}
       </motion.div>
-
-      {/* <div className="z-10 h-96 w-full bg-lime-500">fasdf</div> */}
     </div>
   );
 }
