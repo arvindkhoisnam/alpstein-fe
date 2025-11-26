@@ -17,14 +17,15 @@ function Page() {
   return (
     <div
       className={cn(
-        "flex h-full items-center justify-center md:h-screen",
-        "mx-auto max-w-[1440px] p-2 lg:flex lg:items-center lg:gap-0 lg:p-0",
+        "mt-14 h-[calc(100vh-104px)]",
+        "flex items-center justify-center",
+        "mx-auto max-w-[1440px] p-2 lg:mt-24 lg:flex lg:items-center lg:gap-0 lg:p-0",
         "bg-[var(--background)]"
       )}
     >
       <div className="h-full w-full px-2 lg:px-10">
-        <div className="my-14 flex flex-col md:mt-24">
-          <div className="mb-2 h-full w-full xl:hidden">
+        <div className="flex flex-col">
+          <div className="mb-2 h-full w-full lg:hidden">
             <ul className="flex gap-10 text-base font-light text-[var(--secondarytext)]">
               <button
                 onClick={() => switchTab(TABS[0])}
@@ -47,9 +48,9 @@ function Page() {
             </ul>
           </div>
           <div className="h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% 2xl:top-18"></div>
-          <div className="grid h-[calc(100vh-96px)] grid-cols-1 gap-2 xl:grid-cols-[1fr_0.1fr_4fr_0.1fr]">
-            <div className="hidden h-full w-full xl:block xl:p-10">
-              <ul className="font-meidium flex w-fit gap-10 text-base text-[var(--secondarytext)] xl:flex-col">
+          <div className="grid h-[calc(100vh-96px)] grid-cols-1 gap-2 lg:grid-cols-[1fr_0.1fr_4fr_0.1fr]">
+            <div className="hidden h-full w-full lg:block lg:px-5 lg:py-10">
+              <ul className="font-meidium flex w-full gap-5 text-base text-[var(--secondarytext)]">
                 <button
                   onClick={() => switchTab(TABS[0])}
                   className="relative w-fit cursor-pointer hover:text-[var(--secondarytext)]/50"
@@ -96,7 +97,11 @@ export default Page;
 
 function About() {
   return (
-    <div className="relative max-h-full overflow-y-auto md:pt-10">
+    <div
+      className={cn(
+        "relative max-h-[calc(100vh-150px)] overflow-y-auto md:pt-10 lg:max-h-[calc(100vh-104px)]"
+      )}
+    >
       <DocsImage />
       <div className="w-full tracking-wide text-[var(--primarytext)] md:mt-7 md:px-10 lg:mt-14 xl:px-20">
         <div className="my-5 text-xs font-medium text-[var(--secondarytext)] md:text-sm">
@@ -232,7 +237,7 @@ function About() {
 }
 function UnderTheHood() {
   return (
-    <div className="relative max-h-full overflow-y-auto md:pt-0">
+    <div className="relative max-h-[calc(100vh-150px)] overflow-y-auto md:pt-0 lg:max-h-[calc(100vh-104px)]">
       <div className="w-full tracking-wide text-[var(--primarytext)] md:mt-7 md:px-10 lg:mt-14 xl:px-20">
         <div className="my-5 text-xs font-light text-[var(--secondarytext)] md:text-sm">
           <p>
