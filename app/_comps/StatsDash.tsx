@@ -38,7 +38,7 @@ function StatsDash() {
   return (
     <motion.div
       className={cn(
-        "relative mt-14 mb-14 flex h-[calc(100vh-104px)] flex-col gap-3 overflow-y-auto",
+        "relative mt-14 flex h-[calc(100vh-104px)] flex-col gap-3 overflow-y-auto pb-2 md:pb-0",
         `md:h-[calc(100vh-114px)]`,
         "md:grid md:grid-rows-[1fr_1fr]",
         `l:grid-cols-[5fr_2fr] l:grid-rows-1 l:gap-2`,
