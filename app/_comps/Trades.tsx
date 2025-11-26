@@ -125,9 +125,9 @@ function Trades() {
         {data && (
           <>
             <div
-              className={`sticky top-0 left-0 grid w-full grid-cols-6 rounded bg-indigo-200 p-3 text-[9px] font-medium text-zinc-700 md:gap-4 md:p-4 md:text-sm 2xl:p-1`}
+              className={`sticky top-0 left-0 grid w-full grid-cols-6 gap-1 rounded bg-indigo-200 p-2 text-[9px] font-medium text-zinc-700 md:gap-4 md:p-4 md:text-sm 2xl:p-1`}
             >
-              <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
+              <div className="flex items-center justify-center gap-1 pl-1 md:pl-6">
                 <span>Coin</span>
               </div>
               <div className={`0 flex items-center justify-center gap-1 lg:gap-2`}>Review</div>
@@ -209,11 +209,11 @@ function Comp({
       <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
         <span>{index + 1}.</span>
         <Image height={20} width={20} src={`/${symbol}.png`} alt="crypto-image" />
-        <span>{symbol}</span>
+        <span className="text-[8px] md:text-xs">{symbol}</span>
       </div>
       <div className="flex w-full items-center justify-center">
         <button
-          className="flex w-fit cursor-pointer items-center justify-center rounded-full bg-sky-700/20 px-2 text-sky-600 hover:text-indigo-600 lg:font-medium"
+          className="flex w-fit cursor-pointer items-center justify-center rounded-full px-2 text-sky-600 md:bg-sky-700/20 md:hover:text-indigo-600 lg:font-medium"
           onClick={() => router.replace(`/trades/${id}`)}
         >
           review
