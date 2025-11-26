@@ -93,7 +93,11 @@ function Trades() {
   return (
     <div
       className={cn(
-        "relative mx-auto flex h-screen max-w-[1440px] justify-between gap-4 p-2 lg:p-0"
+        "relative mx-auto flex h-screen",
+        // "max-w-[1440px]",
+        "max-w-7xl",
+        "justify-between gap-4 p-2 lg:p-0",
+        "3xl:max-h-[calc(1000px-100px)]"
       )}
     >
       <div
@@ -106,7 +110,12 @@ function Trades() {
 
       <div
         ref={ref}
-        className="relative my-14 flex h-[100vh-100px] w-full min-w-[calc(100vw-112px)] flex-col overflow-y-scroll lg:my-0 lg:mt-20 lg:pb-5"
+        className={cn(
+          "relative my-14 flex h-[calc(100vh-100px)] w-full",
+          // "min-w-[calc(100vw-112px)]",
+          "flex-col overflow-y-scroll lg:my-0 lg:mt-20 lg:pb-5",
+          "3xl:max-h-[calc(1000px-100px)]"
+        )}
       >
         {isLoading && (
           <div className="flex h-screen w-full items-center justify-center lg:mt-0">
@@ -195,7 +204,7 @@ function Comp({
   }
   return (
     <div
-      className={`grid grid-cols-6 px-0 py-3 text-[9px] font-medium text-[var(--primarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b-[0.5px] border-neutral-700/50" : ""} `}
+      className={`grid grid-cols-6 px-0 py-3 text-[9px] font-light text-[var(--secondarytext)] md:gap-4 md:p-4 md:text-xs 2xl:p-5 ${dataLength - 1 !== index ? "border-b-[0.5px] border-neutral-700/50" : ""} `}
     >
       <div className="flex items-center justify-center gap-1 pl-3 md:pl-6">
         <span>{index + 1}.</span>

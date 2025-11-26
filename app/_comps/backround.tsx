@@ -68,7 +68,7 @@ export function GridBackgroundDemo() {
           "bg-[var(--background)]"
         )}
       />
-      <div className="l:mt-24 z-10 mt-10 flex h-1/2 max-w-sm flex-col items-center justify-center md:mt-16 md:max-w-xl lg:max-w-4xl">
+      <div className="l:mt-24 z-10 mt-10 flex h-1/2 max-w-sm flex-col items-center justify-center md:mt-16 md:max-w-xl lg:max-w-5xl">
         <motion.h2
           initial={{
             opacity: 0,
@@ -85,9 +85,13 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="text-2xl font-medium text-[var(--primarytext)] transition-colors duration-700 md:text-3xl lg:text-6xl"
+          className="text-center text-xl font-light text-[var(--primarytext)]/90 transition-colors duration-700 md:text-3xl lg:text-6xl"
         >
-          Actionable crypto decisions.
+          {/* Actionable crypto decisions. */}
+          {/* AI powered insights for <span className="text-[var(--primarytext)]">smarter</span> crypto
+          decisions */}
+          Cut through crypto chaos, with{" "}
+          <span className="font-medium text-[var(--primarytext)]/60">intelligent</span> insights.
         </motion.h2>
         <motion.p
           initial={{
@@ -107,9 +111,11 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="mt-5 mb-10 px-4 text-center text-[10px] leading-5 font-medium tracking-wide text-[var(--secondarytext)] transition-colors duration-500 md:px-0 md:text-sm lg:text-base"
+          className="mt-10 mb-10 max-w-3xl px-4 text-center text-[10px] leading-5 font-extralight tracking-wide text-[var(--primarytext)] transition-colors duration-500 md:px-0 md:text-sm lg:text-lg"
         >
-          Make crypto articles make sense. Intense, data heavy blogs cleansed and made actionable.
+          {/* Make crypto articles make sense. Intense, data heavy blogs cleansed and made actionable. */}
+          Stay ahead with AI-powered crypto analysis. Intense, data heavy blogs cleansed and made
+          actionable.
         </motion.p>
         <motion.div
           initial={{
@@ -129,7 +135,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.3,
           }}
-          className="flex items-center justify-center gap-4 md:my-10"
+          className="flex items-center justify-center gap-4 md:my-5"
         >
           <Button2
             text={"Try for free"}

@@ -197,8 +197,6 @@ export default function PopularCoins() {
     >
       <div
         className={cn(
-          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex",
-          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex-col",
           "l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col"
         )}
       >
@@ -206,8 +204,6 @@ export default function PopularCoins() {
       </div>
       <div
         className={cn(
-          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex",
-          "[@media(min-width:1024px)_and_(min-height:1366px)]:flex-col",
           "l:grid-cols-4 l:grid grid h-full w-full grid-cols-2 gap-2 md:flex md:flex-col"
         )}
       >
@@ -229,7 +225,6 @@ function Coin({
   return (
     <motion.div
       className={cn(
-        "[@media(min-width:1024px)_and_(min-height:1366px)]:h-22",
         "l:h-25 md2:h-full relative flex h-14 flex-col justify-between rounded-2xl p-3 md:h-16 lg:h-32",
         // "shadow-[var(--shadow)] transition-shadow duration-500",
         "w-full",

@@ -19,8 +19,11 @@ function Page() {
       className={cn(
         "mt-14 h-[calc(100vh-104px)]",
         "flex items-center justify-center",
-        "mx-auto max-w-[1440px] p-2 lg:mt-24 lg:flex lg:items-center lg:gap-0 lg:p-0",
-        "bg-[var(--background)]"
+        // "mx-auto max-w-[1440px]",
+        "mx-auto max-w-7xl border-x border-[var(--cardborder)]/50",
+        "p-2 lg:mt-14 lg:flex lg:h-[calc(100vh-56px)] lg:items-center lg:gap-0 lg:p-0",
+        "bg-[var(--background)]",
+        "3xl:max-h-[calc(1000px-100px)]"
       )}
     >
       <div className="h-full w-full px-2 lg:px-10">
@@ -48,9 +51,9 @@ function Page() {
             </ul>
           </div>
           <div className="h-[0.5px] w-full bg-gradient-to-r from-transparent from-[-10%] via-zinc-700 via-50% to-transparent to-110% 2xl:top-18"></div>
-          <div className="grid h-[calc(100vh-96px)] grid-cols-1 gap-2 lg:grid-cols-[1fr_0.1fr_4fr_0.1fr]">
+          <div className="grid max-h-[calc(1000px-100px)] grid-cols-1 gap-2 lg:h-[calc(100vh-56px)] lg:grid-cols-[1fr_0.1fr_4fr_0.1fr]">
             <div className="hidden h-full w-full lg:block lg:px-5 lg:py-10">
-              <ul className="font-meidium flex w-full gap-5 text-base text-[var(--secondarytext)]">
+              <ul className="font-meidium flex w-full flex-col gap-5 text-base text-[var(--secondarytext)]">
                 <button
                   onClick={() => switchTab(TABS[0])}
                   className="relative w-fit cursor-pointer hover:text-[var(--secondarytext)]/50"
@@ -62,7 +65,7 @@ function Page() {
                 </button>
                 <button
                   onClick={() => switchTab(TABS[1])}
-                  className="relative cursor-pointer hover:text-[var(--secondarytext)]/50"
+                  className="relative w-fit cursor-pointer hover:text-[var(--secondarytext)]/50"
                 >
                   Under the hood
                   {currTab === TABS[1] && (
@@ -104,7 +107,7 @@ function About() {
     >
       <DocsImage />
       <div className="w-full tracking-wide text-[var(--primarytext)] md:mt-7 md:px-10 lg:mt-14 xl:px-20">
-        <div className="my-5 text-xs font-medium text-[var(--secondarytext)] md:text-sm">
+        <div className="my-5 text-xs font-light text-[var(--secondarytext)] md:text-sm">
           <h3 className="text-lg font-semibold tracking-normal text-[var(--primarytext)]">
             Alpstein is your smart companion for understanding what&apos;s really happening in the
             crypto market — without the noise.
@@ -147,7 +150,7 @@ function About() {
         </div>
       </div>
       <div className="w-full tracking-wide md:mt-7 md:px-10 lg:mt-14 xl:px-20">
-        <div className="my-5 text-xs font-medium text-[var(--secondarytext)] md:text-sm">
+        <div className="my-5 text-xs font-light text-[var(--secondarytext)] md:text-sm">
           <h3 className="text-lg font-semibold text-[var(--primarytext)]">
             Alpstein is your smart companion for understanding what&apos;s really happening in the
             crypto market — without the noise.
@@ -190,7 +193,7 @@ function About() {
         </div>
       </div>
       <div className="w-full tracking-wide text-[var(--primarytext)] md:mt-7 md:px-10 lg:mt-14 xl:px-20">
-        <div className="my-5 text-xs font-medium text-[var(--secondarytext)] md:text-sm">
+        <div className="my-5 text-xs font-light text-[var(--secondarytext)] md:text-sm">
           <h3 className="text-lg font-semibold text-[var(--primarytext)]">
             Alpstein is your smart companion for understanding what&apos;s really happening in the
             crypto market — without the noise.

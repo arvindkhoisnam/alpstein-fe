@@ -49,7 +49,9 @@ function Layout({ children }: { children: React.ReactNode }) {
         // "relative flex max-h-[100dvh] min-h-[100dvh] gap-2.5 lg:grid lg:grid-cols-[1.5fr_6fr]",
         // "md:bg-gradient-to-tl md:from-transparent md:from-20% md:via-slate-600/20 md:via-50% md:to-transparent md:to-80%",
         "bg-[var(--background)]",
-        "mx-auto max-w-[1512px]"
+        // "mx-auto max-w-[1512px]",
+        "mx-auto max-w-7xl border-x border-[var(--cardborder)]/50"
+        // "bg-rose-500"
       )}
       style={{
         userSelect: "none",
@@ -62,7 +64,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         {isLoading ? (
           <AllCryptosSkeleton />
         ) : (
-          <div className="lg:mt-14 2xl:mt-16">
+          <div className="lg:mt-14 2xl:mt-12">
             <AllCryptos />
             <Paginate />
           </div>

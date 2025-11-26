@@ -29,12 +29,14 @@ function Navbar() {
       id="navbar"
       className={cn(
         "top-0 w-full p-3",
-        "lg:top-2 lg:w-[90%] lg:px-6 lg:py-0",
+        "lg:top-0 lg:w-[90%] lg:px-6 lg:py-0",
         "fixed left-1/2 z-50 -translate-x-1/2",
         "flex justify-between",
         "2xl:py-2",
-        "mx-auto max-w-[1512px]",
+        // "mx-auto max-w-[1512px]",
+        "mx-auto max-w-7xl border-x border-[var(--cardborder)]/50",
         `${path === "/" ? "bg-transparent" : "bg-[var(--background)]"}`
+        // "bg-rose-500"
       )}
     >
       {currUser && showUserModal && (

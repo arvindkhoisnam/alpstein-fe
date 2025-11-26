@@ -6,7 +6,7 @@ function Hero() {
     <div
       className={cn(
         // "relative flex h-screen w-full items-center justify-center bg-[var(--background)]"
-        "relative flex h-screen w-full items-center justify-center bg-lime-400"
+        "relative flex h-screen w-full items-center justify-center"
       )}
     >
       <GridBackgroundDemo />

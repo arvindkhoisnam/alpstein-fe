@@ -44,7 +44,7 @@ function CryptoDash() {
   const { currTab } = useDashNav();
 
   return (
-    <div className={cn("lg:mt-14", "2xl:mt-20")}>
+    <div className={cn("lg:mt-14", "2xl:mt-14")}>
       <div className="mt-14 lg:hidden">
         <DashNav />
         {currTab === 0 && (

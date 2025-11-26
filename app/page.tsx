@@ -4,6 +4,7 @@ import SigninModal from "./_comps/SigninModal";
 export default function Home() {
   return (
     <div
+      className="mx-auto max-w-7xl border-x-[0.5px] border-[var(--cardborder)]/50"
       style={{
         userSelect: "none",
       }}

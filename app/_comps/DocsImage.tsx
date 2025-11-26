@@ -15,9 +15,8 @@ export default function DocsImage() {
       <div className="absolute inset-0 rounded-md bg-neutral-700/30" />
       <div className="absolute bottom-3 left-0 pl-10 text-neutral-700 lg:w-3/7">
         <h2 className="text-2xl font-medium">Welcome to Alpstein</h2>
-        <p className="text-neutral-20-0 text-[10px] leading-[15px] font-light tracking-wide text-wrap md:text-xs lg:text-sm">
-          Alpstein empowers you to make smart crypto decisions. Giving you an extra edge with
-          assisted AI insights.
+        <p className="text-[8px] leading-[15px] font-extralight tracking-wide text-wrap text-neutral-300 md:text-xs lg:text-sm">
+          Alpstein gives you an extra edge with assisted AI insights and real-time market data.
         </p>
       </div>
     </div>
