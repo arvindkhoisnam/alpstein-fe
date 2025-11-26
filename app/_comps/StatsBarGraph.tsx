@@ -65,8 +65,8 @@ function StatsBarGraph() {
           color: labelColor,
           font: {
             size: 10,
-            weight: 500,
-            family: "'Inter', sans-serif",
+            weight: 300,
+            family: "'Instrument', sans-serif",
           },
           padding: 8,
         },

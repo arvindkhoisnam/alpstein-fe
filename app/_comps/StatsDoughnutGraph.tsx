@@ -62,6 +62,8 @@ function StatsDoughnutGraph() {
           color: labelColor,
           font: {
             size: 10,
+            weight: 300,
+            family: "'Instrument', sans-serif",
           },
           padding: 16,
         },

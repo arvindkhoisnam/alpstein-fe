@@ -9,7 +9,7 @@ function Losers({ losers }: { losers: Performer[] }) {
         "l:h-52 l:p-2 h-64 rounded-xl border border-[var(--stats-comp-inner-border)]/50 bg-[var(--stats-comp-inner)]/60 p-3 md:h-52 md:h-full lg:h-full lg:p-3"
       )}
     >
-      <h2 className={cn("l:text-xs text-xs font-medium text-[var(--secondarytext)] md:text-base")}>
+      <h2 className={cn("l:text-xs text-xs font-light text-[var(--secondarytext)] md:text-base")}>
         Top Losers
       </h2>
       <ul
@@ -17,7 +17,7 @@ function Losers({ losers }: { losers: Performer[] }) {
       >
         <li
           className={cn(
-            "l:text-xs grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[12px] text-[var(--secondarytext)] md:text-base"
+            "l:text-xs grid grid-cols-3 items-center rounded bg-neutral-300/20 p-1 text-[12px] text-[var(--secondarytext)] md:text-sm"
           )}
         >
           <span className="flex items-center justify-center">Symbol</span>
@@ -27,7 +27,7 @@ function Losers({ losers }: { losers: Performer[] }) {
         {losers.map((c, index) => (
           <li
             className={cn(
-              "l:text-xs grid grid-cols-3 items-center text-[12px] text-[var(--primarytext)] md:text-base"
+              "l:text-xs grid grid-cols-3 items-center text-[10px] text-[var(--primarytext)] md:text-sm"
             )}
             key={index}
           >
