@@ -65,7 +65,7 @@ export function GridBackgroundDemo() {
           "bg-[var(--background)]"
         )}
       />
-      <div className="md2:mt-40 z-10 mt-24 flex w-full flex-col items-center justify-center gap-8 md:mt-36 lg:mt-14 lg:h-full">
+      <div className="md2:mt-40 z-10 mt-24 flex w-full flex-col items-center justify-center gap-5 md:mt-36 lg:mt-14 lg:h-full lg:gap-8">
         <motion.h2
           initial={{
             opacity: 0,
@@ -82,7 +82,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="px-10 text-center text-xl font-light text-[var(--primarytext)]/90 transition-colors duration-700 md:text-3xl lg:px-26 lg:text-6xl"
+          className="px-5 text-center text-3xl font-light text-[var(--primarytext)]/90 transition-colors duration-700 md:px-14 md:text-5xl lg:px-26 lg:text-6xl"
         >
           Cut through crypto chaos, with{" "}
           <span className="font-medium text-[var(--primarytext)]/60">intelligent</span> insights.
@@ -105,7 +105,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="max-w-2xl px-14 text-center text-[10px] font-extralight tracking-wide text-[var(--primarytext)]/50 transition-colors duration-500 md:px-0 md:text-sm lg:text-lg lg:leading-5"
+          className="max-w-2xl px-4 text-center text-sm font-extralight tracking-wide text-[var(--primarytext)]/70 transition-colors duration-500 md:px-0 md:text-base lg:text-lg lg:leading-5"
         >
           {/* Make crypto articles make sense. Intense, data heavy blogs cleansed and made actionable. */}
           Stay ahead with AI-powered crypto analysis. Intense, data heavy blogs cleansed and made
@@ -190,7 +190,7 @@ export function GridBackgroundDemo() {
             // filter: useMotionTemplate`blur(${translateBlur}px)`,
           }}
           ref={imageRef}
-          className="l:w-[850px] z-10 mt-0 w-[400px] md:w-[650px] lg:w-[1100px]"
+          className="l:w-[850px] z-10 mt-0 w-[350px] md:w-[650px] lg:w-[1100px]"
         >
           {/* <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] bg-lime-500 opacity-10"></div> */}
           <Image
