@@ -65,7 +65,7 @@ export function GridBackgroundDemo() {
           "bg-[var(--background)]"
         )}
       />
-      <div className="md2:mt-40 z-10 mt-24 flex w-full flex-col items-center justify-center gap-5 md:mt-36 lg:mt-14 lg:h-full lg:gap-8">
+      <div className="md2:mt-40 z-10 mt-24 flex w-full flex-col items-center justify-center gap-5 md:mt-36 lg:mt-28 lg:h-2/5 lg:gap-8">
         <motion.h2
           initial={{
             opacity: 0,
@@ -84,8 +84,9 @@ export function GridBackgroundDemo() {
           }}
           className="px-5 text-center text-3xl font-light text-[var(--primarytext)]/90 transition-colors duration-700 md:px-14 md:text-5xl lg:px-26 lg:text-6xl"
         >
-          Cut through crypto chaos, with{" "}
-          <span className="font-medium text-[var(--primarytext)]/60">intelligent</span> insights.
+          {/* Cut through crypto chaos, with{" "}
+          <span className="font-medium text-[var(--primarytext)]/60">intelligent</span> insights. */}
+          Intelligent real-time crypto insights. Sans noise.
         </motion.h2>
         <motion.p
           initial={{
@@ -162,7 +163,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.5,
           }}
-          // className="bg-white"
+          className=""
           // style={{ scale: translateMarquee, filter: useMotionTemplate`blur(${translateBlur}px)` }}
         >
           <InfiniteSlide />
@@ -193,7 +194,7 @@ export function GridBackgroundDemo() {
           className="l:w-[850px] z-10 mt-0 w-[350px] md:w-[650px] lg:w-[1100px]"
         >
           {/* <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] bg-lime-500 opacity-10"></div> */}
-          <Image
+          {/* <Image
             src={imageUrl}
             height={400}
             width={1100}
@@ -202,7 +203,7 @@ export function GridBackgroundDemo() {
             style={{
               maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
             }}
-          />
+          /> */}
         </motion.div>
       </div>
 
