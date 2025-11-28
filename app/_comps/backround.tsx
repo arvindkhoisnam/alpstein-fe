@@ -46,12 +46,19 @@ export function GridBackgroundDemo() {
   return (
     <div className="relative flex h-[100%] w-[100%] flex-col items-center bg-[var(--background)]">
       <div
-        className={cn("absolute inset-0 z-10 h-full w-full opacity-30")}
-        style={{
-          //#314158
-          //#a3b3ff
-          backgroundImage: "radial-gradient(70% 50% at 50% 0%, #a3b3ff 15%, var(--background))",
-        }}
+        className={cn(
+          "absolute inset-0 z-10 h-full w-full opacity-30",
+          "bg-[radial-gradient(70%_80%_at_50%_0%,_#a3b3ff_15%,_var(--background))]",
+          "md:bg-[radial-gradient(70%_50%_at_50%_0%,_#a3b3ff_15%,_var(--background))]"
+        )}
+        style={
+          {
+            //#314158
+            //#a3b3ff
+            // backgroundImage: "radial-gradient(70% 50% at 50% 0%, #a3b3ff 15%, var(--background))",
+            // backgroundImage: "radial-gradient(70% 80% at 50% 0%, #a3b3ff 15%, var(--background))",
+          }
+        }
       />
       <div
         className={cn(
@@ -85,7 +92,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="px-5 text-center text-3xl font-light text-[var(--primarytext)]/80 transition-colors duration-700 md:px-14 md:text-5xl lg:px-44 lg:text-6xl"
+          className="px-4 text-center text-3xl font-light text-[var(--primarytext)]/80 transition-colors duration-700 md:px-14 md:text-5xl lg:px-44 lg:text-6xl"
         >
           {/* Cut through crypto chaos, with{" "}
           <span className="font-medium text-[var(--primarytext)]/60">intelligent</span> insights. */}
