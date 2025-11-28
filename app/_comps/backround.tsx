@@ -118,7 +118,7 @@ export function GridBackgroundDemo() {
             ease: "easeIn",
             delay: 0.2,
           }}
-          className="max-w-2xl px-4 text-center text-sm font-extralight tracking-wide text-[var(--primarytext)]/70 transition-colors duration-500 md:px-0 md:text-base lg:text-base lg:leading-5"
+          className="max-w-2xl px-4 text-center text-xs font-extralight tracking-wide text-[var(--primarytext)]/70 transition-colors duration-500 md:px-0 md:text-base lg:leading-5"
         >
           {/* Make crypto articles make sense. Intense, data heavy blogs cleansed and made actionable. */}
           Stay ahead with AI-powered crypto analysis. Intense, data heavy blogs cleansed and made
