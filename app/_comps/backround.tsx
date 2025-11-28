@@ -7,9 +7,10 @@ import InfiniteSlide from "./InfiniteSlide";
 import { motion, useScroll, useTransform } from "motion/react";
 import Button2 from "./Button2";
 import { useShowSigninModal, useUser } from "../lib/zustand";
+import HeroImage from "./HeroImage";
 export function GridBackgroundDemo() {
   const imageRef = useRef<HTMLDivElement | null>(null);
-  // const [imageUrl, setImageUrl] = useState("/landing-light.png");
+  // const [imageUrl, setImageUrl] = useState("/hero-white.png");
   // const rootStyles = getComputedStyle(document.documentElement);
   // const defaultUrl = rootStyles.getPropertyValue("--url").trim();
   const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
@@ -25,7 +26,7 @@ export function GridBackgroundDemo() {
       // if (isDark) {
       //   setImageUrl("/landing-dark.png");
       // } else {
-      //   setImageUrl("/landing-light.png");
+      //   setImageUrl("/hero-white.png");
       // }
     });
     observer.observe(document.documentElement, {
@@ -47,7 +48,9 @@ export function GridBackgroundDemo() {
       <div
         className={cn("absolute inset-0 z-10 h-full w-full opacity-30")}
         style={{
-          backgroundImage: "radial-gradient(70% 50% at 50% 0%, #314158 45%, var(--background))",
+          //#314158
+          //#a3b3ff
+          backgroundImage: "radial-gradient(70% 50% at 50% 0%, #a3b3ff 15%, var(--background))",
         }}
       />
       <div
@@ -231,6 +234,7 @@ export function GridBackgroundDemo() {
       >
         <InfiniteSlide />
       </motion.div>
+
       <motion.div
         initial={{
           opacity: 0,
@@ -255,7 +259,12 @@ export function GridBackgroundDemo() {
         }}
         ref={imageRef}
         // className="l:bottom-25 l:w-[850px] absolute left-1/2 z-10 hidden -translate-x-1/2 md:bottom-65 md:block md:w-[650px] lg:bottom-20 lg:w-[900px]"
+        className={cn(
+          "mx-auto my-10 hidden h-96 w-[80%] rounded-xl border border-white/70 bg-white/50 p-2 backdrop-blur-xl md:block"
+          // "bg-radial-[at_20%_20%] from-transparent from-60% via-blue-300/20 via-80% to-blue-400/20 to-100%"
+        )}
       >
+        <HeroImage />
         {/* <div className="absolute bottom-0 left-1/2 h-[400px] w-[1000px] -translate-x-1/2 rounded-t-xl bg-[var(--background)] bg-lime-500 opacity-10"></div> */}
         {/* <Image
           src={imageUrl}

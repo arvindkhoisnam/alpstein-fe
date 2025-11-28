@@ -25,7 +25,7 @@ function Ticker({ symbol }: { symbol: string }) {
   return (
     <div className="flex gap-1 text-[8px] md:text-[10px]">
       {!isLoading && !isError && (
-        <span className="text-[var(--primarytext)]">
+        <span className="text-[var(--primarytext)]/70">
           {parseFloat(data?.lastPrice).toLocaleString(undefined, {
             minimumFractionDigits: 2,
           })}
@@ -35,7 +35,9 @@ function Ticker({ symbol }: { symbol: string }) {
         <span>
           <span
             className={`${
-              data?.priceChangePercent.startsWith("-") ? "text-red-500" : "text-green-500"
+              data?.priceChangePercent.startsWith("-")
+                ? "text-[var(--primarytext)]/70"
+                : "text-[var(--primarytext)]/70"
             }`}
           >
             {data?.priceChangePercent.startsWith("-") ? (
